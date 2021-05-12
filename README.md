@@ -38,6 +38,12 @@
 
 ### User Stories
 
+* As a first time user I want to be able to easily access information about local Irish history.
+* As a first time user I want the site UX to be intuitive for ease of use. 
+* As a returning user I want to be able to create my own profile.
+* As a returning user I want to be able to add local history of my own to the site.
+* As a returning user I want to be able to edit/delete any contribution I have made to the site. 
+
 # Structure
 
 ## Existing Features
