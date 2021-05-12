@@ -1,59 +1,169 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Contents
+* [UX](#UX)
+    * [Strategy](#Strategy)
+       * [Project Goals](#Project-Goals)
+       * [User Stories](#User-Stories) 
+    * [Structure](#Structure)
+       * [Existing Features](#Existing-Features) 
+            
+       * [Features Left To Implement](Feature-Left-To-Implement)  
+       * [Design](#Design)
+            * [Colors](#Colors)
+            * [Typography](#Imagery)
+            * [Imagery](#Imagery)    
+    * [Skeleton](#Skeleton)
+      * [Wireframes](#Wireframes)
+    * [Technolgies Used](#Technologies-Used)
+    * [Testing](#Testing)
+    * [Deployment](#Deployment)
+      * [Deployment Steps](#Deployment-Steps) 
+      * [Making a clone to run locally](#Making-a-clone-to-run-locally)
+      * [How to Fork the respository](#How-to-Fork-the-Respository)
+    * [Credits](#Credits)
+      * [Media](#Media)
+      * [Code](#Code)
+      * [Acknowledgements](#Acknowledgements)
 
-Welcome USER_NAME,
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+# UX
 
-## Gitpod Reminders
+## Strategy
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### Project Goals
 
-`python3 -m http.server`
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+**The Ideal User of this site is:**
+  
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### User Stories
 
-A blue button should appear to click: _Make Public_,
+# Structure
 
-Another blue button should appear to click: _Open Browser_.
+## Existing Features
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidently make it public then you can create a new one with _Regenerate API Key_.
+## Features left to implement
 
-## Updates Since The Instructional Video
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+## Design
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Colors
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+ 
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+<img src="documentation/doc-images/MS3palette.png" width="450" height="250" alt="milestone palette">
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+This palette was found on the [Coolors Website](https://coolors.co).
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### Typography
 
----
 
-Happy coding!
+
+### Imagery
+
+
+
+
+
+## Skeleton
+
+### Wireframes
+
+
+
+
+
+
+## Technologies Used
+- This project is primarily built using HTML5 semantic markup, CSS stylesheets and Javascript.
+- [jQuery](https://jquery.com/)
+    - This framework was used to create some of the site's interactive functions.
+- [Gitpod](https://gitpod.io)
+    - This project was built using Gitpod as the IDE.
+- [Google fonts](https://fonts.google.com/) 
+    - The font styles used on this website were chosen from Google fonts.
+- [Bootstrap 4.5](https://getbootstrap.com/)
+   - Various aspects of this website were structured using Bootstrap.
+   - Bootstrap was used to make this website responsive
+- [Fontawesome](https://fontawesome.com/)
+    - The icons used on this page were found in Fontawesome.
+- [Hover.css](https://ianlunn.github.io/Hover/) 
+    - The hover feature of the buttons of the site were implemented using Hover.css. 
+- [Popper.js](https://popper.js.org/)
+    - Certain bootstrap responsive elements require Popper.js in order to function correctly.
+- [Balsamiq](https://balsamiq.com/)
+    - The wireframes for this project were created using Balsamiq.
+- [FreePik](https://www.freepik.com/)
+    - All of the vectors used in this project were found on Freepik. 
+- [Freeformatter- CSS beautifier](https://www.freeformatter.com/css-beautifier.html)
+    - This was used to format the CSS stylesheet.
+- [Freeformatter- HTML formatter](https://www.freeformatter.com/html-formatter.html)
+    - This was used to format each HTML page
+- [Google DevTools](https://developers.google.com/web/tools/chrome-devtools) 
+    - Google Dev Tools was extensively used throughout the project for various styling and testing purposes. Its lighthouse feature was used as one of the main testing tools for this project.
+- [Animate.css](https://animate.style/)
+    - Buttons, images and popups were animated using Animate.css.
+- [SweetAlert2](https://sweetalert2.github.io/)
+    - All pop-ups were created using SweetAlert2.
+- [EmailJS](https://www.emailjs.com/)
+    - The contact-form was created using EmailJS following a code institute tutorial.
+- [CSS-Tricks](https://css-tricks.com/)
+    - This was used as a general reference resource.
+- [Favicon.io](https://favicon.io/) 
+    - This was used to create the site's favicon.
+- [Am I Responsive](http://ami.responsivedesign.is/)
+    - This was used to test the responsiveness of the site and also to create the mock-up image presented at the start of this document.
+- [Beautifier.io](https://beautifier.io/)
+    - Beautifier.io was used to format all javascript files in this project.
+
+## Testing
+Testing information can be found here in the separate [TESTING.md file](TESTING.md)
+
+## Deployment
+This project was developed using [Gitpod IDE](https://gitpod.io) and pushed to Github using the in-built terminal.
+
+This project was deployed from the [Github Respository](https://github.com/AideenM12/Childs-Play-English-MS2) to GitHub Pages using the following steps:
+
+### Deployment Steps
+
+1. Log into Github.
+2. Select the [AideenM12/Childs-Play-English-MS2](https://github.com/AideenM12/Childs-Play-English-MS2) respository.
+3. Click the settings tab.
+4. Scroll to the GitHub Pages section of the page.
+5. Under the source heading select the *master* branch option.
+6. Click save.
+7. The project has now been deployed. Scroll back to the GitHub pages section and click on the link above the source heading to view the live site.
+
+### Making a clone to run locally
+
+1. Log into GitHub.
+2. Select the [respository](https://github.com/AideenM12/Childs-Play-English-MS2).
+3. Click the Code dropdown button next to the green Gitpod button.
+4. Download ZIP file and unpackage locally and open with IDE. Alternatively copy the URL in the HTTPS box.
+5. Open the alternative editor and terminal window.
+6. Type 'git clone' and paste the copied URL.
+7. Press Enter. A local clone will be created.
+
+### How to Fork the respository.
+
+1. Log into GitHub.
+2. In Github go to (https://github.com/AideenM12/Childs-Play-English-MS2).
+3. In the top right hand corner click "Fork".
+
+## Credits
+
+### Media
+
+
+### Code
+
+
+### Acknowledgements
+
