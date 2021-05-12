@@ -82,7 +82,13 @@ This palette was found on the [Coolors Website](https://coolors.co).
 
 ### Wireframes
 
+* The wireframes were created using [Balsamiq wireframes](https://balsamiq.com/)
 
+* The wireframe mockup links can be found below:
+
+* [Home Page Wireframes](documentation/wireframes/MS3-home-wireframe.pdf)
+
+* [Contact Page Wireframes](documentation/wireframes/MS3-contact-wireframe.pdf)
 
 
 
