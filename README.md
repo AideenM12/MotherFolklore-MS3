@@ -166,6 +166,7 @@ This project was deployed from the [Github Respository](https://github.com/Aidee
 ## Credits
 
 ### Media
+The church.jpg image was originally obtained from [wirestock on Freepik.com]('https://www.freepik.com/photos/vintage')
 
 
 ### Code
