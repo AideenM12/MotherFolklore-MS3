@@ -26,25 +26,38 @@
       * [Code](#Code)
       * [Acknowledgements](#Acknowledgements)
 
+# MotherFolklore
 
 # UX
 
 ## Strategy
 
 ### Project Goals
+The primary goal of this site is to facillate Irish History lovers to be able to read and share local history from their regions. It was inspired by the [Three Castles Burning Podcast](https://threecastlesburning.libsyn.com/) which deals with lesser known tales and folklore from the capital. The primary goal of the site is to allow site users to share lesser known stories from the rest of the country and perhaps debunk some well kept myths too.
 
 
 
 **The Ideal User of this site is:**
+* English speaking.
+* Has a passion for history. 
+* Interested in local lore.
+* Has a curiousity about their provincial area.
+* Wants to learn more about Irish History. 
   
 
 ### User Stories
 
+* As a first time user I want to know the main purpose of the site immediately upon arriving on the site.
 * As a first time user I want to be able to easily access information about local Irish history.
 * As a first time user I want the site UX to be intuitive for ease of use. 
-* As a returning user I want to be able to create my own profile.
+* As a returning user I want to be able to register with the site and create my own profile which I can log in to at any time.
 * As a returning user I want to be able to add local history of my own to the site.
 * As a returning user I want to be able to edit/delete any contribution I have made to the site. 
+* As a user I want the site be responsive to all devices.
+* As a user I want to be able to contact the admin with any queries or suggestions I may have.
+* As a user I want to be able to find local Irish history specific to my provincial region. 
+* As a user I want to be able to find out further information about local Irish history through links to additional material and literature provided by the site.
+
 
 # Structure
 
@@ -71,6 +84,11 @@ This palette was found on the [Coolors Website](https://coolors.co).
 
 
 ### Typography
+* The 'Metal Mania' font was chosen for header text because of its striking style and historical feel as well as it's clarity. Other fonts that were found were perhaps more fitting in terms of how frequently they were used in the past but in order to stick with the principals of good UX the aforementioned font was chosen based on its readability.
+
+* The 'IM Fell English SC' was chosen based on its similarity to the text often found in older literature in order to enhance the historic feel of the site and promote a positive user experience.
+
+* Both fonts were found on [Google Fonts](https://fonts.google.com/)
 
 
 
