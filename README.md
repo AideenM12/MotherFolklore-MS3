@@ -77,7 +77,7 @@ The primary goal of this site is to facillate Irish History lovers to be able to
 
  
 
-<img src="documentation/doc-images/MS3palette.png" width="450" height="250" alt="milestone palette">
+<img src="assets/documentation/doc-images/MS3palette.png" width="450" height="250" alt="milestone palette">
 
 This palette was found on the [Coolors Website](https://coolors.co).
 
@@ -106,26 +106,26 @@ This palette was found on the [Coolors Website](https://coolors.co).
 
 * The wireframe mockup links can be found below:
 
-* [Home Page Wireframes](documentation/wireframes/MS3-home-wireframe.pdf)
+* [Home Page Wireframes](assets/documentation/wireframes/MS3-home-wireframe.pdf)
 
-* [Contact Page Wireframes](documentation/wireframes/MS3-contact-wireframe.pdf)
+* [Contact Page Wireframes](assets/documentation/wireframes/MS3-contact-wireframe.pdf)
 
-* [Register Page Wireframes](documentation/wireframes/MS3-register-wireframe.pdf)
+* [Register Page Wireframes](assets/documentation/wireframes/MS3-register-wireframe.pdf)
 
-* [Profile Page Wireframes](documentation/wireframes/MS3-profile-wireframe.pdf)
+* [Profile Page Wireframes](assets/documentation/wireframes/MS3-profile-wireframe.pdf)
 
-* [Edit-Delete Page Wireframes](documentation/wireframes/MS3-edit-delete-wireframe.pdf)
+* [Edit-Delete Page Wireframes](assets/documentation/wireframes/MS3-edit-delete-wireframe.pdf)
 
 
 ### Database Schema
 
-<img src="documentation/doc-images/dbschema.png" width="600" height="350" alt="database schema">
+<img src="assets/documentation/doc-images/dbschema.png" width="600" height="350" alt="database schema">
 
 
 ### Sitemap
 * The sitemap was created using [Balsamiq wireframes](https://balsamiq.com/)
 
-* A link to the [Sitemap can be found here](documentation/wireframes/Sitemap.pdf)
+* A link to the [Sitemap can be found here](assets/documentation/wireframes/Sitemap.pdf)
 
 ## Technologies Used
 - This project is primarily built using HTML5 semantic markup, CSS stylesheets and Javascript.
