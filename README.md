@@ -13,6 +13,8 @@
             * [Imagery](#Imagery)    
     * [Skeleton](#Skeleton)
       * [Wireframes](#Wireframes)
+      * [Database Schema](#Database-Schema)
+      * [Sitemap](#Sitemap)
     * [Technolgies Used](#Technologies-Used)
     * [Testing](#Testing)
     * [Deployment](#Deployment)
@@ -90,8 +92,22 @@ This palette was found on the [Coolors Website](https://coolors.co).
 
 * [Contact Page Wireframes](documentation/wireframes/MS3-contact-wireframe.pdf)
 
+* [Register Page Wireframes](documentation/wireframes/MS3-register-wireframe.pdf)
+
+* [Profile Page Wireframes](documentation/wireframes/MS3-profile-wireframe.pdf)
+
+* [Edit-Delete Page Wireframes](documentation/wireframes/MS3-edit-delete-wireframe.pdf)
 
 
+### Database Schema
+
+<img src="documentation/doc-images/dbschema.png" width="600" height="350" alt="database schema">
+
+
+### Sitemap
+* The sitemap was created using [Balsamiq wireframes](https://balsamiq.com/)
+
+* A link to the [Sitemap can be found here](documentation/wireframes/Sitemap.pdf)
 
 ## Technologies Used
 - This project is primarily built using HTML5 semantic markup, CSS stylesheets and Javascript.
@@ -111,7 +127,7 @@ This palette was found on the [Coolors Website](https://coolors.co).
 - [Popper.js](https://popper.js.org/)
     - Certain bootstrap responsive elements require Popper.js in order to function correctly.
 - [Balsamiq](https://balsamiq.com/)
-    - The wireframes for this project were created using Balsamiq.
+    - The wireframes and sitemap for this project were created using Balsamiq.
 - [FreePik](https://www.freepik.com/)
     - All of the vectors used in this project were found on Freepik. 
 - [Freeformatter- CSS beautifier](https://www.freeformatter.com/css-beautifier.html)
@@ -134,6 +150,8 @@ This palette was found on the [Coolors Website](https://coolors.co).
     - This was used to test the responsiveness of the site and also to create the mock-up image presented at the start of this document.
 - [Beautifier.io](https://beautifier.io/)
     - Beautifier.io was used to format all javascript files in this project.
+- [Dbdiagram.io](https://dbdiagram.io/home)
+    - Dbdiagram.io was used to create the Database Schema presented in this document.
 
 ## Testing
 Testing information can be found here in the separate [TESTING.md file](TESTING.md)
