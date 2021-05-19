@@ -2,7 +2,12 @@
 
 body{
     font-family: 'IM Fell English SC', sans-serif;
+    background-color: #dedfdf;
 }
 h1{
     font-family: 'Metal Mania', sans-serif;
+}
+nav{
+    background-color: #131515;
+    color: #ededed;
 }
