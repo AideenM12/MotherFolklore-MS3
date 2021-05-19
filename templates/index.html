@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    <title>MotherFolklore</title>
-</head>
-<body>
-    <h1>MotherFolklore</h1>
+{% extends 'base.html' %}
+{% block content %} 
+
     {% for article in articles %}
         {{ article.name }}<br>
         {{ article.image_url }}<br>
@@ -17,5 +9,4 @@
         {{ article.created_by }}<br>
         {{ article.date_added }}
     {% endfor %}
-</body>
-</html>
+{% endblock %}
