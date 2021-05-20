@@ -177,27 +177,62 @@ Testing information can be found here in the separate [TESTING.md file](TESTING.
 ## Deployment
 This project was developed using [Gitpod IDE](https://gitpod.io) and pushed to Github using the in-built terminal.
 
-This project was deployed from the [Github Respository](https://github.com/AideenM12/Childs-Play-English-MS2) to GitHub Pages using the following steps:
+This project was deployed using Heroku and stored in GitHub.
 
 ### Deployment Steps
 
-1. Log into Github.
-2. Select the [AideenM12/Childs-Play-English-MS2](https://github.com/AideenM12/Childs-Play-English-MS2) respository.
-3. Click the settings tab.
-4. Scroll to the GitHub Pages section of the page.
-5. Under the source heading select the *master* branch option.
-6. Click save.
-7. The project has now been deployed. Scroll back to the GitHub pages section and click on the link above the source heading to view the live site.
+1. Log into Heroku.
+2. Click the New button.
+3. Click the option to create a new app.
+4. Enter the app name in lowercase letters.
+5. Select the correct geographical region.
+
+### Set environment variables:
+
+Navigate to the settings tab and then click the Reveal Config Vars button and add the following:
+
+1. key: IP, value: 0.0.0.0
+2. key: PORT, value: 5000
+3. key: MONGO_DBNAME, value: (the name of the database that is being used for the project)
+4. key: MONGO_URI, value:
+ * This can be found in MongoDB by navigating  to the clusters section of your MongoDB account.
+ * Click the cluster where the database is located.
+ * Click the connect button.
+ * Select the connect you application button.
+ *  Copy the link provided to your application and ensure you have substituted the password and dbname with the correct values).
+5. key: SECRET_KEY, value: (This is a custom secret key set up for configuration to keep client-side sessions secure).
+
+
+### Enable automatic deployment:
+
+1. Click the Deploy tab
+2. In the Automatic deploys section, choose the branch you want to deploy from then click Enable Automation Deploys.
+
+
+### Connect app to Github Repository
+
+1. Click the deply tab and connect to GitHub.
+2. Type the name of the repository into the search bar presented.
+3. Click the Code dropdown button next to the green Gitpod button.
+4. When the correct repository displays click the connect button.
+
+
 
 ### Making a clone to run locally
 
+It is important to not that this project will not run locally unless an env.py file has been set up by the user which contains the IP, PORT, MONGO_DBNAME, MONGO_URI and SECRET_KEY which have all been kept secret in keeping with best security practices. 
+
 1. Log into GitHub.
-2. Select the [respository](https://github.com/AideenM12/Childs-Play-English-MS2).
+2. Select the [respository](https://github.com/AideenM12/MotherFolklore-MS3).
 3. Click the Code dropdown button next to the green Gitpod button.
 4. Download ZIP file and unpackage locally and open with IDE. Alternatively copy the URL in the HTTPS box.
 5. Open the alternative editor and terminal window.
 6. Type 'git clone' and paste the copied URL.
 7. Press Enter. A local clone will be created.
+
+Once the project been loaded into the IDE it is necesscary to install the necessary requirements which can be done by typing the following command.
+
+    -pip install -r requirements.txt
 
 ### How to Fork the respository.
 

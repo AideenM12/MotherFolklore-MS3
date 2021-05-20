@@ -34,12 +34,13 @@ nav, .page-footer{
 
 
 a:hover {
-	color: #fbfbfb;
-	background-color:#4d4f4f ;
+	color: #878888;
+	background-color:#131515 ;
 	
 }
-.hvr-rectangle-out:before{
-    background: rgba(19, 21, 21, 0.8)
+.hvr-rectangle-out:hover{
+    background: rgba(19, 21, 21, 0.8 );
+    
 }
 /*--------Found on Stack Overflow-------*/
 .list-inline {
