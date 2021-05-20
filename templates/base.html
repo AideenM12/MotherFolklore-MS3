@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
         integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA==" crossorigin="anonymous" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+    <link rel="stylesheet" href="  https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css"
+     type="text/css"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles%}
     {% endblock %}
@@ -20,10 +22,10 @@
     <header>
         <nav class="nav-extended">
             <div class="nav-wrapper">
-              <a href="{{ url_for('index') }}" class="brand-logo">MotherFolklore</a>
+              <a href="{{ url_for('index') }}" class="brand-logo ">MotherFolklore</a>
               <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
               <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('index') }}" >Home</a></li>
                 <li><a href="#">Register</a></li>
                 <li><a href="#">Login</a></li>
                 <li><a href="#">Profile</a></li>
@@ -34,7 +36,7 @@
         
           <ul class="sidenav right" id="mobile-demo">
             <li><h4 class="center-align">MotherFolklore</h4></li>
-            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('index') }}" class="hvr-rectangle-out">Home</a></li>
             <li><a href="#">Register</a></li>
             <li><a href="#">Login</a></li>
             <li><a href="#">Profile</a></li>

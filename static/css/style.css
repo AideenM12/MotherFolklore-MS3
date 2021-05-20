@@ -31,6 +31,16 @@ nav, .page-footer{
     margin-top: 0;
     margin-bottom: 0;
 }
+
+
+a:hover {
+	color: #fbfbfb;
+	background-color:#4d4f4f ;
+	
+}
+.hvr-rectangle-out:before{
+    background: rgba(19, 21, 21, 0.8)
+}
 /*--------Found on Stack Overflow-------*/
 .list-inline {
     padding-left: 0;
