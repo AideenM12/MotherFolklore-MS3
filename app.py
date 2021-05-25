@@ -27,7 +27,7 @@ def index():
 
 
 @app.errorhandler(404)
-def error404():
+def error404(e):
     return render_template('404.html'), 404
 
 @app.route("/registration", methods=["GET", "POST"])
