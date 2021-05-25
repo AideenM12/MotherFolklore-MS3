@@ -26,6 +26,10 @@ def index():
     return render_template("index.html", articles=articles)
 
 
+@app.errorhandler(404)
+def error404():
+    return render_template('404.html'), 404
+
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
     return render_template("sign-up.html")
