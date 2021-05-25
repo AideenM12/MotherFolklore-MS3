@@ -65,3 +65,17 @@ footer > h5{
     margin-top: 0;
     margin-bottom: 0;
 }
+.input-field{
+    padding: 20px;
+}
+.input-field > label{
+    color: #131515;
+    
+    
+}
+form{
+    background-color: #ededed;
+    height: 60vh;
+    padding: 20px;
+    width: 50vw ;
+}
