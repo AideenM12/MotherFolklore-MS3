@@ -73,6 +73,10 @@ footer > h5{
     
     
 }
+button{
+    background-color: #131515;
+    color: #ededed;
+}
 form{
     background-color: #ededed;
     height: 60vh;
