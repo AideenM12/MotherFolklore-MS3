@@ -30,10 +30,18 @@ def index():
 def error404(e):
     return render_template('404.html'), 404
 
+
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
-    return render_template("sign-up.html")
+    if request.method == "POST":
+        # check if username is already in use
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
 
+    if existing_user:
+        flash("This username already exists")
+        return redirect(url_for("registration")) 
+    return render_template("sign-up.html")
 
 
 if __name__ == "__main__":
