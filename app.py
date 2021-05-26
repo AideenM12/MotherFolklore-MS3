@@ -6,6 +6,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from wtforms import Form, BooleanField, TextField, PasswordField, validators
+from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 if os.path.exists("env.py"):
     import env
 
@@ -41,24 +42,33 @@ class RegistrationForm(Form):
     ])
     confirm = PasswordField('Repeat Password')
     
-    
-
-		
 
 
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
     try:
         form = RegistrationForm(request.form)
-        # This code was found on https://tedboy.github.io/flask/patterns/wtforms.html
+        
         if request.method == 'POST' and form.validate():
-            user = User(form.username.data, form.email.data,
-                        form.password.data)
-            db_session.add(user)
-            flash('Thanks for registering')
-            return redirect(url_for('login'))
-        return render_template('sign-up.html', form=form)
+            existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
 
+            if existing_user:
+                flash("Username already exists")
+                return redirect(url_for("registration"))
+                     
+            signup = {
+              "username": request.form.get("username").lower(),
+              "email": request.form.get("email").lower(),
+              "password": generate_password_hash(request.form.get("password"))
+            }
+            mongo.db.users.insert_one(signup)
+
+            session["user"] = request.form.get("username").lower()
+            flash('You have signed up successfully!')
+            
+        return render_template('sign-up.html', form=form)
+        
     except Exception as e:
         return (str(e))
 
