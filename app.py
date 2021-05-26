@@ -6,7 +6,10 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from wtforms import Form, BooleanField, TextField, PasswordField, validators
-from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
+from wtforms.validators import (
+    DataRequired, Length, Email,
+    EqualTo, ValidationError)
+
 if os.path.exists("env.py"):
     import env
 
@@ -20,6 +23,22 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+@app.errorhandler(500)
+def server_error(e):
+    return render_template("500.html", error=error), 500
+
+@app.errorhandler(400)
+def bad_request(e):
+    return render_template("400.html", error=error), 400
+
+@app.errorhandler(401)
+def unauthorized_access(e):
+    return render_template("401.html", error=error), 401
+
+@app.errorhandler(404)
+def error404(e):
+    return render_template('404.html'), 404
+    
 
 @app.route("/")
 @app.route("/index")
@@ -28,9 +47,6 @@ def index():
     return render_template("index.html", articles=articles)
 
 
-@app.errorhandler(404)
-def error404(e):
-    return render_template('404.html'), 404
 
 # This below code was found on Python Programming.net
 class RegistrationForm(Form):
@@ -38,11 +54,11 @@ class RegistrationForm(Form):
     email = TextField('Email Address', [validators.Length(min=6, max=50)])
     password = PasswordField('New Password', [
         validators.Required(),
-        validators.EqualTo('confirm', message='Passwords must match')
+        validators.EqualTo('confirm', message='Passwords must match'),    
+        validators.Regexp(r'^\w+$', message="Password must contain only letters numbers or underscore")      
     ])
     confirm = PasswordField('Repeat Password')
-    
-
+  
 
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
