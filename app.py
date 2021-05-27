@@ -52,7 +52,7 @@ def index():
     articles = mongo.db.articles.find()
     return render_template("index.html", articles=articles)
 
-
+# The below code was taken from https://wtforms.readthedocs.io/en/stable/crash_course/
 class LoginForm(Form):
     username = TextField('Username')
     password = PasswordField('Password')
@@ -105,9 +105,7 @@ def registration():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    
         form = LoginForm(request.form)
-
         if request.method == 'POST' and form.validate():
             existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})

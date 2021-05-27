@@ -2,8 +2,8 @@
 {% block content %} 
 
     {% for article in articles %}
-        {{ article.name }}<br>
-        {{ article.image_url }}<br>
+      <h2 class="center-align">  {{ article.name }}</h2><br>
+       <img src= "{{ article.image_url }}" width="400" height="400" class="article-image"><br>
         {{ article.article }}<br>
         {{ article.location }}<br>
         {{ article.created_by }}<br>
