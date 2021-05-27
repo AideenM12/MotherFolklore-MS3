@@ -6,10 +6,10 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from wtforms import (
-    Form, BooleanField, TextField, StringField,
+    Form, TextField, 
     PasswordField, validators)
 from wtforms.validators import (
-    DataRequired, Length, Email,
+    DataRequired, Length, 
     EqualTo, ValidationError)
 
 if os.path.exists("env.py"):
