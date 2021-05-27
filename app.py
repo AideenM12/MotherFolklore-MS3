@@ -5,7 +5,9 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from wtforms import Form, BooleanField, TextField, PasswordField, validators
+from wtforms import (
+    Form, BooleanField, TextField, StringField,
+    PasswordField, validators)
 from wtforms.validators import (
     DataRequired, Length, Email,
     EqualTo, ValidationError)
@@ -23,22 +25,26 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+
 @app.errorhandler(500)
 def server_error(e):
     return render_template("500.html", error=error), 500
+
 
 @app.errorhandler(400)
 def bad_request(e):
     return render_template("400.html", error=error), 400
 
+
 @app.errorhandler(401)
 def unauthorized_access(e):
     return render_template("401.html", error=error), 401
 
+
 @app.errorhandler(404)
 def error404(e):
     return render_template('404.html'), 404
-    
+
 
 @app.route("/")
 @app.route("/index")
@@ -47,48 +53,84 @@ def index():
     return render_template("index.html", articles=articles)
 
 
+class LoginForm(Form):
+    username = TextField('Username')
+    password = PasswordField('Password')
+
 
 # This below code was found on Python Programming.net
 class RegistrationForm(Form):
-    username = TextField('Username', [validators.Length(min=4, max=20)])
+    username = TextField('Username', [validators.Length(min=4, max=20),
+                                      validators.Regexp(r'^\w+$',
+                                                        message="Password must contain only letters numbers or underscore")])
     email = TextField('Email Address', [validators.Length(min=6, max=50)])
     password = PasswordField('New Password', [
         validators.Required(),
-        validators.EqualTo('confirm', message='Passwords must match'),    
-        validators.Regexp(r'^\w+$', message="Password must contain only letters numbers or underscore")      
+        validators.EqualTo('confirm', message='Passwords must match'),
+        validators.Regexp(r'^\w+$',
+                          message="Password must contain only letters numbers or underscore")
     ])
     confirm = PasswordField('Repeat Password')
-  
+
 
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
     try:
         form = RegistrationForm(request.form)
-        
+
         if request.method == 'POST' and form.validate():
             existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+                {"username": request.form.get("username").lower()})
 
             if existing_user:
                 flash("Username already exists")
                 return redirect(url_for("registration"))
-                     
+
             signup = {
-              "username": request.form.get("username").lower(),
-              "email": request.form.get("email").lower(),
-              "password": generate_password_hash(request.form.get("password"))
+                "username": request.form.get("username").lower(),
+                "email": request.form.get("email").lower(),
+                "password": generate_password_hash(request.form.get("password"))
             }
             mongo.db.users.insert_one(signup)
 
             session["user"] = request.form.get("username").lower()
             flash('You have signed up successfully!')
-            
+
         return render_template('sign-up.html', form=form)
-        
+
     except Exception as e:
         return (str(e))
+
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    
+        form = LoginForm(request.form)
+
+        if request.method == 'POST' and form.validate():
+            existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+            
+            if existing_user:
+                if check_password_hash(
+                    existing_user["password"], request.form.get("password")):
+                    session["user"] = request.form.get("username").lower()
+                    flash("Welcome back {}!".format(
+                    request.form.get("username")))
+                    return render_template("login.html",title='Login', form=form )
+                else:
+                    flash("Incorrect Username/password, Please try again")
+                    return redirect(url_for("login"))
+            else:
+                flash("Incorrect Username/password, Please try again")
+                return redirect(url_for("login"))
+            
+        return render_template("login.html",title='Login', form=form )
+   
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True) 
+            debug=True)
