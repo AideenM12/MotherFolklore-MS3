@@ -116,7 +116,8 @@ def login():
                     session["user"] = request.form.get("username").lower()
                     flash("Welcome back {}!".format(
                     request.form.get("username")))
-                    return render_template("login.html",title='Login', form=form )
+                    return redirect(url_for(
+                            "profile", username=session["user"]))
                 else:
                     flash("Incorrect Username/password, Please try again")
                     return redirect(url_for("login"))
@@ -131,8 +132,17 @@ def login():
 def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("profile.html", username=username)
     
+    if session["user"]:
+        return render_template("profile.html", username=username)
+
+    return redirect(url_for("login"))
+
+@app.route("/logout")
+def logout():
+    flash("You have logged out successfully!")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
