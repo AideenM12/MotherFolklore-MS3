@@ -59,7 +59,7 @@ def index():
 
 @app.route("/articles")
 def articles():
-    articles = mongo.db.articles.find()
+    articles = list(mongo.db.articles.find())
     return render_template("articles.html", articles=articles)
 
 # The below code was taken from https://wtforms.readthedocs.io/en/stable/crash_course/
