@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %} 
+
+    {% for article in articles %}
+      <h2 class="center-align">  {{ article.name }}</h2><br>
+       <img src= "{{ article.image_url }}" width="400" height="400" class="article-image"><br>
+        {{ article.article }}<br>
+        {{ article.location }}<br>
+        {{ article.created_by }}<br>
+        {{ article.date_added }}
+        <ul class="collapsible">
+            <li>
+              <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+          </ul>
+    {% endfor %}
+{% endblock %}

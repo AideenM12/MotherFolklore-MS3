@@ -6,12 +6,11 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_wtf.csrf import CSRFProtect, validate_csrf, ValidationError
-from wtforms.csrf.session import SessionCSRF
 from wtforms import (
-    Form, TextField, 
+    Form, TextField,
     PasswordField, validators)
 from wtforms.validators import (
-    InputRequired, Length, 
+    InputRequired, Length,
     EqualTo, ValidationError)
 
 if os.path.exists("env.py"):
@@ -57,27 +56,33 @@ def index():
     articles = mongo.db.articles.find()
     return render_template("index.html", articles=articles)
 
-# The below code was taken from https://wtforms.readthedocs.io/en/stable/crash_course/
-class LoginForm(Form):
-    
 
+@app.route("/articles")
+def articles():
+    articles = mongo.db.articles.find()
+    return render_template("articles.html", articles=articles)
+
+# The below code was taken from https://wtforms.readthedocs.io/en/stable/crash_course/
+
+
+class LoginForm(Form):
     username = TextField('Username')
     password = PasswordField('Password')
 
 
 # This below code was found on Python Programming.net
 class RegistrationForm(Form):
-         
-            
-    username = TextField('Username', [validators.Length(min=4, max=20),
-                                      validators.Regexp(r'^\w+$',
-                                      message="Password must contain only letters numbers or underscore")])
+    username = TextField('Username',
+                         [validators.Length(min=4, max=20),
+                          validators.Regexp(r'^\w+$', message=(
+                           "Password must contain only letters numbers or underscore"))])
     email = TextField('Email Address', [validators.Length(min=6, max=50)])
     password = PasswordField('New Password', [
         validators.InputRequired(),
         validators.EqualTo('confirm', message='Passwords must match'),
         validators.Regexp(r'^\w+$',
-                          message="Password must contain only letters numbers or underscore")
+                          message=(
+                              "Password must contain only letters numbers or underscore"))
     ])
     confirm = PasswordField('Repeat Password')
 
@@ -119,34 +124,35 @@ def login():
     if request.method == 'POST' and form.validate():
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-            
+
         if existing_user:
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                    existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome back {}!".format(
-                request.form.get("username")))
+                    request.form.get("username")))
                 return redirect(url_for(
-                        "profile", username=session["user"]))
+                    "profile", username=session["user"]))
             else:
                 flash("Incorrect Username/password, Please try again")
                 return redirect(url_for("login"))
         else:
             flash("Incorrect Username/password, Please try again")
             return redirect(url_for("login"))
-         
-    return render_template("login.html",title='Login', form=form)
-   
+
+    return render_template("login.html", title='Login', form=form)
+
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    
+
     if session["user"]:
         return render_template("profile.html", username=username)
 
     return redirect(url_for("login"))
+
 
 @app.route("/logout")
 def logout():
