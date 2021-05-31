@@ -5,11 +5,13 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_wtf.csrf import CSRFProtect, validate_csrf, ValidationError
+from wtforms.csrf.session import SessionCSRF
 from wtforms import (
     Form, TextField, 
     PasswordField, validators)
 from wtforms.validators import (
-    DataRequired, Length, 
+    InputRequired, Length, 
     EqualTo, ValidationError)
 
 if os.path.exists("env.py"):
@@ -17,6 +19,9 @@ if os.path.exists("env.py"):
 
 
 app = Flask(__name__)
+csrf = CSRFProtect(app)
+
+csrf.init_app(app)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
@@ -27,17 +32,17 @@ mongo = PyMongo(app)
 
 
 @app.errorhandler(500)
-def server_error(e):
+def server_error(error):
     return render_template("500.html", error=error), 500
 
 
 @app.errorhandler(400)
-def bad_request(e):
+def bad_request(error):
     return render_template("400.html", error=error), 400
 
 
 @app.errorhandler(401)
-def unauthorized_access(e):
+def unauthorized_access(error):
     return render_template("401.html", error=error), 401
 
 
@@ -54,18 +59,22 @@ def index():
 
 # The below code was taken from https://wtforms.readthedocs.io/en/stable/crash_course/
 class LoginForm(Form):
+    
+
     username = TextField('Username')
     password = PasswordField('Password')
 
 
 # This below code was found on Python Programming.net
 class RegistrationForm(Form):
+         
+            
     username = TextField('Username', [validators.Length(min=4, max=20),
                                       validators.Regexp(r'^\w+$',
-                                                        message="Password must contain only letters numbers or underscore")])
+                                      message="Password must contain only letters numbers or underscore")])
     email = TextField('Email Address', [validators.Length(min=6, max=50)])
     password = PasswordField('New Password', [
-        validators.Required(),
+        validators.InputRequired(),
         validators.EqualTo('confirm', message='Passwords must match'),
         validators.Regexp(r'^\w+$',
                           message="Password must contain only letters numbers or underscore")
@@ -89,12 +98,14 @@ def registration():
             signup = {
                 "username": request.form.get("username").lower(),
                 "email": request.form.get("email").lower(),
-                "password": generate_password_hash(request.form.get("password"))
+                "password": generate_password_hash(
+                    request.form.get("password"))
             }
             mongo.db.users.insert_one(signup)
 
             session["user"] = request.form.get("username").lower()
             flash('You have signed up successfully!')
+            return redirect(url_for("profile", username=session['user']))
 
         return render_template('sign-up.html', form=form)
 
@@ -102,30 +113,29 @@ def registration():
         return (str(e))
 
 
-
 @app.route("/login", methods=["GET", "POST"])
 def login():
-        form = LoginForm(request.form)
-        if request.method == 'POST' and form.validate():
-            existing_user = mongo.db.users.find_one(
+    form = LoginForm(request.form)
+    if request.method == 'POST' and form.validate():
+        existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
             
-            if existing_user:
-                if check_password_hash(
-                    existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome back {}!".format(
-                    request.form.get("username")))
-                    return redirect(url_for(
-                            "profile", username=session["user"]))
-                else:
-                    flash("Incorrect Username/password, Please try again")
-                    return redirect(url_for("login"))
+        if existing_user:
+            if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome back {}!".format(
+                request.form.get("username")))
+                return redirect(url_for(
+                        "profile", username=session["user"]))
             else:
                 flash("Incorrect Username/password, Please try again")
                 return redirect(url_for("login"))
-            
-        return render_template("login.html",title='Login', form=form )
+        else:
+            flash("Incorrect Username/password, Please try again")
+            return redirect(url_for("login"))
+         
+    return render_template("login.html",title='Login', form=form)
    
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
