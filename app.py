@@ -193,7 +193,7 @@ def edit_article(article_id):
         flash("Please Log in to continue")
         return redirect(url_for("login"))
 
-    
+
 
 
 
