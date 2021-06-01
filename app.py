@@ -184,6 +184,18 @@ def add_article():
     return render_template("add_article.html", locations=locations)
 
 
+@app.route("/edit_article/<article_id>", methods=["GET", "POST"])
+def edit_article(article_id):
+    article = mongo.db.articles.find_one({"_id": ObjectId(article_id)})
+    locations = mongo.db.locations.find().sort("location_name", 1)
+
+    if "user" not in session:
+        flash("Please Log in to continue")
+        return redirect(url_for("login"))
+
+    
+
+
 
 
 if __name__ == "__main__":
