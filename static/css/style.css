@@ -74,7 +74,7 @@ footer > h5{
     
     
 }
-button, .register-btn, .btn{
+button, .register-btn, .btn, .article-btn{
     background-color: #131515;
     color: #ededed;
     font-family: 'IM Fell English SC', sans-serif;
@@ -100,4 +100,10 @@ label, select, option{
 }
 .dropdown-content li>span{
     color: #131515;
+}
+.article-head{
+    margin-right: 5vw;
+}
+.article-btn{
+    margin-left: 5vw;
 }
