@@ -8,12 +8,13 @@
 		<h4 class="center-align">Log In</h4>
 		<br>
 		{% from "_formhelpers.html" import render_field %}
-		<form method="POST" action="{{ url_for('login') }}" >
+		<form method="POST" action="{{ url_for('login') }}" class="card-panel">
 			<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
 			{{render_field(form.username)}}
 			{{ render_field(form.password) }}
-		
-			<button type="submit" class="center-align">Login</button>
+		<div class="row center-align">
+			<button type="submit">Login</button>
+		</div>
 		</form>
 		
 		{% if error %}

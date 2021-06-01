@@ -7,7 +7,7 @@
 		<h4 class="center-align">Register</h4>
 		<br>
 		{% from "_formhelpers.html" import render_field %}
-		<form method="POST" action="{{ url_for('registration') }}" >
+		<form method="POST" action="{{ url_for('registration') }}" class="card-panel">
 			<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
 			<dl>
 				{{render_field(form.username)}}
@@ -16,7 +16,7 @@
 				{{render_field(form.confirm)}}
 				
 			</dl>
-			<p class="center-align"><input type=submit value=Register></p>
+			<p class="center-align "><input type=submit class="register-btn" value=Register></p>
 		</form>
 		
 		{% if error %}

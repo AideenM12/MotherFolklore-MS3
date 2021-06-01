@@ -73,15 +73,20 @@ footer > h5{
     
     
 }
-button{
+button, .register-btn{
     background-color: #131515;
     color: #ededed;
+    font-family: 'IM Fell English SC', sans-serif;
 }
 form{
     background-color: #ededed;
-    
     padding: 20px;
     
+}
+label{
+    color: #131515;
+    font-size: 1rem;
+    font-weight: 600;
 }
 .article-image{
     display: block;
