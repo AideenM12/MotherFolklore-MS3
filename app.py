@@ -163,7 +163,8 @@ def logout():
 
 @app.route("/add_article")
 def add_article():
-    return render_template("add_article.html")
+    locations = mongo.db.locations.find().sort("location_name", 1)
+    return render_template("add_article.html", locations=locations)
 
 
 if __name__ == "__main__":

@@ -70,6 +70,7 @@ footer > h5{
 }
 .input-field > label{
     color: #131515;
+    font-size: 1rem;
     
     
 }
@@ -83,7 +84,7 @@ form{
     padding: 20px;
     
 }
-label{
+label, select, option{
     color: #131515;
     font-size: 1rem;
     font-weight: 600;
@@ -93,4 +94,10 @@ label{
   margin-left: auto;
   margin-right: auto;
   width: 40%;
+}
+.select-wrapper input.select-dropdown{
+    font-family: 'IM Fell English SC', sans-serif;
+}
+.dropdown-content li>span{
+    color: #131515;
 }

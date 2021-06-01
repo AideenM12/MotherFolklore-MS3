@@ -4,9 +4,21 @@
 <h3 class="center-align">Add An Article</h3>
 
 <main>
-    <div class="container card-panel">
+    <div class="container">
         <div class="row">
-            <form class="col s12" method="POST" action="">
+            <form class="col s12 card-panel" method="POST" action="">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="location_name" name="location_name" class="validate" required>
+                          <option value="" disabled selected>Where is your story from?</option>
+                          {% for location in locations %}
+                          <option value="{{ location.location_name }}">{{ location.location_name }}</option>
+                          {% endfor %}
+                          
+                        </select>
+                        <label for="location_name">Select Location</label>
+                      </div>
+                </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="article_name" name="article_name" type="text" class="validate" required>
