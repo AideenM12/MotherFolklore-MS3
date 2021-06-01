@@ -6,11 +6,11 @@
             {% for article in articles %}
             <li>
               <div class="collapsible-header text-center">
-              <h4 class="center-align">  {{ article.name }}</h4></div>
+              <h4 class="center-align">  {{ article.article_name }}</h4></div>
               <div class="collapsible-body">
               <img src= "{{ article.image_url }}" width="400" height="400" class="article-image"><br>
-               {{ article.article }}<br>
-               {{ article.location }}<br>
+               {{ article.article_article }}<br>
+              
                {{ article.created_by }}<br>
                {{ article.date_added }}
               </div>

@@ -74,7 +74,7 @@ footer > h5{
     
     
 }
-button, .register-btn{
+button, .register-btn, .btn{
     background-color: #131515;
     color: #ededed;
     font-family: 'IM Fell English SC', sans-serif;

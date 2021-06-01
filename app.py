@@ -35,9 +35,9 @@ def server_error(error):
     return render_template("500.html", error=error), 500
 
 
-@app.errorhandler(400)
-def bad_request(error):
-    return render_template("400.html", error=error), 400
+# @app.errorhandler(400)
+#def bad_request(error):
+    #return render_template("400.html", error=error), 400
 
 
 @app.errorhandler(401)
@@ -161,10 +161,29 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_article")
+@app.route("/add_article", methods=["GET", "POST"])
 def add_article():
     locations = mongo.db.locations.find().sort("location_name", 1)
+    if "user" not in session:
+        flash("Please Log in to continue")
+        return redirect(url_for("login"))
+    elif request.method != "POST":
+        return render_template("add_article.html", locations=locations)
+    else:
+        article = {
+            "article_name": request.form.get("article_name"),
+            "image_url": request.form.get("image_url"),
+            "article_article": request.form.get("article_article"),
+            "created_by": session["user"],
+            "date_added": request.form.get("date_added")
+        }
+        mongo.db.articles.insert_one(article)
+        flash("Article contribution successful!")
+        return redirect(url_for("articles"))
+
     return render_template("add_article.html", locations=locations)
+
+
 
 
 if __name__ == "__main__":
