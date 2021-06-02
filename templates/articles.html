@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block content %} 
+{% block content %}
 <main>
   <div class="container">
     <ul class="collapsible ">
@@ -8,15 +8,19 @@
         <div class="collapsible-header center-align">
 
 
-         <div class="row">
-           <ul class="list-inline">
-            <li>  <h4 class="article-head"> {{ article.article_name }}</h4></li>
-              
-           <li> <a class="article-btn btn " href="{{ url_for('edit_article',article_id=article._id) }}">Edit Article</a></li>
-           </ul>
-            </div>
-           
-          
+          <div class="row">
+            <ul class="list-inline">
+              <li>
+                <h4 class="article-head"> {{ article.article_name }}</h4>
+              </li>
+                {% if session.user|lower == article.created_by|lower %}
+                <li> <a class="article-btn btn " href="{{ url_for('edit_article',article_id=article._id) }}">Edit
+                  Article</a></li>
+                 {% endif %}
+            </ul>
+          </div>
+
+
         </div>
         <div class="collapsible-body">
           <img src="{{ article.image_url }}" width="400" height="400" class="article-image"><br>

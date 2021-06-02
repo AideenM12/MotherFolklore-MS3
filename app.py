@@ -193,8 +193,28 @@ def edit_article(article_id):
     article = mongo.db.articles.find_one({"_id": ObjectId(article_id)})
     topics = mongo.db.topics.find().sort("topic_name", 1)
     locations = mongo.db.locations.find().sort("location_name", 1)
-    return render_template("edit_article.html", article=article, topics=topics,
-                           locations=locations)
+    
+    if "user" not in session:
+        flash("Please Log in to continue")
+        return redirect(url_for("login"))
+    elif request.method != "POST":
+        return render_template("edit_article.html", article=article, topics=topics,
+                               locations=locations)
+    else:
+        adjust = {
+            "topic_name": request.form.get("topic_name"),
+            "article_name": request.form.get("article_name"),
+            "image_url": request.form.get("image_url"),
+            "article_article": request.form.get("article_article"),
+            "location_name": request.form.get("location_name"),
+            "created_by": session["user"],
+            "date_added": request.form.get("date_added")
+        }
+        mongo.db.articles.update({"_id": ObjectId(article_id)},adjust)
+        flash("Article update successful!")     
+
+   
+    return redirect(url_for("articles"))
 
     
 
