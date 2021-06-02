@@ -30,24 +30,24 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-#@app.errorhandler(500)
-#def server_error(error):
-   # return render_template("500.html", error=error), 500
+# @app.errorhandler(500)
+# def server_error(error):
+# return render_template("500.html", error=error), 500
 
 
 # @app.errorhandler(400)
-#def bad_request(error):
-    #return render_template("400.html", error=error), 400
+# def bad_request(error):
+# return render_template("400.html", error=error), 400
 
 
-#@app.errorhandler(401)
-#def unauthorized_access(error):
-  #  return render_template("401.html", error=error), 401
+# @app.errorhandler(401)
+# def unauthorized_access(error):
+#  return render_template("401.html", error=error), 401
 
 
-#@app.errorhandler(404)
-#def error404(e):
-    #return render_template('404.html'), 404
+# @app.errorhandler(404)
+# def error404(e):
+# return render_template('404.html'), 404
 
 
 @app.route("/")
@@ -75,14 +75,13 @@ class RegistrationForm(Form):
     username = TextField('Username',
                          [validators.Length(min=4, max=20),
                           validators.Regexp(r'^\w+$', message=(
-                           "Password must contain only letters numbers or underscore"))])
+                              "Password must contain only letters numbers or underscore"))])
     email = TextField('Email Address', [validators.Length(min=6, max=50)])
     password = PasswordField('New Password', [
         validators.InputRequired(),
         validators.EqualTo('confirm', message='Passwords must match'),
-        validators.Regexp(r'^\w+$',
-                          message=(
-                              "Password must contain only letters numbers or underscore"))
+        validators.Regexp(r'^\w+$', message=(
+                            "Password must contain only letters numbers or underscore"))
     ])
     confirm = PasswordField('Repeat Password')
 
@@ -163,17 +162,21 @@ def logout():
 
 @app.route("/add_article", methods=["GET", "POST"])
 def add_article():
+    topics = mongo.db.topics.find().sort("topic_name", 1)
     locations = mongo.db.locations.find().sort("location_name", 1)
     if "user" not in session:
         flash("Please Log in to continue")
         return redirect(url_for("login"))
     elif request.method != "POST":
-        return render_template("add_article.html", locations=locations)
+        return render_template("add_article.html", topics=topics,
+                               locations=locations)
     else:
         article = {
+            "topic_name": request.form.get("topic_name"),
             "article_name": request.form.get("article_name"),
             "image_url": request.form.get("image_url"),
             "article_article": request.form.get("article_article"),
+            "location_name": request.form.get("location_name"),
             "created_by": session["user"],
             "date_added": request.form.get("date_added")
         }
@@ -181,22 +184,19 @@ def add_article():
         flash("Article contribution successful!")
         return redirect(url_for("articles"))
 
-    return render_template("add_article.html", locations=locations)
+    return render_template("add_article.html", topics=topics,
+                           locations=locations)
 
 
 @app.route("/edit_article/<article_id>", methods=["GET", "POST"])
 def edit_article(article_id):
     article = mongo.db.articles.find_one({"_id": ObjectId(article_id)})
+    topics = mongo.db.topics.find().sort("topic_name", 1)
     locations = mongo.db.locations.find().sort("location_name", 1)
+    return render_template("edit_article.html", article=article, topics=topics,
+                           locations=locations)
 
-    if "user" not in session:
-        flash("Please Log in to continue")
-        return redirect(url_for("login"))
-
-
-
-
-
+    
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
