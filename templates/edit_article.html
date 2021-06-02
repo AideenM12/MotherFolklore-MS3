@@ -5,17 +5,17 @@
 
 <main>
     <div class="container">
-        <div class="row">
+        <div class="row form-row">
             <form class="col s12 card-panel" method="POST"
              action="{{ url_for('edit_article', article_id=article._id) }}">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                 <div class="row">
                     <div class="input-field col s12">
                         <select id="topic_name" name="topic_name" class="validate" required>
-                          <option value="" disabled selected>What is your story about?</option>
+                          <option value="" disabled >What is your story about?</option>
                           {% for topic in topics %}
                           {% if topic.topic_name == article.topic_name %}
-                          <option value="{{ topic.topic_name }}" selected>{{ topic.topic_name }}</option>
+                          <option value="{{ topic.topic_name }}" >{{ topic.topic_name }}</option>
                           {% else %}
                           <option value="{{ topic.topic_name }}">{{ topic.topic_name }}</option>
                           {% endif %}
@@ -44,19 +44,21 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="article_name" name="article_name" type="text" class="validate" required>
+                        <input id="article_name" name="article_name" type="text" class="validate"
+                        value="{{ article.article_name }}" required>
                         <label for="article_name">Article Name</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="image_url" name="image_url" type="text" class="validate">
+                        <input id="image_url" name="image_url" type="text" class="validate"
+                        value="{{ article.image_url }}">
                         <label for="image_url">Image Url</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                      <textarea id="article_article" name="article_article" class="materialize-textarea" required></textarea>
+                      <textarea id="article_article" name="article_article" class="materialize-textarea" required>       {{ article.article_article}}</textarea>
                       <label for="article_article">Article</label>
                     </div>
                   </div>
@@ -65,19 +67,21 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="created_by" name="created_by"   type="text" class="validate" required>
+                        <input id="created_by" name="created_by"   type="text" class="validate" value="{{ article.created_by }}" required>
                         <label for="created_by">Created By</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="date_added" name="date_added" type="text" class="datepicker validate">
+                        <input id="date_added" name="date_added" type="text" value="{{ article.date_added }}" class="datepicker validate">
                         <label for="date_added">Date Added</label>
                     </div>
                 </div>
                 <div class="row center-align">
-                <button class="btn " type="submit">Edit Article                 
+                <button class="btn" type="submit">Edit Article                 
                   </button>
+                  <a href="{{ url_for('articles')}}" class="btn">Cancel</a>            
+                  
                 </div>
             </form>
         </div>

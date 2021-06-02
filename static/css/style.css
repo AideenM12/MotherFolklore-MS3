@@ -2,7 +2,7 @@
 
 body{
     font-family: 'IM Fell English SC', sans-serif;
-    background-color: #dedfdf;
+    background-color: #c1c2c2;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -80,10 +80,12 @@ button, .register-btn, .btn, .article-btn{
     font-family: 'IM Fell English SC', sans-serif;
 }
 form{
-    background-color: #ededed;
-    padding: 20px;
-    
+    background-color: #fbfbfb !important;
+    padding: 20px !important;
+       
 }
+
+
 label, select, option{
     color: #131515;
     font-size: 1rem;
