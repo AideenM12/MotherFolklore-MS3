@@ -7,8 +7,15 @@ body{
     min-height: 100vh;
     flex-direction: column;
 }
+.parallax-container {
+    height: 80vh;
+  }
+.login, .sign-up > .parallax-container{
+    height: 50vh;
+}
 main {
     flex: 1 0 auto;
+    
   }
 h1,
 h2,

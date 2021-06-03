@@ -9,9 +9,7 @@ from flask_wtf.csrf import CSRFProtect, validate_csrf, ValidationError
 from wtforms import (
     Form, TextField,
     PasswordField, validators)
-from wtforms.validators import (
-    InputRequired, Length,
-    EqualTo, ValidationError)
+from wtforms.validators import InputRequired, EqualTo
 
 if os.path.exists("env.py"):
     import env
@@ -53,41 +51,61 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/index")
 def index():
+    """
+    Links to home page
+    """
     articles = mongo.db.articles.find()
     return render_template("index.html", articles=articles)
 
 
 @app.route("/articles")
 def articles():
+    """
+    Links articles from db to site
+    """
     articles = list(mongo.db.articles.find())
     return render_template("articles.html", articles=articles)
 
-# The below code was taken from https://wtforms.readthedocs.io/en/stable/crash_course/
+# The below code was taken from
+# https://wtforms.readthedocs.io/en/stable/crash_course/
 
 
 class LoginForm(Form):
+
+    # Form fields for user login
+
     username = TextField('Username')
     password = PasswordField('Password')
 
 
 # This below code was found on Python Programming.net
 class RegistrationForm(Form):
+
+    # Form fields and validators for registration
+
     username = TextField('Username',
                          [validators.Length(min=4, max=20),
                           validators.Regexp(r'^\w+$', message=(
-                              "Password must contain only letters numbers or underscore"))])
+                         "Password must contain only letters numbers or underscore"))])
+
     email = TextField('Email Address', [validators.Length(min=6, max=50)])
+
     password = PasswordField('New Password', [
         validators.InputRequired(),
         validators.EqualTo('confirm', message='Passwords must match'),
         validators.Regexp(r'^\w+$', message=(
-                            "Password must contain only letters numbers or underscore"))
+            "Password must contain only letters numbers or underscore"))
     ])
+
     confirm = PasswordField('Repeat Password')
 
 
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
+    """
+    Allows users to sign up to the site and
+    send data to the database
+    """
     try:
         form = RegistrationForm(request.form)
 
@@ -119,6 +137,9 @@ def registration():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """ 
+    Allows users to login and access their profile
+    """
     form = LoginForm(request.form)
     if request.method == 'POST' and form.validate():
         existing_user = mongo.db.users.find_one(
@@ -135,6 +156,7 @@ def login():
             else:
                 flash("Incorrect Username/password, Please try again")
                 return redirect(url_for("login"))
+
         else:
             flash("Incorrect Username/password, Please try again")
             return redirect(url_for("login"))
@@ -144,6 +166,9 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    """
+    Links users to their profiles
+    """
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
@@ -155,6 +180,9 @@ def profile(username):
 
 @app.route("/logout")
 def logout():
+    """
+    Allows users to logout of their profile
+    """
     flash("You have logged out successfully!")
     session.pop("user")
     return redirect(url_for("login"))
@@ -162,8 +190,13 @@ def logout():
 
 @app.route("/add_article", methods=["GET", "POST"])
 def add_article():
+    """
+    Allows users to contribute towards the site
+    with their own unique articles
+    """
     topics = mongo.db.topics.find().sort("topic_name", 1)
     locations = mongo.db.locations.find().sort("location_name", 1)
+
     if "user" not in session:
         flash("Please Log in to continue")
         return redirect(url_for("login"))
@@ -190,16 +223,21 @@ def add_article():
 
 @app.route("/edit_article/<article_id>", methods=["GET", "POST"])
 def edit_article(article_id):
+    """
+    Allows users to edit their contributions to the site
+    """
     article = mongo.db.articles.find_one({"_id": ObjectId(article_id)})
     topics = mongo.db.topics.find().sort("topic_name", 1)
     locations = mongo.db.locations.find().sort("location_name", 1)
-    
+
     if "user" not in session:
         flash("Please Log in to continue")
         return redirect(url_for("login"))
+
     elif request.method != "POST":
-        return render_template("edit_article.html", article=article, topics=topics,
-                               locations=locations)
+        return render_template("edit_article.html", article=article, 
+                                topics=topics, locations=locations)
+
     else:
         adjust = {
             "topic_name": request.form.get("topic_name"),
@@ -210,19 +248,21 @@ def edit_article(article_id):
             "created_by": session["user"],
             "date_added": request.form.get("date_added")
         }
-        mongo.db.articles.update({"_id": ObjectId(article_id)},adjust)
-        flash("Article update successful!")     
-   
+        mongo.db.articles.update({"_id": ObjectId(article_id)}, adjust)
+        flash("Article update successful!")
+
     return redirect(url_for("articles"))
 
 
 @app.route("/delete_article/<article_id>")
 def delete_article(article_id):
+    """
+    Allows users to delete their contributions to site
+    """
     mongo.db.articles.remove({"_id": ObjectId(article_id)})
     flash("Article successfully deleted.")
     return redirect(url_for("articles"))
 
-    
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
