@@ -212,8 +212,14 @@ def edit_article(article_id):
         }
         mongo.db.articles.update({"_id": ObjectId(article_id)},adjust)
         flash("Article update successful!")     
-
    
+    return redirect(url_for("articles"))
+
+
+@app.route("/delete_article/<article_id>")
+def delete_article(article_id):
+    mongo.db.articles.remove({"_id": ObjectId(article_id)})
+    flash("Article successfully deleted.")
     return redirect(url_for("articles"))
 
     
