@@ -232,6 +232,7 @@ def edit_article(article_id):
     article = mongo.db.articles.find_one({"_id": ObjectId(article_id)})
     topics = mongo.db.topics.find().sort("topic_name", 1)
     locations = mongo.db.locations.find().sort("location_name", 1)
+    article_creator = article["created_by"]
 
     if "user" not in session:
         flash("Please Log in to continue")
@@ -240,6 +241,9 @@ def edit_article(article_id):
     elif request.method != "POST":
         return render_template("edit_article.html", article=article,
                                topics=topics, locations=locations)
+    
+    elif session["user"] != article_creator and session["user"] != "admin":
+        flash("You are not authorized to edit this material")
 
     else:
         adjust = {
@@ -262,9 +266,21 @@ def delete_article(article_id):
     """
     Allows users to delete their contributions to site
     """
-    mongo.db.articles.remove({"_id": ObjectId(article_id)})
-    flash("Article successfully deleted.")
-    return redirect(url_for("articles"))
+    article = mongo.db.articles.find_one({"_id": ObjectId(article_id)})
+    article_creator = article["created_by"]
+
+    if "user" not in session:
+        flash("Please Log in to continue")
+        return redirect(url_for("login"))
+       
+    elif session["user"] != article_creator and session["user"] != "admin":
+        flash("You are not authorized to edit this material")
+        return redirect(url_for("articles"))
+    
+    else:
+        mongo.db.articles.remove({"_id": ObjectId(article_id)})
+        flash("Article successfully deleted.")
+        return redirect(url_for("articles"))
 
 
 @app.route("/topics")
