@@ -25,7 +25,9 @@
 
         </div>
         <div class="collapsible-body">
+          {% if article.image_url %}
           <img src="{{ article.image_url }}" width="400" height="400" class="article-image"><br>
+          {% endif %}
           {{ article.article_article }}<br>
           {{ article.location_name }}<br>
           {{ article.created_by }}<br>
