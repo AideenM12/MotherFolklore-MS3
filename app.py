@@ -86,7 +86,7 @@ class RegistrationForm(Form):
     username = TextField('Username',
                          [validators.Length(min=4, max=20),
                           validators.Regexp(r'^\w+$', message=(
-                         "Password must contain only letters numbers or underscore"))])
+                              "Password must contain only letters numbers or underscore"))])
 
     email = TextField('Email Address', [validators.Length(min=6, max=50)])
 
@@ -171,9 +171,12 @@ def profile(username):
     """
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    articles = list(mongo.db.articles.find(
+        {"created_by": session["user"]}).sort("_id", -1))
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username,
+                               articles=articles)
 
     return redirect(url_for("login"))
 
@@ -235,8 +238,8 @@ def edit_article(article_id):
         return redirect(url_for("login"))
 
     elif request.method != "POST":
-        return render_template("edit_article.html", article=article, 
-                                topics=topics, locations=locations)
+        return render_template("edit_article.html", article=article,
+                               topics=topics, locations=locations)
 
     else:
         adjust = {
@@ -266,11 +269,12 @@ def delete_article(article_id):
 
 @app.route("/topics")
 def topics():
-    topics = list(mongo.db.topics.find().sort("topic_name", 1))
-    return render_template("topics.html", topics=topics)
-
-
-
+    if session["user"] == "admin":
+        topics = list(mongo.db.topics.find().sort("topic_name", 1))
+        return render_template("topics.html", topics=topics)
+    else:
+        flash("You are not authorized to view this page")
+        return redirect(url_for("profile"))
 
 
 if __name__ == "__main__":

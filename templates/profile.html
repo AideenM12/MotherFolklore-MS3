@@ -14,6 +14,40 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <ul class="collapsible ">
+          {% for article in articles %}
+          <li>
+            <div class="collapsible-header center-align">
+    
+    
+              <div class="row">
+                <ul class="list-inline">
+                  <li>
+                    <h4 class="article-head"> {{ article.article_name }}</h4>
+                  </li>
+                    {% if session.user|lower == article.created_by|lower %}
+                    <li> <a class="article-btn btn " href="{{ url_for('edit_article',article_id=article._id) }}">Edit
+                      Article</a></li>
+                      <li> <a class="article-btn btn " href="{{ url_for('delete_article',article_id=article._id) }}">Delete
+                        Article</a></li>
+                     {% endif %}
+                </ul>
+              </div>
+    
+    
+            </div>
+            <div class="collapsible-body">
+              <img src="{{ article.image_url }}" width="400" height="400" class="article-image"><br>
+              {{ article.article_article }}<br>
+              {{ article.location_name }}<br>
+              {{ article.created_by }}<br>
+              {{ article.date_added }}
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
     <div class="parallax-container">
 		<div class="parallax"><img src="{{ url_for('static', filename='images/banshee3.jpg') }}"></div>
 	  </div>
