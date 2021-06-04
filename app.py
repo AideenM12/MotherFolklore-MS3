@@ -264,6 +264,15 @@ def delete_article(article_id):
     return redirect(url_for("articles"))
 
 
+@app.route("/topics")
+def topics():
+    topics = list(mongo.db.topics.find().sort("topic_name", 1))
+    return render_template("topics.html", topics=topics)
+
+
+
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

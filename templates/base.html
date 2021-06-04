@@ -31,6 +31,9 @@
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
             <li><a href="{{ url_for('add_article') }}">Contribute</a></li>
+            {% if session.user|lower == "admin"|lower %}
+            <li><a href="{{ url_for('topics') }}">Topics</a></li>
+            {% endif %}
           
             {% else %}
             <li><a href="{{ url_for('registration') }}">Sign Up</a></li>
@@ -52,7 +55,9 @@
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             <li><a href="{{ url_for('profile', username=session['user']) }}" class="hvr-rectangle-out">Profile</a></li>
             <li><a href="{{ url_for('add_article') }}">Contribute</a></li>
-           
+            {% if session.user|lower == "admin"|lower %}
+            <li><a href="{{ url_for('topics') }}">Topics</a></li>
+            {% endif %}
             {% else %}
             <li><a href= "{{ url_for('registration') }}" class="hvr-rectangle-out">Sign Up</a></li>
             <li><a href="{{ url_for('login') }}" class="hvr-rectangle-out">Log In</a></li>
