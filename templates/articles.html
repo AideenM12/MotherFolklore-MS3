@@ -8,15 +8,15 @@
         <div class="collapsible-header center-align">
 
 
-          <div class="row">
+          <div class="row ">
             <ul class="list-inline">
               <li>
                 <h4 class="article-head"> {{ article.article_name }}</h4>
               </li>
                 {% if (session.user|lower == article.created_by|lower) or (session.user|lower == "admin") %}
-                <li> <a class="article-btn btn " href="{{ url_for('edit_article',article_id=article._id) }}">Edit
+                <li> <a class="article-btn btn  " href="{{ url_for('edit_article',article_id=article._id) }}">Edit
                   Article</a></li>
-                  <li> <a class="article-btn btn " href="{{ url_for('delete_article',article_id=article._id) }}">Delete
+                  <li> <a class="article-btn btn" href="{{ url_for('delete_article',article_id=article._id) }}">Delete
                     Article</a></li>
                  {% endif %}
             </ul>

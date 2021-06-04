@@ -63,6 +63,30 @@ The primary goal of this site is to facillate Irish History lovers to be able to
 
 ## Existing Features
 
+### Features on all pages:
+* Navbar
+* Footer
+* Social Media Icons
+
+### Home page features:
+
+### Articles page features:
+
+### Login page features:
+
+### Sign-Up page features:
+
+### Profile page features:
+
+### Topics page features:
+
+### Further Reading page features:
+
+### Logout features:
+
+### Feature exclusive to Admin:
+
+
 
 
 
@@ -244,6 +268,8 @@ Once the project been loaded into the IDE it is necesscary to install the necess
 
 ### Media
 The church.jpg image was originally obtained from [wirestock on Freepik.com]('https://www.freepik.com/photos/vintage')
+The childrenoflir.jpg was originally obtained from [yourirish.com](https://www.yourirish.com/folklore/children-of-lir)
+The banshee3.jpg was originally obtained from [monstersandcritics.com](https://www.monstersandcritics.com/tv/josh-gates-destination-truth-goes-in-search-of-the-irish-banshee/)
 
 
 ### Code
