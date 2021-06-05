@@ -58,6 +58,11 @@ def index():
     return render_template("index.html", articles=articles)
 
 
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
+
 @app.route("/articles")
 def articles():
     """

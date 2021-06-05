@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
+    <script type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function(){
+         emailjs.init("user_3MpZ43XcMqWmcr1rZUerd");
+      })();
+    </script>
+<div class="parallax-container">
+    <div class="parallax"><img src="static/images/childrenoflir.jpg"></div>
+</div>
+<div class="container">
+    <div class="row">
+      <div class="card text-center">
+        <div id="thanks" style="display: none">
+          <p id="thank-you-msg"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="row">
+    <form onsubmit="return sendMail(this);" method="POST" class="col s12" id="contactUs">
+        
+            <div class="input-field col s6">
+                <input placeholder="Name" id="first_name" type="text" class="validate">
+                <label for="first_name"> Name</label>
+            </div>
+         
+                <div class="input-field col s12">
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                </div>
+                
+                   
+                        
+                            <div class="input-field col s12">
+                                <textarea id="textarea1" class="materialize-textarea" ></textarea>
+                                <label for="textarea1">Your message</label>
+                            </div>
+                        </div>
+                        <button class="btn" id="contact-btn" type="submit" onsubmit="thankYou()">Submit</button>
+                    </form>
+                </div>
+                <div class="parallax-container">
+                    <div class="parallax"><img src="static/images/banshee3.jpg"></div>
+                </div>
+
+{% endblock %}
