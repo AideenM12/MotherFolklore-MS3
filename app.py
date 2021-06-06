@@ -3,6 +3,7 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
+from flask_paginate import Pagination, get_page_args
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_wtf.csrf import CSRFProtect, validate_csrf, ValidationError
@@ -246,7 +247,7 @@ def edit_article(article_id):
     elif request.method != "POST":
         return render_template("edit_article.html", article=article,
                                topics=topics, locations=locations)
-    
+
     elif session["user"] != article_creator and session["user"] != "admin":
         flash("You are not authorized to edit this material")
 
@@ -277,11 +278,11 @@ def delete_article(article_id):
     if "user" not in session:
         flash("Please Log in to continue")
         return redirect(url_for("login"))
-       
+
     elif session["user"] != article_creator and session["user"] != "admin":
         flash("You are not authorized to edit this material")
         return redirect(url_for("articles"))
-    
+
     else:
         mongo.db.articles.remove({"_id": ObjectId(article_id)})
         flash("Article successfully deleted.")
@@ -296,6 +297,23 @@ def topics():
     else:
         flash("You are not authorized to view this page")
         return redirect(url_for("profile"))
+
+
+@app.route("/legends")
+def legends():
+    articles = list(mongo.db.articles.find())
+    return render_template("articles.html", articles=articles)
+
+
+@app.route("/filter/topic/<topic_id>")
+def filter_topics(topic_id):
+    topics = list(mongo.db.topics.find())
+    topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
+    articles = list(mongo.db.articles.find(
+        {"topic_name": topic["topic_name"]}).sort("_id", -1))
+    return render_template("articles.html",
+                           articles=articles,
+                           topics=topics, topic=topic)
 
 
 if __name__ == "__main__":
