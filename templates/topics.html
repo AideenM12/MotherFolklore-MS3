@@ -12,14 +12,14 @@
           <p>I am a very simple card. I am good at containing small bits of information.
           I am convenient because I require little markup to use effectively.</p>
         </div>
-        <div class=" card-action">
+        <div class=" center-align card-action">
           {% if topic.article_list|length > 0 %}
               <a href="{{ url_for('filter_topics', topic_id=topic._id) }}"
               class="btn" aria-label="view all {{topic}} articles button">
                   View {{ topic.article_list|count }}
               </a>
           {% else %}
-              <a href="#" class="btn disabled" aria-label="no activities available for {{topic}}">View ({{ topic.article|count }})</a>
+              <a href="#" class="btn disabled" aria-label="no articles available for {{topic}}">View ({{ topic.article|count }})</a>
           {% endif %}
       </div>
         {% if session.user|lower == "admin" %}

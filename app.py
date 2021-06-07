@@ -70,7 +70,8 @@ def articles():
     Links articles from db to site
     """
     articles = list(mongo.db.articles.find())
-    return render_template("articles.html", articles=articles)
+    return render_template("articles.html", articles=articles,
+                           page_title="Articles")
 
 # The below code was taken from
 # https://wtforms.readthedocs.io/en/stable/crash_course/
@@ -314,7 +315,35 @@ def filter_topics(topic_id):
 
     return render_template("articles.html",
                            articles=articles,
-                           topics=topics)
+                           topics=topics,
+                           page_title=topic["topic_name"])
+
+@app.route("/add_topic", methods=["GET", "POST"])
+def add_topic():
+    """
+    Allows users to contribute towards the site
+    with their own unique articles
+    """
+    topics = mongo.db.topics.find().sort("topic_name", 1)
+    
+    if "user" not in session:
+        flash("Please Log in to continue")
+        return redirect(url_for("login"))
+    elif request.method != "POST":
+        return render_template("add_topic.html",
+                               topics=topics)
+    else:
+        topic = {
+            "topic_name": request.form.get("topic_name"),
+            "article_list": []
+            
+        }
+        mongo.db.topics.insert_one(topic)
+        flash("Topic contribution successful!")
+        return redirect(url_for("topics"))
+
+    return render_template("topics.html", topics=topics,
+                           topic=topic)
 
 
 if __name__ == "__main__":

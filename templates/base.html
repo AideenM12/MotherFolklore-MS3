@@ -33,6 +33,7 @@
             <li><a href="{{ url_for('add_article') }}">Contribute</a></li>
             {% if session.user|lower == "admin"|lower %}
             <li><a href="{{ url_for('topics') }}">Topics</a></li>
+            <li><a href="{{ url_for('add_topic') }}">Add Topic</a></li>
             {% endif %}
           
             {% else %}
@@ -58,6 +59,7 @@
             <li><a href="{{ url_for('add_article') }}">Contribute</a></li>
             {% if session.user|lower == "admin"|lower %}
             <li><a href="{{ url_for('topics') }}">Topics</a></li>
+            <li><a href="{{ url_for('add_topic') }}">Add Topic</a></li>
             {% endif %}
             {% else %}
             <li><a href= "{{ url_for('registration') }}" class="hvr-rectangle-out">Sign Up</a></li>
