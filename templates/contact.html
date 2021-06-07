@@ -8,43 +8,50 @@
          emailjs.init("user_3MpZ43XcMqWmcr1rZUerd");
       })();
     </script>
+<main>
 <div class="parallax-container">
     <div class="parallax"><img src="static/images/childrenoflir.jpg"></div>
 </div>
-<div class="container">
-    <div class="row">
-      <div class="card text-center">
-        <div id="thanks" style="display: none">
-          <p id="thank-you-msg"></p>
+  <div class="container">
+      <div class="row">
+        <div class="card text-center">
+          <div id="thanks" style="display: none">
+            <p id="thank-you-msg"></p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-<div class="row">
-    <form onsubmit="return sendMail(this);" method="POST" class="col s12" id="contactUs">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-            <div class="input-field col s6">
-                <input placeholder="name" id="name" type="text" class="validate">
-                <label for="name"> Name</label>
-            </div>
-         
-                <div class="input-field col s12">
-                    <input id="emailaddress" type="email" class="validate">
-                    <label for="emailaddress">Email</label>
-                </div>
-                
-                   
-                        
-                            <div class="input-field col s12">
-                                <textarea id="textarea" class="materialize-textarea" ></textarea>
-                                <label for="textarea">Your message</label>
-                            </div>
-                        </div>
-                        <button class="btn" id="contact-btn" type="submit" onsubmit="thankYou()">Submit</button>
-                    </form>
-                </div>
-                <div class="parallax-container">
-                    <div class="parallax"><img src="static/images/banshee3.jpg"></div>
-                </div>
+  <div class="container">
+    <div class="row">
+      <form onsubmit="return sendMail(this);" method="POST" class="col s12" id="contactUs">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+        <div class="input-field col s6">
+          <input placeholder="name" id="name" type="text" class="validate">
+          <label for="name"> Name</label>
+        </div>
 
+        <div class="input-field col s12">
+          <input id="emailaddress" type="email" class="validate">
+          <label for="emailaddress">Email</label>
+        </div>
+
+
+
+        <div class="input-field col s12">
+          <textarea id="textarea" class="materialize-textarea"></textarea>
+          <label for="textarea">Your message</label>
+        </div>
+        <div class="center-align col s12">
+        <button class="btn" id="contact-btn" type="submit" onsubmit="thankYou()">Submit</button>
+        </div>
+    </div>
+
+    </form>
+  </div>
+  </div>
+
+<div class="parallax-container">
+  <div class="parallax"><img src="static/images/banshee3.jpg"></div>
+</div>
+</main>
 {% endblock %}
