@@ -300,12 +300,6 @@ def topics():
         return redirect(url_for("profile"))
 
 
-@app.route("/legends")
-def legends():
-    articles = list(mongo.db.articles.find())
-    return render_template("articles.html", articles=articles)
-
-
 @app.route("/filter/topic/<topic_id>")
 def filter_topics(topic_id):
     topics = list(mongo.db.topics.find())
@@ -318,6 +312,7 @@ def filter_topics(topic_id):
                            topics=topics,
                            page_title=topic["topic_name"])
 
+
 @app.route("/add_topic", methods=["GET", "POST"])
 def add_topic():
     """
@@ -325,7 +320,7 @@ def add_topic():
     with their own unique articles
     """
     topics = mongo.db.topics.find().sort("topic_name", 1)
-    
+
     if "user" not in session:
         flash("Please Log in to continue")
         return redirect(url_for("login"))
@@ -336,7 +331,7 @@ def add_topic():
         topic = {
             "topic_name": request.form.get("topic_name"),
             "article_list": []
-            
+
         }
         mongo.db.topics.insert_one(topic)
         flash("Topic contribution successful!")
@@ -352,7 +347,7 @@ def edit_topic(topic_id):
     Allows users to edit their contributions to the site
     """
     topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
-   
+
     if "user" not in session:
         flash("Please Log in to continue")
         return redirect(url_for("login"))
@@ -365,13 +360,34 @@ def edit_topic(topic_id):
 
     else:
         adjust = {
-           "topic_name": request.form.get("topic_name"),
+            "topic_name": request.form.get("topic_name"),
             "article_list": []
         }
         mongo.db.topics.update({"_id": ObjectId(topic_id)}, adjust)
         flash("Topic update successful!")
 
     return redirect(url_for("topics"))
+
+
+@app.route("/delete_topic/<topic_id>")
+def delete_topic(topic_id):
+    """
+    Allows users to delete their contributions to site
+    """
+    topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
+
+    if "user" not in session:
+        flash("Please Log in to continue")
+        return redirect(url_for("login"))
+
+    elif session["user"] != session["user"] != "admin":
+        flash("You are not authorized to edit this material")
+        return redirect(url_for("topics"))
+
+    else:
+        mongo.db.topics.remove({"_id": ObjectId(topic_id)})
+        flash("Topic successfully deleted.")
+        return redirect(url_for("topics", topic=topic))
 
 
 if __name__ == "__main__":
