@@ -346,6 +346,34 @@ def add_topic():
                            topic=topic)
 
 
+@app.route("/edit_topic/<topic_id>", methods=["GET", "POST"])
+def edit_topic(topic_id):
+    """
+    Allows users to edit their contributions to the site
+    """
+    topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
+   
+    if "user" not in session:
+        flash("Please Log in to continue")
+        return redirect(url_for("login"))
+
+    elif request.method != "POST":
+        return render_template("edit_topic.html", topic=topic)
+
+    elif session["user"] != session["user"] != "admin":
+        flash("You are not authorized to edit this material")
+
+    else:
+        adjust = {
+           "topic_name": request.form.get("topic_name"),
+            "article_list": []
+        }
+        mongo.db.topics.update({"_id": ObjectId(topic_id)}, adjust)
+        flash("Topic update successful!")
+
+    return redirect(url_for("topics"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
