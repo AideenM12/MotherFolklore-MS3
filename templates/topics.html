@@ -12,7 +12,7 @@
           <p>I am a very simple card. I am good at containing small bits of information.
           I am convenient because I require little markup to use effectively.</p>
         </div>
-        <div class="col s6 card-action">
+        <div class=" card-action">
           {% if topic.article_list|length > 0 %}
               <a href="{{ url_for('filter_topics', topic_id=topic._id) }}"
               class="btn" aria-label="view all {{topic}} articles button">

@@ -311,9 +311,10 @@ def filter_topics(topic_id):
     topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
     articles = list(mongo.db.articles.find(
         {"topic_name": topic["topic_name"]}).sort("_id", -1))
+
     return render_template("articles.html",
                            articles=articles,
-                           topics=topics, topic=topic)
+                           topics=topics)
 
 
 if __name__ == "__main__":
