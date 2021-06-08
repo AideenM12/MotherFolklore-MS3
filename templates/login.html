@@ -1,33 +1,33 @@
 {% extends 'base.html' %}
 {% block content %} 
-
-
-
-	<div class="parallax-container login">
-		<div class="parallax"><img src="static/images/childrenoflir.jpg"></div>
-	  </div>
-	<div class="container">
-	<div class = "row">
-		<h4 class="center-align">Log In</h4>
-		<br>
-		{% from "_formhelpers.html" import render_field %}
-		<form method="POST" action="{{ url_for('login') }}" class="card-panel">
-			<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-			{{render_field(form.username)}}
-			{{ render_field(form.password) }}
-		<div class="row center-align">
-			<button type="submit">Login</button>
-		</div>
-		</form>
-		
-		{% if error %}
-			<p class="error"><strong>Error:</strong>{{error}}</p>
-		{% endif %}
-	</div>
-	</div>
-	<div class="parallax-container login">
-		<div class="parallax"><img src="static/images/banshee3.jpg"></div>
-	  </div>
-
-
+<!-------Login Page Main Body------->
+<!---Parallax Container--->
+<div class="parallax-container login">
+   <div class="parallax"><img src="static/images/childrenoflir.jpg"></div>
+</div>
+<!------Login Form------>
+<div class="container">
+   <div class = "row">
+      <h4 class="center-align">Log In</h4>
+      <br>
+      {% from "_formhelpers.html" import render_field %}
+      <form method="POST" action="{{ url_for('login') }}" class="card-panel">
+		  <!-------Username/Password Fields----->
+         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+         {{render_field(form.username)}}
+         {{ render_field(form.password) }}
+		 <!-------Login Button------>
+         <div class="row center-align">
+            <button type="submit">Login</button>
+         </div>
+      </form>
+      {% if error %}
+      <p class="error"><strong>Error:</strong>{{error}}</p>
+      {% endif %}
+   </div>
+</div>
+<!---Parallax Container--->
+<div class="parallax-container login">
+   <div class="parallax"><img src="static/images/banshee3.jpg"></div>
+</div>
 {% endblock %}

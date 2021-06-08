@@ -1,34 +1,34 @@
 {% extends 'base.html' %}
 {% block content %} 
-
+<!-----------Registration Page Main Body--------->
 <main class="sign-up">
-	<div class="parallax-container">
-		<div class="parallax"><img src="static/images/childrenoflir.jpg"></div>
-	</div>
-	<div class = "row">
-		<h4 class="center-align">Register</h4>
-		<br>
-		{% from "_formhelpers.html" import render_field %}
-		<form method="POST" action="{{ url_for('registration') }}" class="card-panel">
-			<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-			<dl>
-				{{render_field(form.username)}}
-				{{render_field(form.email)}}
-				{{render_field(form.password)}}
-				{{render_field(form.confirm)}}
-				
-			</dl>
-			<p class="center-align "><input type=submit class="register-btn" value=Register></p>
-		</form>
-		
-		{% if error %}
-			<p class="error"><strong>Error:</strong>{{error}}</p>
-		{% endif %}
-
-	</div>
-	<div class="parallax-container">
-		<div class="parallax"><img src="static/images/banshee3.jpg"></div>
-	</div>
+	<!--Parallax Container-->
+   <div class="parallax-container">
+      <div class="parallax"><img src="static/images/childrenoflir.jpg"></div>
+   </div>
+   <!-------Heading-------->
+   <div class = "row">
+      <h4 class="center-align">Register</h4>
+      <br>
+	  <!---------Registration Form--------->
+      {% from "_formhelpers.html" import render_field %}
+      <form method="POST" action="{{ url_for('registration') }}" class="card-panel">
+         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+         <dl>
+            {{render_field(form.username)}}
+            {{render_field(form.email)}}
+            {{render_field(form.password)}}
+            {{render_field(form.confirm)}}
+         </dl>
+         <p class="center-align "><input type=submit class="register-btn" value=Register></p>
+      </form>
+      {% if error %}
+      <p class="error"><strong>Error:</strong>{{error}}</p>
+      {% endif %}
+   </div>
+   <!-------Parallax Container------->
+   <div class="parallax-container">
+      <div class="parallax"><img src="static/images/banshee3.jpg"></div>
+   </div>
 </main>
-
 {% endblock %}
