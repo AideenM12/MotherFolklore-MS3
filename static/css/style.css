@@ -120,3 +120,7 @@ label, select, option{
 .article-btn{
     margin-left: 5vw;
 }
+#thanks{
+    font-size: 1.5rem;
+    font-weight: 800;
+}
