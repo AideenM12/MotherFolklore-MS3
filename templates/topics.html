@@ -32,10 +32,9 @@
               <p>Are you sure you want to delete this Topic?</p>
             </div>
             <div class="modal-footer">
-              <a href="{{ url_for('delete_topic', topic_id=topic._id) }}" class="modal-close waves-effect waves-green btn-flat">Delete</a>
-            </div>
-            <div class="modal-footer">
-              <a href="{{ url_for('topics') }}" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+              <a href="{{ url_for('delete_topic', topic_id=topic._id) }}" class="modal-close btn">Delete</a>
+            
+              <a href="{{ url_for('topics') }}" class="modal-close  btn">Cancel</a>
             </div>
           </div>
         </div>

@@ -81,7 +81,11 @@ footer > h5{
     
     
 }
-button, .register-btn, .btn, .article-btn{
+button,
+.register-btn,
+.btn,
+.article-btn,
+.modal > a{
     background-color: #131515;
     color: #ededed;
     font-family: 'IM Fell English SC', sans-serif;
@@ -120,7 +124,16 @@ label, select, option{
 .article-btn{
     margin-left: 5vw;
 }
-#thanks{
+#thanks, .modal{
     font-size: 1.5rem;
     font-weight: 800;
+}
+.modal{
+    text-align: center !important;
+    background-color: #ededed;
+    color: #131515;
+}
+.modal-footer{
+    text-align: center !important;
+    background-color: #ededed !important;
 }
