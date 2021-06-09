@@ -73,6 +73,14 @@ def articles():
     return render_template("articles.html", articles=articles,
                            page_title="Articles")
 
+
+@app.route("/search",  methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    articles = list(mongo.db.articles.find({"$text": {"$search": query}}))
+    return render_template("articles.html", articles=articles,
+                           page_title="Articles")
+
 # The below code was taken from
 # https://wtforms.readthedocs.io/en/stable/crash_course/
 
