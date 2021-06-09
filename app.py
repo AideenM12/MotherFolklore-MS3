@@ -15,6 +15,8 @@ from wtforms.validators import InputRequired, EqualTo
 if os.path.exists("env.py"):
     import env
 
+# Articles pagination limit
+PER_PAGE = 6
 
 app = Flask(__name__)
 csrf = CSRFProtect(app)
@@ -49,6 +51,23 @@ mongo = PyMongo(app)
 # return render_template('404.html'), 404
 
 
+# https://github.com/Edb83/self-isolution/blob/master/app.py
+def paginate(articles):
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page')
+    offset = page * PER_PAGE - PER_PAGE
+
+    return articles[offset: offset + PER_PAGE]
+
+
+def pagination_args(articles):
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page')
+    total = len(articles)
+
+    return Pagination(page=page, per_page=PER_PAGE, total=total)
+
+
 @app.route("/")
 @app.route("/index")
 def index():
@@ -70,16 +89,26 @@ def articles():
     Links articles from db to site
     """
     articles = list(mongo.db.articles.find())
-    return render_template("articles.html", articles=articles,
-                           page_title="Articles")
+    articles_paginate = paginate(articles)
+    pagination = pagination_args(articles)
+
+    return render_template("articles.html",
+                           articles=articles_paginate,
+                           page_title="Articles",
+                           pagination=pagination)
 
 
 @app.route("/search",  methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     articles = list(mongo.db.articles.find({"$text": {"$search": query}}))
-    return render_template("articles.html", articles=articles,
-                           page_title="Articles")
+    articles_paginate = paginate(articles)
+    pagination = pagination_args(articles)
+
+    return render_template("articles.html",
+                           articles=articles_paginate,
+                           page_title="Article Results",
+                           pagination=pagination)
 
 # The below code was taken from
 # https://wtforms.readthedocs.io/en/stable/crash_course/
