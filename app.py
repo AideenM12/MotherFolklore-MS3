@@ -345,9 +345,10 @@ def filter_topics(topic_id):
         {"topic_name": topic["topic_name"]}).sort("_id", -1))
 
     return render_template("articles.html",
-                           articles=articles,
+                           articles=articles_paginate,
                            topics=topics,
-                           page_title=topic["topic_name"])
+                           page_title=topic["topic_name"],
+                           pagination=pagination)
 
 
 @app.route("/add_topic", methods=["GET", "POST"])
