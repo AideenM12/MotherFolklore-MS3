@@ -6,7 +6,7 @@
    <div class="container">
       <div class="row">
          <form action="{{ url_for('search') }}" method="POST" class="card-panel">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
             <div class="row valign-wrapper center-align">
                <div class="input-field col s12 m8">
                   <input type="text" name="query" id="query" minlength="3" class="validate" required>
@@ -14,7 +14,7 @@
                </div>
                <div class="col s12 m4">
                   <button type="submit" class=" btn text-shadow">
-                  <i class="fas fa-search left"></i> Search
+                     <i class="fas fa-search left"></i> Search
                   </button>
                   <a href="{{ url_for('articles') }}" class=" btn text-shadow">Reset</a>
                </div>
@@ -22,12 +22,12 @@
          </form>
       </div>
    </div>
-  {% if articles|length > 0 %}
+   {% if articles|length > 0 %}
    <div class="container">
       <ul class="collapsible ">
          {% for article in articles %}
          <li>
-           <!----------Article Title----------->
+            <!----------Article Title----------->
             <div class="collapsible-header center-align">
                <div class="row ">
                   <ul class="list-inline">
@@ -37,10 +37,10 @@
                      <!-----------Edit/Delete Buttons--------->
                      {% if (session.user|lower == article.created_by|lower) or (session.user|lower == "admin") %}
                      <li><a class="article-btn btn  " href="{{ url_for('edit_article',article_id=article._id) }}">Edit
-                        Article</a>
+                           Article</a>
                      </li>
                      <li><a class="article-btn btn modal-trigger" href="#delete-modal-{{ article._id }}">Delete
-                        Article</a>
+                           Article</a>
                         <!---------Delete Modal------------>
                         <div id="delete-modal-{{article._id}}" class="modal">
                            <div class="modal-content">
@@ -48,7 +48,8 @@
                               <p>Are you sure you want to delete this article?</p>
                            </div>
                            <div class="modal-footer">
-                              <a href="{{ url_for('delete_article', article_id=article._id) }}" class="modal-close btn">Delete</a>
+                              <a href="{{ url_for('delete_article', article_id=article._id) }}"
+                                 class="modal-close btn">Delete</a>
                               <a href="{{ url_for('articles') }}" class="modal-close  btn">Cancel</a>
                            </div>
                         </div>
@@ -74,10 +75,10 @@
    {% else %}
    <h3 class="center-align">No Results Found</h3>
    {% endif %}
-  <div class="container">
+   <div class="container">
       <div class="card-panel small center-align">
-   {{ pagination.links }}
+         {{ pagination.links }}
+      </div>
    </div>
-  </div> 
 </main>
 {% endblock %}

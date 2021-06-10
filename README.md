@@ -71,6 +71,22 @@ The primary goal of this site is to facillate Irish History lovers to be able to
 ### Home page features:
 
 ### Articles page features:
+* The Articles Page contains a search bar where users can search for keywords that appear in:
+    * The Article Name
+    * The Article Content
+    * The Topic Name
+
+* Beneath the search bar there are series of collapsible dropdowns which contain:
+    * The article content
+    * The article image
+    * The location where the story of the article content originates
+    * The name of the user who created the content
+    * The date on which the article was created. 
+    * If the article is the property of the session owner then delete and edit buttons appear alongside the article name.
+
+* The edit and delete buttons allow the user to modify or erase their contribution respectively. A flash message appears to indicate whether the selected action was completed successfully. If the edit button is selected the user is redirected to the edit page where they are presented with an indentical form to the add article form however the input fields are filled with the material they wish to edit in keeping with good UX design principles. If the delete button is selected a modal appears to confirm that the user wishes to delete their contribution so as to avoid accidental erasure of any material. 
+
+* Beneath the collapsible dropdowns appears the pagination links which allow the user to navigate throughout the entire selection of articles and articles are limited to six per page using flask paginate. 
 
 ### Login page features:
 
