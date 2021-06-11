@@ -85,12 +85,12 @@ def contact():
 
 @app.route("/further_reading")
 def further_reading():
-    topics = mongo.db.topics.find().sort("topic_name", 1)
+
     further_reading = list(mongo.db.further_reading.find())
+
     return render_template("further_reading.html",
                            page_title="Further Reading",
-                           further_reading=further_reading,
-                           topics=topics)
+                           further_reading=further_reading)
 
 
 @app.route("/articles")

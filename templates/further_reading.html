@@ -1,30 +1,32 @@
 {% extends 'base.html' %}
 {% block content%}
 <h3 class="center-align">{{ page_title }}</h3>
-{% for topic in topics%}
-<h3 class="center-align">{{ topic.topic_name }}</h3>
+<div class="container">
+
 {% for reading in further_reading %}
-<div class="collapsible-body">
-    {% if further_reading.book_title %}
-    {{ further_reading.book_title }}
-    {% endif %}
-    {% if further_reading.website %}
-    {{ further_reading.website }}
-    {% endif %}
-    {% if further_reading.article_title %}
-    {{ further_reading.article_title }}
-    {% endif %}
-    {% if further_reading.author %}
-    {{ further_reading.author }}
-    {% endif %}
-    {% if further_reading.date_published %}
-    {{ further_reading.date_published }}
-    {% endif %}
-    {% if further_reading.publisher %}
-    {{ further_reading.publisher }}
-    {% endif %}
+<div class="card-panel reading">
     
+   <p><span class="highlight">Book title:</span> {{ reading.book_title }}</p><br>
+    <p><span class="highlight">Website:</span> {{ reading.website }}</p><br>
+   <p><span class="highlight"> Article title:</span> {{ reading.article_title }}</p><br>
+   <p><span class="highlight">Author:</span>{{ reading.author }}</p><br>
+   <p><span class="highlight">Date Published:</span> {{ reading.date_published }}</p><br>
+   <p><span class="highlight">Publisher: </span> {{ reading.publisher }}</p><br>
+  
+    </li>
+    </ul>
  </div>
  {% endfor %}
-{% endfor %}
+ 
+ </div>
+ <p class="center-align">If you have any suggestions for texts which you think could be added to this list feel free to contact us!</p>
+ <div class="row">
+ <div class="col ">
+ <div class=" card center-align">
+    <div class="card-content">
+ <a href="{{ url_for('contact') }}" class="btn"> Contact Us!</a>
+ </div>
+ </div>
+ </div>
+</div>
 {% endblock %}

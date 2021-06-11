@@ -6,9 +6,11 @@ body{
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    color: #131515;
+    font-weight: 500;
 }
 .parallax-container {
-    height: 80vh;
+    height: 70vh;
   }
 .login, .sign-up > .parallax-container{
     height: 50vh;
@@ -136,4 +138,11 @@ label, select, option{
 .modal-footer{
     text-align: center !important;
     background-color: #ededed !important;
+}
+.reading{
+    font-size: 1.25rem;
+    line-height: 0;
+}
+.highlight{
+    font-weight: 800;
 }
