@@ -83,6 +83,11 @@ def contact():
     return render_template("contact.html")
 
 
+@app.route("/further_reading")
+def further_reading():
+    return render_template("further_reading.html")
+
+
 @app.route("/articles")
 def articles():
     """
@@ -130,7 +135,8 @@ class RegistrationForm(Form):
     username = TextField('Username',
                          [validators.Length(min=4, max=20),
                           validators.Regexp(r'^\w+$', message=(
-                              "Password must contain only letters numbers or underscore"))])
+                              "Password must contain only letters "
+                              "numbers or underscore"))])
 
     email = TextField('Email Address', [validators.Length(min=6, max=50)])
 
@@ -181,7 +187,7 @@ def registration():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    """ 
+    """
     Allows users to login and access their profile
     """
     form = LoginForm(request.form)
@@ -343,6 +349,8 @@ def filter_topics(topic_id):
     topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
     articles = list(mongo.db.articles.find(
         {"topic_name": topic["topic_name"]}).sort("_id", -1))
+    pagination = pagination_args(articles)
+    articles_paginate = paginate(articles)
 
     return render_template("articles.html",
                            articles=articles_paginate,
