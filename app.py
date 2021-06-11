@@ -85,7 +85,12 @@ def contact():
 
 @app.route("/further_reading")
 def further_reading():
-    return render_template("further_reading.html")
+    topics = mongo.db.topics.find().sort("topic_name", 1)
+    further_reading = list(mongo.db.further_reading.find())
+    return render_template("further_reading.html",
+                           page_title="Further Reading",
+                           further_reading=further_reading,
+                           topics=topics)
 
 
 @app.route("/articles")
@@ -436,6 +441,7 @@ def delete_topic(topic_id):
         return redirect(url_for("topics", topic=topic))
 
 
+# Change to False before submission
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

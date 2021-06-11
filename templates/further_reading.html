@@ -1,3 +1,30 @@
 {% extends 'base.html' %}
 {% block content%}
+<h3 class="center-align">{{ page_title }}</h3>
+{% for topic in topics%}
+<h3 class="center-align">{{ topic.topic_name }}</h3>
+{% for reading in further_reading %}
+<div class="collapsible-body">
+    {% if further_reading.book_title %}
+    {{ further_reading.book_title }}
+    {% endif %}
+    {% if further_reading.website %}
+    {{ further_reading.website }}
+    {% endif %}
+    {% if further_reading.article_title %}
+    {{ further_reading.article_title }}
+    {% endif %}
+    {% if further_reading.author %}
+    {{ further_reading.author }}
+    {% endif %}
+    {% if further_reading.date_published %}
+    {{ further_reading.date_published }}
+    {% endif %}
+    {% if further_reading.publisher %}
+    {{ further_reading.publisher }}
+    {% endif %}
+    
+ </div>
+ {% endfor %}
+{% endfor %}
 {% endblock %}
