@@ -75,6 +75,19 @@
    {% else %}
    <h3 class="center-align">No Results Found</h3>
    {% endif %}
+   {% for topic in topics %}
+   {% if loop.index == 1 %}
+   <div class="row">
+      <div class="col ">
+      <div class=" card center-align">
+   
+   <a href="{{ url_for('filter_reading', topic_id=topic._id) }}" class="btn center-align">Further Reading</a>
+   </div>
+   </div>
+   </div>
+   {% endif %}
+   {% endfor %}
+ 
    <div class="container">
       <div class="card-panel small center-align">
          {{ pagination.links }}

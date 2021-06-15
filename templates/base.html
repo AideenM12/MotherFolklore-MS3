@@ -33,14 +33,14 @@
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                     <li><a href="{{ url_for('add_article') }}">Contribute</a></li>
                     {% if session.user|lower == "admin"|lower %}
-                      <li><a href="{{ url_for('topics') }}">Topics</a></li>
+                     <li><a href="{{ url_for('topics' ) }}">Topics</a></li>
                       <li><a href="{{ url_for('add_topic') }}">Add Topic</a></li>
                     {% endif %}
                   {% else %}
                     <li><a href="{{ url_for('registration') }}">Sign Up</a></li>
                     <li><a href="{{ url_for('login') }}">Log In</a></li>
                   {% endif %}
-                  <li><a href="{{ url_for('further_reading') }}">Further Reading</a></li>
+                
                   <li><a href="{{ url_for('contact') }}">Contact</a></li>
                </ul>
             </div>
@@ -53,11 +53,11 @@
             </li>
             <li><a href="{{ url_for('index') }}" class="hvr-rectangle-out">Home</a></li>
             <li><a href="{{ url_for('articles') }}">Articles</a></li>
-            <li><a href="{{ url_for('further_reading') }}" >Further Reading</a></li>
+           
             <li><a href="{{ url_for('contact') }}">Contact</a></li>
             {% if session.user %}
               <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-              <li><a href="{{ url_for('profile', username=session['user']) }}" class="hvr-rectangle-out">Profile</a></li>
+              <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
               <li><a href="{{ url_for('add_article') }}">Contribute</a></li>
               {% if session.user|lower == "admin"|lower %}
                <li><a href="{{ url_for('topics') }}">Topics</a></li>

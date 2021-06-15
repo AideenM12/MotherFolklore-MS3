@@ -75,11 +75,14 @@ def index():
     Links to home page
     """
     articles = mongo.db.articles.find()
-    return render_template("index.html", articles=articles)
+
+    return render_template("index.html",
+                           articles=articles)
 
 
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
+
     return render_template("contact.html")
 
 
@@ -93,6 +96,20 @@ def further_reading():
                            further_reading=further_reading)
 
 
+@app.route("/filter_reading/further_reading/<topic_id>")
+def filter_reading(topic_id):
+    topics = list(mongo.db.topics.find())
+    topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
+
+    further_reading = list(mongo.db.further_reading.find(
+        {"topic_name": topic["topic_name"]}).sort("_id", -1))
+    return render_template("further_reading.html",
+                           further_reading=further_reading,
+                           topic=topic,
+                           topics=topics,
+                           page_title="Further Reading")
+
+
 @app.route("/articles")
 def articles():
     """
@@ -101,11 +118,15 @@ def articles():
     articles = list(mongo.db.articles.find())
     articles_paginate = paginate(articles)
     pagination = pagination_args(articles)
+    topic = mongo.db.topics.find()
+    topics = list(mongo.db.topics.find().sort("topic_name", 1))
 
     return render_template("articles.html",
                            articles=articles_paginate,
                            page_title="Articles",
-                           pagination=pagination)
+                           pagination=pagination,
+                           topic=topic,
+                           topics=topics)
 
 
 @app.route("/search",  methods=["GET", "POST"])
@@ -119,6 +140,7 @@ def search():
                            articles=articles_paginate,
                            page_title="Article Results",
                            pagination=pagination)
+
 
 # The below code was taken from
 # https://wtforms.readthedocs.io/en/stable/crash_course/
