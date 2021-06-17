@@ -146,3 +146,16 @@ label, select, option{
 .highlight{
     font-weight: 800;
 }
+.pagination li a{
+    font-size: 1.5rem;
+}
+.pagination li.active {
+     background-color: #878888 !important;
+     color: #131515; 
+}
+.pagination li.active a{
+    color: #131515;
+}
+.pagination li a:hover{
+color: #ededed;
+}
