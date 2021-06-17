@@ -339,6 +339,7 @@ def edit_article(article_id):
     return redirect(url_for("articles"))
 
 
+
 @app.route("/delete_article/<article_id>")
 def delete_article(article_id):
     """
