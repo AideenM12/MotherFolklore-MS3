@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block content%}
+<main>
 {% if session.user|lower == "admin" %}
+
 <h4 class="center-align">Edit {{ page_title }}</h4>
 {% else %}
 <h4 class="center-align">{{ page_title }}</h4>
@@ -38,4 +40,5 @@
  </div>
  </div>
 </div>
+</main>
 {% endblock %}

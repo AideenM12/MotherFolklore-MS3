@@ -226,6 +226,7 @@ def login():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
+
                 flash("Welcome back {}!".format(
                     request.form.get("username")))
                 return redirect(url_for(
@@ -362,12 +363,13 @@ def delete_article(article_id):
 
 @app.route("/topics")
 def topics():
-    if session["user"] == "admin":
+    if "user" not in session:
+        flash("Please Log in to continue")
+        return redirect(url_for("login"))
+
+    else:
         topics = list(mongo.db.topics.find().sort("topic_name", 1))
         return render_template("topics.html", topics=topics)
-    else:
-        flash("You are not authorized to view this page")
-        return redirect(url_for("profile"))
 
 
 @app.route("/filter/topic/<topic_id>")
@@ -397,6 +399,9 @@ def add_topic():
     if "user" not in session:
         flash("Please Log in to continue")
         return redirect(url_for("login"))
+    elif session["user"].lower() != "admin":
+        flash("You are not authorized to view this page")
+        return redirect(url_for("profile"))
     elif request.method != "POST":
         return render_template("add_topic.html",
                                topics=topics)
