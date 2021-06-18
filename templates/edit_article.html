@@ -16,7 +16,7 @@
                      <option value="" disabled >What is your story about?</option>
                      {% for topic in topics %}
                      {% if topic.topic_name == article.topic_name %}
-                     <option value="{{ topic.topic_name }}" >{{ topic.topic_name }}</option>
+                     <option value="{{ topic.topic_name }}" selected >{{ topic.topic_name }}</option>
                      {% else %}
                      <option value="{{ topic.topic_name }}">{{ topic.topic_name }}</option>
                      {% endif %}

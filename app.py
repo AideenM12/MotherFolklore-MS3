@@ -119,14 +119,23 @@ def articles():
     articles_paginate = paginate(articles)
     pagination = pagination_args(articles)
     topic = mongo.db.topics.find()
-    topics = list(mongo.db.topics.find().sort("topic_name", 1))
+    topic_name = list(mongo.db.topics.find().sort("topic_name", 1))
+
+    topics = {}
+    for article in articles:
+        if article["topic_name"] in topics:
+            topics["article"].append(article._id)
+        else:
+            topics["article"] = article._id
 
     return render_template("articles.html",
                            articles=articles_paginate,
                            page_title="Articles",
                            pagination=pagination,
                            topic=topic,
-                           topics=topics)
+                           topics=topics,
+                           topic_name=topic_name,
+                           article=article)
 
 
 @app.route("/search",  methods=["GET", "POST"])
@@ -339,7 +348,6 @@ def edit_article(article_id):
     return redirect(url_for("articles"))
 
 
-
 @app.route("/delete_article/<article_id>")
 def delete_article(article_id):
     """
@@ -364,13 +372,26 @@ def delete_article(article_id):
 
 @app.route("/topics")
 def topics():
+
     if "user" not in session:
         flash("Please Log in to continue")
         return redirect(url_for("login"))
 
     else:
-        topics = list(mongo.db.topics.find().sort("topic_name", 1))
-        return render_template("topics.html", topics=topics)
+        topic_name = list(mongo.db.topics.find().sort("topic_name", 1))
+        articles = list(mongo.db.articles.get())
+        topics = {}
+        for article in articles:
+            if article["topic"] in topics:
+                topics["article"].append(article._id)
+            else:
+                topics["article"] = article._id
+
+        return render_template("topics.html",
+                               topics=topics,
+                               articles=articles,
+                               article=article,
+                               topic_name=topic_name)
 
 
 @app.route("/filter/topic/<topic_id>")
@@ -384,6 +405,7 @@ def filter_topics(topic_id):
 
     return render_template("articles.html",
                            articles=articles_paginate,
+                           topic=topic,
                            topics=topics,
                            page_title=topic["topic_name"],
                            pagination=pagination)

@@ -8,11 +8,15 @@
 <h4 class="center-align">{{ page_title }}</h4>
 {% endif %}
 
-{% for topic in topics %}
-<div class="container">
-<h3>{{ topic.topic_name }}</h3>
 {% for reading in further_reading %}
-{% if topic.reading_list|length > 0 %}
+<div class="container">
+<h3>{{ reading.topic_name }}</h3>
+
+
+
+
+
+
 <div class="card-panel reading">
     
    <p><span class="highlight">Book title:</span> {{ reading.book_title }}</p><br>
@@ -25,10 +29,11 @@
     </li>
     </ul>
  </div>
- {% endif %}
- {% endfor %}
  {% endfor %}
  
+  
+
+
  </div>
  <p class="center-align">If you have any suggestions for texts which you think could be added to this list feel free to contact us!</p>
  <div class="row">

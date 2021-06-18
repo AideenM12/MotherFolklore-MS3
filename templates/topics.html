@@ -33,7 +33,7 @@
             {% if topic.article_list|length > 0 %}
             <a href="{{ url_for('filter_topics', topic_id=topic._id) }}"
                class="btn" aria-label="view all {{topic}} articles button">
-            View {{ topic.article_list|count }}
+            View ({{ topic.article_list|count }})
             </a>
             <a href="{{ url_for('filter_reading', topic_id=topic._id) }}" class="btn center-align">Further Reading</a>
             {% else %}

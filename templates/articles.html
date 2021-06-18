@@ -25,6 +25,7 @@
    {% if articles|length > 0 %}
    <div class="container">
       <ul class="collapsible ">
+        
          {% for article in articles %}
          <li>
             <!----------Article Title----------->
@@ -71,6 +72,7 @@
             </div>
          </li>
          {% endfor %}
+        
       </ul>
    </div>
    {% else %}
@@ -84,22 +86,7 @@
    </div>
 {% endif %}
 
-   {% for topic in topics %}
-   {% if loop.index == 1 %}
-   
-   <div class="row">
-      <div class="col s4 offset-s4">
-         <div class="card center-align">
-            <div class="card-content">
-          
-            <a href="{{ url_for('filter_reading', topic_id=topic._id) }}" class="btn">Further Reading</a>
-            </div>
-            </div>
-         </div>
-      </div>
-   </div>
-   {% endif %}
-   {% endfor %}
+  
 
 </main>
 {% endblock %}
