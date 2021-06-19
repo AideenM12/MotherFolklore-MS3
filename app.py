@@ -126,7 +126,8 @@ def articles():
         if article["topic_name"] in topics:
             topics["article"].append(article._id)
         else:
-            topics["article"] = article._id
+            print(article["_id"])
+            topics["article_id"] = article["_id"]
 
     return render_template("articles.html",
                            articles=articles_paginate,
@@ -379,13 +380,15 @@ def topics():
 
     else:
         topic_name = list(mongo.db.topics.find().sort("topic_name", 1))
-        articles = list(mongo.db.articles.get())
+        articles = list(mongo.db.articles.find())
+        
         topics = {}
         for article in articles:
-            if article["topic"] in topics:
+            if article["topic_name"] in topics:
                 topics["article"].append(article._id)
             else:
-                topics["article"] = article._id
+                print(article["_id"])
+                topics["article_id"] = article["_id"]
 
         return render_template("topics.html",
                                topics=topics,
