@@ -379,22 +379,21 @@ def topics():
         return redirect(url_for("login"))
 
     else:
-        topic_name = list(mongo.db.topics.find().sort("topic_name", 1))
-        articles = list(mongo.db.articles.find())
-        
-        topics = {}
-        for article in articles:
-            if article["topic_name"] in topics:
-                topics["article"].append(article._id)
+        topics = list(mongo.db.topics.find().sort("topic_name", 1))
+        topic_name = list(mongo.db.topics.find())
+        article_list = {}
+       
+        for topic in topics:
+            if topic["topic_name"] in topics:
+                topic["article_list"].append(topic._id)
             else:
-                print(article["_id"])
-                topics["article_id"] = article["_id"]
-
+                print(topic["_id"])
+                topic["topic_id"] = topic["_id"]
+       
         return render_template("topics.html",
                                topics=topics,
-                               articles=articles,
-                               article=article,
-                               topic_name=topic_name)
+                               topic_name=topic_name,
+                               article_list=article_list)
 
 
 @app.route("/filter/topic/<topic_id>")
