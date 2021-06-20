@@ -8,10 +8,17 @@ body{
     flex-direction: column;
     color: #131515;
     font-weight: 500;
+    font-size: 1.25rem;
 }
 .parallax-container {
     height: 70vh;
   }
+.homecard{
+    background-color: rgba(251, 251, 251, 0.8);
+    padding: 10px;
+    color: rgba(19, 21, 21);
+    margin: 0;
+}
 .login, .sign-up > .parallax-container{
     height: 50vh;
 }
@@ -187,5 +194,14 @@ background-color: #ededed;
     font-size: 1.25rem;
     font-weight: 600;
 }
-
+.homecard{
+    font-size: 1.5rem;
+    padding: 10px !important;
+}
+.homecard > .card-content{
+    padding: 10px !important;
+}
+.homecard-h4{
+    font-size: 1.5rem;
+}
 }
