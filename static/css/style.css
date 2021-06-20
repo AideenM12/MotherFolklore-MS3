@@ -159,3 +159,33 @@ label, select, option{
 .pagination li a:hover{
 color: #ededed;
 }
+
+.collapsible-body {
+    background-color: #ededed;
+    font-size: 1.25rem;
+}
+
+
+@media only screen and (max-width: 576px) {
+.btn{
+    font-size: 12px;
+    outline: 0;
+    margin: 1px;
+}
+.collapsible-body{
+    font-size: 1.35rem;
+}
+.article-image {
+    width: 80%;
+}
+
+.sidenav {
+background-color: #ededed;
+}
+.sidenav li>a {
+    color: #131515;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+}

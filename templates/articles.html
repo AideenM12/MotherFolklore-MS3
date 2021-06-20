@@ -33,7 +33,7 @@
                <div class="row ">
                   <ul class="list-inline">
                      <li>
-                        <h4 class="article-head"> {{ article.article_name }}</h4>
+                        <h4 class="article-head"> {{ article.article_name }}<i class="fas fa-caret-down"></i></h4>
                      </li>
                      <!-----------Edit/Delete Buttons--------->
                      {% if (session.user|lower == article.created_by|lower) or (session.user|lower == "admin") %}
@@ -66,9 +66,9 @@
                {% endif %}
                {{ article.topic_name }}<br>
                {{ article.article_article }}<br>
-               {{ article.location_name }}<br>
-               {{ article.created_by }}<br>
-               {{ article.date_added }}
+               <p><span class="highlight"> Location:</span>{{ article.location_name }}<br></p>
+              <p><span class="highlight">Created by:</span> {{ article.created_by }}</p><br>
+               <p><span class="highlight">Date:</span> {{ article.date_added }}</p>
             </div>
          </li>
          {% endfor %}
