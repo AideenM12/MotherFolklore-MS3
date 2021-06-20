@@ -433,7 +433,7 @@ def add_topic():
     else:
         topic = {
             "topic_name": request.form.get("topic_name"),
-            "article_list": []
+            "article_list": [""]
 
         }
         mongo.db.topics.insert_one(topic)
