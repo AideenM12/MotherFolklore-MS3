@@ -172,7 +172,7 @@ class RegistrationForm(Form):
     username = TextField('Username',
                          [validators.Length(min=4, max=20),
                           validators.Regexp(r'^\w+$', message=(
-                              "Password must contain only letters "
+                              "Username must contain only letters "
                               "numbers or underscore"))])
 
     email = TextField('Email Address', [validators.Length(min=6, max=50)])
@@ -382,14 +382,14 @@ def topics():
         topics = list(mongo.db.topics.find().sort("topic_name", 1))
         topic_name = list(mongo.db.topics.find())
         article_list = {}
-       
+
         for topic in topics:
             if topic["topic_name"] in topics:
                 topic["article_list"].append(topic._id)
             else:
                 print(topic["_id"])
                 topic["topic_id"] = topic["_id"]
-       
+
         return render_template("topics.html",
                                topics=topics,
                                topic_name=topic_name,

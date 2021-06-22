@@ -24,7 +24,7 @@
               <div class="row">
                 <ul class="list-inline">
                   <li>
-                    <h4 class="article-head"> {{ article.article_name }}</h4>
+                    <h4 class="article-head"> {{ article.article_name }}<i class="fas fa-caret-down"></i></h4>
                   </li>
                     {% if session.user|lower == article.created_by|lower %}
                     <li> <a class="article-btn btn " href="{{ url_for('edit_article',article_id=article._id) }}">Edit

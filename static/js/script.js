@@ -4,6 +4,7 @@ $(document).ready(function(){
     $('select').formSelect();
     $('.parallax').parallax();
     $('.modal').modal();
+    $('.dropdown-trigger').dropdown();
     $(".datepicker").datepicker({
       format: "dd mmmm, yyyy",
       yearRange: 3,
@@ -11,7 +12,7 @@ $(document).ready(function(){
       i18n: {
           done: "Select"
       }
-  });
+   });
   });
 
   var csrf_token = "{{ csrf_token() }}";
