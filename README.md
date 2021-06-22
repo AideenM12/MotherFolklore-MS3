@@ -168,7 +168,7 @@ This palette was found on the [Coolors Website](https://coolors.co).
 * A link to the [Sitemap can be found here](assets/documentation/wireframes/Sitemap.pdf)
 
 ## Technologies Used
-- This project is primarily built using HTML5 semantic markup, CSS stylesheets and Javascript.
+- This project is primarily built using HTML5 semantic markup, CSS stylesheets, Javascript, Python, Flask and MongoDB.
 - [jQuery](https://jquery.com/)
     - This framework was used to create some of the site's interactive functions.
 - [Gitpod](https://gitpod.io)
@@ -194,10 +194,7 @@ This palette was found on the [Coolors Website](https://coolors.co).
     - This was used to format each HTML page
 - [Google DevTools](https://developers.google.com/web/tools/chrome-devtools) 
     - Google Dev Tools was extensively used throughout the project for various styling and testing purposes. Its lighthouse feature was used as one of the main testing tools for this project.
-- [Animate.css](https://animate.style/)
-    - Buttons, images and popups were animated using Animate.css.
-- [SweetAlert2](https://sweetalert2.github.io/)
-    - All pop-ups were created using SweetAlert2.
+
 - [EmailJS](https://www.emailjs.com/)
     - The contact-form was created using EmailJS following a code institute tutorial.
 - [CSS-Tricks](https://css-tricks.com/)
@@ -277,7 +274,7 @@ Once the project been loaded into the IDE it is necesscary to install the necess
 ### How to Fork the respository.
 
 1. Log into GitHub.
-2. In Github go to (https://github.com/AideenM12/Childs-Play-English-MS2).
+2. In Github go to (https://github.com/AideenM12/MotherFolklore-MS3).
 3. In the top right hand corner click "Fork".
 
 ## Credits
