@@ -96,6 +96,45 @@ def further_reading():
                            further_reading=further_reading)
 
 
+@app.route("/add_further_reading", methods=["GET", "POST"])
+def add_further_reading():
+    """
+    Allows users to contribute towards the site
+    with their own unique articles
+    """
+    topics = mongo.db.topics.find().sort("topic_name", 1)
+   
+    if "user" not in session:
+        flash("Please Log in to continue")
+        return redirect(url_for("login"))
+    elif session["user"].lower() != "admin":
+        flash("You are not authorized to view this page")
+        return redirect(url_for("profile"))
+    elif request.method != "POST":
+        return render_template("add_further_reading.html",
+                               further_reading=further_reading,
+                               topics=topics)
+    else:
+        reading = {
+            "topic_name": request.form.get("topic_name"),
+            "book_title": request.form.get("book_title"),
+            "website": request.form.get("website"),
+            "article_title": request.form.get("article_title"),
+            "author": request.form.get("author"),
+            "date_published": request.form.get("date_published"),
+            "publisher": request.form.get("publisher"),
+        }
+        mongo.db.further_reading.insert_one(reading)
+        flash("Further Reading contribution successful!")
+        print(topics)
+
+        return redirect(url_for("topics"))
+
+    return render_template("topics.html", topics=topics,
+                           reading=reading,
+                           further_reading=further_reading)
+
+
 @app.route("/filter_reading/further_reading/<topic_id>")
 def filter_reading(topic_id):
     topics = list(mongo.db.topics.find())
