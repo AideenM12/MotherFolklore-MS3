@@ -135,6 +135,41 @@ def add_further_reading():
                            further_reading=further_reading)
 
 
+@app.route("/edit_article/<reading_id>", methods=["GET", "POST"])
+def edit_further_reading(reading_id):
+    """
+    Allows users to edit their contributions to the site
+    """
+    reading = mongo.db.further_reading.find_one({"_id": ObjectId(reading_id)})
+    topics = mongo.db.topics.find().sort("topic_name", 1)
+    
+
+    if "user" not in session:
+        flash("Please Log in to continue")
+        return redirect(url_for("login"))
+    elif session["user"].lower() != "admin":
+        flash("You are not authorized to view this page")
+        return redirect(url_for("profile"))
+
+    elif request.method != "POST":
+        return render_template("edit_further_reading.html", reading=reading,
+                               topics=topics)
+    
+    else:
+        adjust = {
+             "topic_name": request.form.get("topic_name"),
+            "book_title": request.form.get("book_title"),
+            "website": request.form.get("website"),
+            "article_title": request.form.get("article_title"),
+            "author": request.form.get("author"),
+            "date_published": request.form.get("date_published"),
+            "publisher": request.form.get("publisher"),
+        }
+        mongo.db.further_reading.update({"_id": ObjectId(reading_id)}, adjust)
+        flash("Article update successful!")
+
+    return redirect(url_for("topics"))
+
 @app.route("/filter_reading/further_reading/<topic_id>")
 def filter_reading(topic_id):
     topics = list(mongo.db.topics.find())
