@@ -20,10 +20,15 @@
 
 
 <div class="card-panel reading">
-    
+   {% if reading.book_title %}
    <p><span class="highlight">Book title:</span> {{ reading.book_title }}</p><br>
+   {% endif %}
+   {% if reading.website %}
     <p><span class="highlight">Website:</span> {{ reading.website }}</p><br>
+    {% endif %}
+    {% if reading.article_title %}
    <p><span class="highlight"> Article title:</span> {{ reading.article_title }}</p><br>
+   {% endif %}
    <p><span class="highlight">Author:</span>{{ reading.author }}</p><br>
    <p><span class="highlight">Date Published:</span> {{ reading.date_published }}</p><br>
    <p><span class="highlight">Publisher: </span> {{ reading.publisher }}</p><br>
