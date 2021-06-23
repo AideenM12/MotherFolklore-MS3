@@ -103,7 +103,7 @@ def add_further_reading():
     with their own unique articles
     """
     topics = mongo.db.topics.find().sort("topic_name", 1)
-   
+
     if "user" not in session:
         flash("Please Log in to continue")
         return redirect(url_for("login"))
@@ -142,7 +142,6 @@ def edit_further_reading(reading_id):
     """
     reading = mongo.db.further_reading.find_one({"_id": ObjectId(reading_id)})
     topics = mongo.db.topics.find().sort("topic_name", 1)
-    
 
     if "user" not in session:
         flash("Please Log in to continue")
@@ -154,7 +153,7 @@ def edit_further_reading(reading_id):
     elif request.method != "POST":
         return render_template("edit_further_reading.html", reading=reading,
                                topics=topics)
-    
+
     else:
         adjust = {
              "topic_name": request.form.get("topic_name"),
@@ -169,6 +168,27 @@ def edit_further_reading(reading_id):
         flash("Article update successful!")
 
     return redirect(url_for("topics"))
+
+
+@app.route("/delete_further_reading/<reading_id>")
+def delete_further_reading(reading_id):
+    """
+    Allows users to delete their contributions to site
+    """
+    reading = mongo.db.further_reading.find_one({"_id": ObjectId(reading_id)})
+
+    if "user" not in session:
+        flash("Please Log in to continue")
+        return redirect(url_for("login"))
+
+    elif session["user"].lower() != "admin":
+        flash("You are not authorized to view this page")
+        return redirect(url_for("profile"))
+    else:
+        mongo.db.further_reading.remove({"_id": ObjectId(reading_id)})
+        flash("Material successfully deleted.")
+        return redirect(url_for("topics", reading=reading))
+
 
 @app.route("/filter_reading/further_reading/<topic_id>")
 def filter_reading(topic_id):
