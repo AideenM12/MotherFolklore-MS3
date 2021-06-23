@@ -7,11 +7,11 @@
 {% else %}
 <h4 class="center-align">{{ page_title }}</h4>
 {% endif %}
-
-{% for reading in further_reading %}
 <div class="container">
+{% for reading in further_reading %}
+
    {% if loop.index == 1 %}
-<h3>{{ reading.topic_name }}</h3>
+<h3 class="center-align">{{ reading.topic_name }}</h3>
 {% endif %}
 
 
@@ -30,7 +30,7 @@
   
     </li>
     </ul>
- </div>
+ 
  {% if session.user|lower == "admin" %}
          <div class="card-action center-align">
             <a href="{{ url_for('edit_further_reading', reading_id=reading._id) }}" class="btn">Edit</a>
@@ -46,6 +46,7 @@
                   <a href="{{ url_for('topics') }}" class="modal-close  btn">Cancel</a>
                </div>
             </div>
+         </div>
          </div>
          {% endif %}
  {% endfor %}

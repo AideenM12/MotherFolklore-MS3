@@ -36,16 +36,6 @@ mongo = PyMongo(app)
 # return render_template("500.html", error=error), 500
 
 
-# @app.errorhandler(400)
-# def bad_request(error):
-# return render_template("400.html", error=error), 400
-
-
-# @app.errorhandler(401)
-# def unauthorized_access(error):
-#  return render_template("401.html", error=error), 401
-
-
 # @app.errorhandler(404)
 # def error404(e):
 # return render_template('404.html'), 404
