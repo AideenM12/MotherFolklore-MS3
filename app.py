@@ -146,7 +146,7 @@ def edit_further_reading(reading_id):
 
     else:
         adjust = {
-             "topic_name": request.form.get("topic_name"),
+            "topic_name": request.form.get("topic_name"),
             "book_title": request.form.get("book_title"),
             "website": request.form.get("website"),
             "article_title": request.form.get("article_title"),
