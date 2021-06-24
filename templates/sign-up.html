@@ -7,12 +7,13 @@
       <div class="parallax"><img src="static/images/childrenoflir.jpg"></div>
    </div>
    <!-------Heading-------->
+   <div class="container">
    <div class = "row">
       <h4 class="center-align">Register</h4>
       <br>
 	  <!---------Registration Form--------->
       {% from "_formhelpers.html" import render_field %}
-      <form method="POST" action="{{ url_for('registration') }}" class="card-panel">
+      <form method="POST" action="{{ url_for('registration') }}" class="card-panel s8 offset-s2">
          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
          <dl>
             {{render_field(form.username)}}
@@ -25,6 +26,7 @@
       {% if error %}
       <p class="error"><strong>Error:</strong>{{error}}</p>
       {% endif %}
+   </div>
    </div>
    <!-------Parallax Container------->
    <div class="parallax-container">
