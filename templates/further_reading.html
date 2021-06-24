@@ -7,35 +7,30 @@
 {% else %}
 <h4 class="center-align">{{ page_title }}</h4>
 {% endif %}
+
+
+
 <div class="container">
 {% for reading in further_reading %}
-
-   {% if loop.index == 1 %}
+{% if loop.index == 1 %}
 <h3 class="center-align">{{ reading.topic_name }}</h3>
 {% endif %}
 
-
-
-
-
-
+<div class="row">
 <div class="card-panel reading">
    {% if reading.book_title %}
    <p><span class="highlight">Book title:</span> {{ reading.book_title }}</p><br>
    {% endif %}
    {% if reading.website %}
-    <p><span class="highlight">Website:</span> {{ reading.website }}</p><br>
-    {% endif %}
-    {% if reading.article_title %}
+   <p><span class="highlight">Website:</span> {{ reading.website }}</p><br>
+   {% endif %}
+   {% if reading.article_title %}
    <p><span class="highlight"> Article title:</span> {{ reading.article_title }}</p><br>
    {% endif %}
    <p><span class="highlight">Author:</span>{{ reading.author }}</p><br>
    <p><span class="highlight">Date Published:</span> {{ reading.date_published }}</p><br>
    <p><span class="highlight">Publisher: </span> {{ reading.publisher }}</p><br>
-  
-    </li>
-    </ul>
- 
+
  {% if session.user|lower == "admin" %}
          <div class="card-action center-align">
             <a href="{{ url_for('edit_further_reading', reading_id=reading._id) }}" class="btn">Edit</a>
@@ -53,10 +48,12 @@
             </div>
          </div>
          </div>
+         </div>
+         </div>
          {% endif %}
  {% endfor %}
+
  
-  
 
 
  </div>

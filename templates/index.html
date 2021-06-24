@@ -17,8 +17,67 @@
   <div class="parallax"><img src="static/images/childrenoflir.jpg">
       </div>
   </div>
+  {% if session.user %}
   <div class="row">
     <div class="col s12 ">
+      <div class="card ">
+         <div class="card-content center-align ">
+  <p>Welcome back to MotherFolklore. A site created with amateur Irish folklore fanatics in mind! Here you can explore different stories of Irish folklore from across the country and from different eras and even contribute your own! To continue your journey simply click articles, if you'd like to search based on topic please click topics. Also if you've got somehing you'd like to share with us simply click contribute to add your own tales to the site!</p>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  <div class="row">
+    <div class="col l4 s12 ">
+      <div class="card ">
+         <div class="card-content center-align ">
+            <span class="card-title">Articles</span>
+            <p>Welcome back! Click here to continue your journey and discover something new! Or revisit favourite stories!
+            </p>
+         </div>
+         <div class=" center-align card-action">
+         
+          <a href="{{ url_for('articles') }}" class="btn">Articles </a>
+         
+       </div>
+         </div>
+         </div>
+         <div class="row">
+          <div class="col l4 s12 ">
+            <div class="card ">
+               <div class="card-content center-align ">
+                  <span class="card-title">Topics</span>
+                  <p>Click here to search based on individual topics and grow your knowledge!
+                    A small bibliography of further reading is also available here.
+                  </p>
+               </div>
+               <div class=" center-align card-action">
+               
+                <a href="{{ url_for('topics') }}" class="btn">Topics </a>
+               
+             </div>
+               </div>
+               </div>
+         <div class="col l4 s12">
+         <div class="card ">
+          <div class="card-content center-align ">
+             <span class="card-title">Contribute!</span>
+             <p>Got something you'd like to share? Click here to add your own stories and help build our community!
+             </p>
+          </div>
+          <div class=" center-align card-action">
+         
+            <a href="{{ url_for('add_article') }}" class="btn">Contribute </a>
+           
+         </div>
+          </div>
+          </div>
+
+</div>
+  {% else %}
+  <div class="row">
+    <div class="col l8 offset-l2 s12">
       <div class="card ">
          <div class="card-content center-align ">
   <p>Welcome to MotherFolklore. A site created with amateur Irish folklore fanatics in mind! Here you can explore different stories of Irish folklore from across the country and from different eras and even contribute your own! To create your very own profile simply click Register! If you are already a user please click login to continue exploring!</p>
@@ -27,7 +86,7 @@
   </div>
   </div>
   <div class="row">
-    <div class="col s6 ">
+    <div class="col l4 push-l6 s12 ">
       <div class="card ">
          <div class="card-content center-align ">
             <span class="card-title">Register</span>
@@ -41,11 +100,11 @@
        </div>
          </div>
          </div>
-         <div class="col s6 ">
+         <div class="col l4 pull-l2 s12">
          <div class="card ">
           <div class="card-content center-align ">
              <span class="card-title">Log In</span>
-             <p>Already a member? Click here to jump back in!
+             <p>Already a member? Click here to jump back in and continue the journey!
              </p>
           </div>
           <div class=" center-align card-action">
@@ -57,6 +116,7 @@
           </div>
 
 </div>
+{% endif %}
 <div class="parallax-container">
   <div class="parallax"><img src="static/images/banshee3.jpg"></div>
 </div>

@@ -99,7 +99,7 @@ def add_further_reading():
         return redirect(url_for("login"))
     elif session["user"].lower() != "admin":
         flash("You are not authorized to view this page")
-        return redirect(url_for("profile"))
+        return redirect(url_for("topics"))
     elif request.method != "POST":
         return render_template("add_further_reading.html",
                                further_reading=further_reading,
@@ -138,7 +138,7 @@ def edit_further_reading(reading_id):
         return redirect(url_for("login"))
     elif session["user"].lower() != "admin":
         flash("You are not authorized to view this page")
-        return redirect(url_for("profile"))
+        return redirect(url_for("topics"))
 
     elif request.method != "POST":
         return render_template("edit_further_reading.html", reading=reading,
@@ -173,7 +173,7 @@ def delete_further_reading(reading_id):
 
     elif session["user"].lower() != "admin":
         flash("You are not authorized to view this page")
-        return redirect(url_for("profile"))
+        return redirect(url_for("topics"))
     else:
         mongo.db.further_reading.remove({"_id": ObjectId(reading_id)})
         flash("Material successfully deleted.")
@@ -416,7 +416,7 @@ def edit_article(article_id):
 
     elif session["user"] != article_creator and session["user"] != "admin":
         flash("You are not authorized to edit this material")
-
+        return redirect(url_for("articles"))
     else:
         adjust = {
             "topic_name": request.form.get("topic_name"),
@@ -510,7 +510,7 @@ def add_topic():
         return redirect(url_for("login"))
     elif session["user"].lower() != "admin":
         flash("You are not authorized to view this page")
-        return redirect(url_for("profile"))
+        return redirect(url_for("topics"))
     elif request.method != "POST":
         return render_template("add_topic.html",
                                topics=topics)
@@ -544,6 +544,7 @@ def edit_topic(topic_id):
 
     elif session["user"] != session["user"] != "admin":
         flash("You are not authorized to edit this material")
+        return redirect(url_for("topics"))
 
     else:
         adjust = {
