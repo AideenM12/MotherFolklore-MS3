@@ -184,11 +184,14 @@ color: #ededed;
 
 
 @media only screen and (max-width: 576px) {
-    html, body {
+html, body {
         max-width: 100%;
         overflow-x: hidden;
         height:auto!important;
     }
+.parallax-container{
+    height: 250px;
+}
 .btn{
     font-size: 12px;
     outline: 0;
