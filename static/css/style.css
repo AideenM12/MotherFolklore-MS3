@@ -181,8 +181,9 @@ color: #ededed;
     background-color: #ededed;
     font-size: 1.25rem;
 }
-
-
+/*.contact-card{
+    width: 300px;
+}*/
 @media only screen and (max-width: 576px) {
 html, body {
         max-width: 100%;
@@ -196,6 +197,12 @@ html, body {
     font-size: 12px;
     outline: 0;
     margin: 1px;
+}
+.contact-btn{
+    width: 150px;
+}
+.contact-card{
+    width: fit-content;
 }
 .collapsible-body{
     font-size: 1.35rem;
