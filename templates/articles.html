@@ -5,6 +5,7 @@
    <h3 class="center-align">{{ page_title }}</h3>
    <div class="container">
       <div class="row">
+         <!----------Search Bar------------->
          <form action="{{ url_for('search') }}" method="POST" class="card-panel">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
             <div class="row valign-wrapper center-align">
@@ -14,7 +15,7 @@
                </div>
                <div class="col s12 m4">
                   <button type="submit" class=" btn text-shadow">
-                     <i class="fas fa-search left"></i> Search
+                  <i class="fas fa-search left"></i> Search
                   </button>
                   <a href="{{ url_for('articles') }}" class=" btn text-shadow">Reset</a>
                </div>
@@ -22,10 +23,10 @@
          </form>
       </div>
    </div>
+   <!-----------Articles Container---------->
    {% if articles|length > 0 %}
    <div class="container">
       <ul class="collapsible ">
-        
          {% for article in articles %}
          <li>
             <!----------Article Title----------->
@@ -38,10 +39,11 @@
                      <!-----------Edit/Delete Buttons--------->
                      {% if (session.user|lower == article.created_by|lower) or (session.user|lower == "admin") %}
                      <li><a class="article-btn btn  " href="{{ url_for('edit_article',article_id=article._id) }}">Edit
-                           Article</a>
+                        Article</a>
                      </li>
-                     <li><a class="article-btn btn modal-trigger" href="#delete-modal-{{ article._id }}">Delete
-                           Article</a>
+                     <li>
+                        <a class="article-btn btn modal-trigger" href="#delete-modal-{{ article._id }}">Delete
+                        Article</a>
                         <!---------Delete Modal------------>
                         <div id="delete-modal-{{article._id}}" class="modal">
                            <div class="modal-content">
@@ -67,26 +69,24 @@
                {{ article.topic_name }}<br>
                {{ article.article_article }}<br>
                <p><span class="highlight"> Location:</span>{{ article.location_name }}<br></p>
-              <p><span class="highlight">Created by:</span> {{ article.created_by }}</p><br>
+               <p><span class="highlight">Created by:</span> {{ article.created_by }}</p>
+               <br>
                <p><span class="highlight">Date:</span> {{ article.date_added }}</p>
             </div>
          </li>
          {% endfor %}
-        
       </ul>
    </div>
    {% else %}
    <h3 class="center-align">No Results Found</h3>
    {% endif %}
+   <!--------Pagination Links--------->
    {% if pagination.links %}
    <div class="container">
       <div class="card-panel small center-align page-links">
          {{ pagination.links }}
       </div>
    </div>
-{% endif %}
-
-  
-
+   {% endif %}
 </main>
 {% endblock %}

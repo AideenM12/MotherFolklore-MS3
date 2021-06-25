@@ -131,13 +131,15 @@ a:hover {
 }
 
 
-/*------Forms------*/
+/*------Forms and cards------*/
 
 form {
 	background-color: #fbfbfb !important;
 	padding: 20px !important;
 }
-
+.card, .card-panel{
+	background-color: #fbfbfb;
+}
 label,
 select,
 option {

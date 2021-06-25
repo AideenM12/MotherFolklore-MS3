@@ -123,7 +123,7 @@ The primary goal of this site is to facillate Irish History lovers to be able to
 
  
 
-<img src="assets/documentation/doc-images/MS3palette.png" width="450" height="250" alt="milestone palette">
+<img src="assets/documentation/doc-images/MS3-Palette.png" width="450" height="250" alt="milestone palette">
 
 This palette was found on the [Coolors Website](https://coolors.co).
 

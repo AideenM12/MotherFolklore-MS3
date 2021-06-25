@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 <!---------Import Email Js------------->
-
 <script type="text/javascript"
    src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
 <script type="text/javascript">
@@ -11,51 +10,51 @@
 </script>
 <!-----------Contact Page Main Body------->
 <main>
-  <!--------Parallax Container-------->
-  <div class="parallax-container login">
-     <div class="parallax"><img src="static/images/childrenoflir.jpg"></div>
-  </div>
-  <!----------------Contact Form------------>
-  <h3 class="center-align">Contact Us!</h3>
-  <!-----Submission Thank you message------->
-  <div class="container">
-     <div class="row">
-        <div class="card">
-           <div id="thanks" style="display: none" class="center-align">
-              <p class="text-center" id="thank-you-msg"></p>
-           </div>
-        </div>
-     </div>
-  </div>
-  <!--------------Form Fields--------------->
-  <div class="container">
-     <div class="row">
-        <form onsubmit="return sendMail(this);" method="POST" class="col s12" id="contactUs">
-           <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
-           <div class="input-field col s6">
-              <input placeholder="name" id="name" type="text" class="validate" required>
-              <label for="name"> Name</label>
-           </div>
-           <div class="input-field col s12">
-              <input id="emailaddress" type="email" class="validate" required>
-              <label for="emailaddress">Email</label>
-           </div>
-           <div class="input-field col s12">
-              <textarea id="textarea" class="materialize-textarea" required></textarea>
-              <label for="textarea">Your message</label>
-           </div>
-           <div class="center-align col s12">
-              <button class="btn" id="contact-btn" type="submit" onsubmit="thankYou()">Submit</button>
-           </div>
-        </form>
-     </div>
-  </div>
-  <!-----------Parallax Container------------->
-  <div class="parallax-container">
-     <div class="parallax"><img src="static/images/banshee3.jpg"></div>
-  </div>
+   <!--------Parallax Container-------->
+   <div class="parallax-container login">
+      <div class="parallax"><img src="static/images/childrenoflir.jpg"></div>
+   </div>
+   <!----------------Contact Form------------>
+   <h3 class="center-align">Contact Us!</h3>
+   <!-----Submission Thank you message------->
+   <div class="container">
+      <div class="row">
+         <div class="card">
+            <div id="thanks" style="display: none" class="center-align">
+               <p class="text-center" id="thank-you-msg"></p>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!--------------Form Fields--------------->
+   <div class="container">
+      <div class="row">
+         <form onsubmit="return sendMail(this);" method="POST" class="col s12" id="contactUs">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+            <div class="input-field col s6">
+               <input placeholder="name" id="name" type="text" class="validate" required>
+               <label for="name"> Name</label>
+            </div>
+            <div class="input-field col s12">
+               <input id="emailaddress" type="email" class="validate" required>
+               <label for="emailaddress">Email</label>
+            </div>
+            <div class="input-field col s12">
+               <textarea id="textarea" class="materialize-textarea" required></textarea>
+               <label for="textarea">Your message</label>
+            </div>
+            <div class="center-align col s12">
+               <button class="btn" id="contact-btn" type="submit" onsubmit="thankYou()">Submit</button>
+            </div>
+         </form>
+      </div>
+   </div>
+   <!-----------Parallax Container------------->
+   <div class="parallax-container">
+      <div class="parallax"><img src="static/images/banshee3.jpg"></div>
+   </div>
 </main>
 <script src="{{ url_for('static', filename='js/email.js') }}"></script>
-      {% block scripts%}
-      {% endblock %}
+{% block scripts%}
+{% endblock %}
 {% endblock %}
