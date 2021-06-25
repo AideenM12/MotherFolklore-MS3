@@ -125,7 +125,7 @@ def add_further_reading():
                            further_reading=further_reading)
 
 
-@app.route("/edit_article/<reading_id>", methods=["GET", "POST"])
+@app.route("/edit_further_reading/<reading_id>", methods=["GET", "POST"])
 def edit_further_reading(reading_id):
     """
     Allows users to edit their contributions to the site
@@ -155,7 +155,7 @@ def edit_further_reading(reading_id):
             "publisher": request.form.get("publisher"),
         }
         mongo.db.further_reading.update({"_id": ObjectId(reading_id)}, adjust)
-        flash("Article update successful!")
+        flash("Material update successful!")
 
     return redirect(url_for("topics"))
 
