@@ -28,6 +28,12 @@
 
 # MotherFolklore
 
+
+![Website MockUp](assets/documentation/doc-images/MS3-Mockup.png)
+
+The live website can be viewed [here](https://motherfolklore.herokuapp.com/)
+
+
 # UX
 
 ## Strategy
