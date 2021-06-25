@@ -1,248 +1,314 @@
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Metal+Mania&display=swap');
+body {
+	font-family: 'IM Fell English SC', sans-serif;
+	background-color: #c1c2c2;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	color: #131515;
+	font-weight: 500;
+	font-size: 1.25rem;
+}
 
-body{
-    font-family: 'IM Fell English SC', sans-serif;
-    background-color: #c1c2c2;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    color: #131515;
-    font-weight: 500;
-    font-size: 1.25rem;
-}
-.parallax-container {
-    height: 70vh;
-  }
-.homecard{
-    background-color: rgba(251, 251, 251, 0.8);
-    padding: 10px;
-    color: rgba(19, 21, 21);
-    margin: 0;
-}
-.login, .sign-up > .parallax-container{
-    height: 50vh;
-}
 main {
-    flex: 1 0 auto;
-    
-  }
+	flex: 1 0 auto;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
-h6, .brand-logo{
-    font-family: 'Metal Mania', sans-serif;
+h6,
+.brand-logo {
+	font-family: 'Metal Mania', sans-serif;
 }
-nav i{
-    font-size: 1rem;
+
+
+/*---------------Navigation-----------*/
+
+nav i {
+	font-size: 1rem;
 }
+
+.fa-bars {
+	font-size: 1.5rem;
+}
+
 .dropdown-content {
-background-color: #ededed;
+	background-color: #ededed;
 }
-.dropdown-content li>a, .dropdown-content li>span {
-color: #131515;
+
+.dropdown-content li>a,
+.dropdown-content li>span {
+	color: #131515;
 }
-nav, .page-footer{
-    background-color: #131515;
-    color: #ededed;
+
+.select-wrapper input.select-dropdown {
+	font-family: 'IM Fell English SC', sans-serif;
 }
-.page-footer{
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    padding-bottom: 0;
-    padding-top: 0;
-    margin-top: 0;
-    margin-bottom: 0;
+
+.dropdown-content li>span {
+	color: #131515;
+}
+
+nav,
+.page-footer {
+	background-color: #131515;
+	color: #ededed;
+}
+
+li>a {
+	color: #ededed;
+	font-size: 20px;
 }
 
 
-a:hover {
-	color: #878888;
-	background-color:#131515 ;
-	
+/*--------------Footer--------*/
+
+.page-footer {
+	width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+	padding-bottom: 0;
+	padding-top: 0;
+	margin-top: 0;
+	margin-bottom: 0;
 }
-.hvr-rectangle-out:hover{
-    background: rgba(19, 21, 21, 0.8 );
-    
+
+footer>h5 {
+	padding-top: 10px;
+	margin-top: 0;
+	margin-bottom: 0;
 }
-/*--------Found on Stack Overflow-------*/
-.list-inline {
-    padding-left: 0;
-    margin-left: -5px;
-    list-style: none;
-    padding-top: 10px;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  .list-inline > li {
-    display: inline-block;
-    padding-right: 5px;
-    padding-left: 5px;
-  }
-li > a{
-    color: #ededed ;
-    font-size: 20px;
+
+
+/*----------Parallax Container------*/
+
+.parallax-container {
+	height: 70vh;
 }
-footer > h5{
-    padding-top: 10px;
-    margin-top: 0;
-    margin-bottom: 0;
+
+.homecard {
+	background-color: rgba(251, 251, 251, 0.8);
+	padding: 10px;
+	color: rgba(19, 21, 21);
+	margin: 0;
 }
-.input-field{
-    padding: 20px;
+
+.login,
+.sign-up>.parallax-container {
+	height: 50vh;
 }
-.input-field > label{
-    color: #131515;
-    font-size: 1rem;
-    
-    
-}
+
+
+/*---------Buttons and Links------*/
+
 button,
 .register-btn,
 .btn,
 .article-btn,
-.modal > a{
-    background-color: #131515;
-    color: #ededed;
-    font-family: 'IM Fell English SC', sans-serif;
-    font-size: 1.25rem !important;
-    text-transform: none;
-    margin: 1px;
+.modal>a {
+	background-color: #131515;
+	color: #ededed;
+	font-family: 'IM Fell English SC', sans-serif;
+	font-size: 1.25rem !important;
+	text-transform: none;
+	margin: 1px;
 }
-button:hover, button:focus, .btn:hover, .btn:focus{
-    background-color: #878888;
-    color: #131515;
+
+button:hover,
+button:focus,
+.btn:hover,
+.btn:focus {
+	background-color: #878888;
+	color: #131515;
 }
-form{
-    background-color: #fbfbfb !important;
-    padding: 20px !important;
-       
+
+a:hover {
+	color: #878888;
+	background-color: #131515;
 }
 
 
-label, select, option{
-    color: #131515;
-    font-size: 1rem;
-    font-weight: 600;
-}
-.article-image{
-    display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
-}
-.select-wrapper input.select-dropdown{
-    font-family: 'IM Fell English SC', sans-serif;
-}
-.dropdown-content li>span{
-    color: #131515;
-}
-.article-head{
-    margin-right: 5vw;
+/*------Forms------*/
+
+form {
+	background-color: #fbfbfb !important;
+	padding: 20px !important;
 }
 
-#thanks, .modal{
-    font-size: 1.5rem;
-    font-weight: 800;
+label,
+select,
+option {
+	color: #131515;
+	font-size: 1rem;
+	font-weight: 600;
 }
-.modal{
-    text-align: center !important;
-    background-color: #ededed;
-    color: #131515;
+
+.input-field {
+	padding: 20px;
 }
-.modal-footer{
-    text-align: center !important;
-    background-color: #ededed !important;
+
+.input-field>label {
+	color: #131515;
+	font-size: 1rem;
 }
-.reading{
-    font-size: 1.25rem;
-    line-height: 0;
+
+
+/*--------Article Dropdown Content-----*/
+
+.article-head {
+	margin-right: 5vw;
 }
-.highlight{
-    font-weight: 800;
-}
-.pagination li a{
-    font-size: 1.5rem;
-}
-.pagination li.active {
-     background-color: #878888 !important;
-     color: #131515; 
-}
-.pagination li.active a{
-    color: #131515;
-}
-.pagination li a:hover{
-color: #ededed;
+
+.article-image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
 }
 
 .collapsible-body {
-    background-color: #ededed;
-    font-size: 1.25rem;
+	background-color: #ededed;
+	font-size: 1.25rem;
 }
-.fa-bars{
-    font-size: 1.5rem;
+
+
+/*--Bootstrap inline list style Found on Stack Overflow--*/
+
+.list-inline {
+	padding-left: 0;
+	margin-left: -5px;
+	list-style: none;
+	padding-top: 10px;
+	margin-top: 0;
+	margin-bottom: 0;
 }
-/*.contact-card{
-    width: 300px;
-}*/
+
+.list-inline>li {
+	display: inline-block;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+
+/*---End Credit---*/
+
+li>a {
+	color: #ededed;
+	font-size: 20px;
+}
+
+
+/*---------------Modals---------*/
+
+#thanks,
+.modal {
+	font-size: 1.5rem;
+	font-weight: 800;
+}
+
+.modal {
+	text-align: center !important;
+	background-color: #ededed;
+	color: #131515;
+}
+
+.modal-footer {
+	text-align: center !important;
+	background-color: #ededed !important;
+}
+
+
+/*--------Further Reading Card-----*/
+
+.reading {
+	font-size: 1.25rem;
+	line-height: 0;
+}
+
+.highlight {
+	font-weight: 800;
+}
+
+
+/*--------------Pagination-----*/
+
+.pagination li a {
+	font-size: 1.5rem;
+}
+
+.pagination li.active {
+	background-color: #878888 !important;
+	color: #131515;
+}
+
+.pagination li.active a {
+	color: #131515;
+}
+
+.pagination li a:hover {
+	color: #ededed;
+}
 
 @media only screen and (min-width: 577px) and (max-width:992px) {
-    .parallax-container{
-        height: 450px;
-    }
-    .article-image{
-        width: 80%;
-    }
+	.parallax-container {
+		height: 450px;
+	}
+	.article-image {
+		width: 80%;
+	}
 }
 
 @media only screen and (max-width: 576px) {
-html, body {
-        max-width: 100%;
-        overflow-x: hidden;
-        height:auto !important;
-    }
-.parallax-container{
-    height: 250px;
-}
-button, .btn{
-    font-size: 1.2rem !important;
-    outline: 0;
-    margin: 1px;
-}
-
-.contact-btn{
-    width: 150px;
-}
-.contact-card{
-    width: fit-content;
-}
-.collapsible-body{
-    font-size: 1.35rem;
-}
-.article-image {
-    width: 90%;
-}
-
-.sidenav {
-background-color: #ededed;
-}
-.sidenav li>a {
-    color: #131515;
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-.homecard{
-    font-size: 1.5rem;
-    padding: 10px !important;
-}
-.homecard > .card-content{
-    padding: 10px !important;
-}
-.homecard-h4{
-    font-size: 1.5rem;
-}
-
-
+	html,
+	body {
+		max-width: 100%;
+		overflow-x: hidden;
+		height: auto !important;
+	}
+	/*-----------Navigation-------*/
+	.sidenav {
+		background-color: #ededed;
+	}
+	.sidenav li>a {
+		color: #131515;
+		font-size: 1.25rem;
+		font-weight: 600;
+	}
+	/*----Parallax Container---*/
+	.parallax-container {
+		height: 250px;
+	}
+	.homecard {
+		font-size: 1.5rem;
+		padding: 10px !important;
+	}
+	.homecard>.card-content {
+		padding: 10px !important;
+	}
+	.homecard-h4 {
+		font-size: 1.5rem;
+	}
+	/*-----Buttons----*/
+	button,
+	.btn {
+		font-size: 1.2rem !important;
+		outline: 0;
+		margin: 1px;
+	}
+	.contact-btn {
+		width: 150px;
+	}
+	.contact-card {
+		width: fit-content;
+	}
+	/*---Article Dropdown Content---*/
+	.collapsible-body {
+		font-size: 1.35rem;
+	}
+	.article-image {
+		width: 90%;
+	}
 }
