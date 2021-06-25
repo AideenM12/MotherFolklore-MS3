@@ -18,6 +18,7 @@ if os.path.exists("env.py"):
 # Articles pagination limit
 PER_PAGE = 6
 
+# Flask app setup
 app = Flask(__name__)
 csrf = CSRFProtect(app)
 
@@ -30,23 +31,16 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-
-# @app.errorhandler(500)
-# def server_error(error):
-# return render_template("500.html", error=error), 500
-
-
-# @app.errorhandler(404)
-# def error404(e):
-# return render_template('404.html'), 404
+# Pagination
+"""Credit: Ed Bradley\
+@ https://github.com/Edb83/self-isolution/blob/master/app.py
+"""
 
 
-# https://github.com/Edb83/self-isolution/blob/master/app.py
 def paginate(articles):
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page')
     offset = page * PER_PAGE - PER_PAGE
-
     return articles[offset: offset + PER_PAGE]
 
 
@@ -54,31 +48,38 @@ def pagination_args(articles):
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page')
     total = len(articles)
-
     return Pagination(page=page, per_page=PER_PAGE, total=total)
+
+
+"""
+End Credit
+"""
 
 
 @app.route("/")
 @app.route("/index")
 def index():
     """
-    Links to home page
+    Links to home page when using the main website link
     """
     articles = mongo.db.articles.find()
-
     return render_template("index.html",
                            articles=articles)
 
 
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
+    """
+    Links to contact page
+    """
     return render_template("contact.html")
 
 
 @app.route("/articles")
 def articles():
     """
-    Links articles from db to site
+    Links articles from database to site and displays all
+    articles
     """
     articles = list(mongo.db.articles.find())
     articles_paginate = paginate(articles)
@@ -106,6 +107,10 @@ def articles():
 
 @app.route("/search",  methods=["GET", "POST"])
 def search():
+    """
+    Returns search results from user input query based on indexes
+    of article name, article content and topic name.
+    """
     query = request.form.get("query")
     articles = list(mongo.db.articles.find({"$text": {"$search": query}}))
     articles_paginate = paginate(articles)
@@ -117,23 +122,35 @@ def search():
                            pagination=pagination)
 
 
-# The below code was taken from
-# https://wtforms.readthedocs.io/en/stable/crash_course/
+"""
+The below code was taken from
+https://wtforms.readthedocs.io/en/stable/crash_course/
+"""
 
 
 class LoginForm(Form):
-
-    # Form fields for user login
-
+    """
+    Form fields for user login
+    """
     username = TextField('Username')
     password = PasswordField('Password')
 
 
-# This below code was found on Python Programming.net
+"""
+End Credit
+"""
+
+"""
+The below code was found on
+https://pythonprogramming.net/flask-registration-tutorial/
+"""
+
+
 class RegistrationForm(Form):
-
-    # Form fields and validators for registration
-
+    """
+    Form fields and validators for registration,
+    WTForms is used to validate the registration form fields.
+    """
     username = TextField('Username',
                          [validators.Length(min=4, max=20),
                           validators.Regexp(r'^\w+$', message=(
@@ -155,8 +172,8 @@ class RegistrationForm(Form):
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
     """
-    Allows users to sign up to the site and
-    send data to the database
+    Allows users to sign up to the site, create an account profile
+    and send data to the database
     """
     try:
         form = RegistrationForm(request.form)
@@ -191,6 +208,8 @@ def registration():
 def login():
     """
     Allows users to login and access their profile
+    by checking their password and username to make sure
+    it corresponds with the users collection in the database.
     """
     form = LoginForm(request.form)
     if request.method == 'POST' and form.validate():
@@ -220,7 +239,10 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     """
-    Links users to their profiles
+    Links users to their profiles by checking the session username
+    against the users collection in the database. Profile page
+    displays all the user's contributions upon successful
+    log in.
     """
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -238,6 +260,8 @@ def profile(username):
 def logout():
     """
     Allows users to logout of their profile
+    by removing users from session cookie and redirects
+    to log in page.
     """
     flash("You have logged out successfully!")
     session.pop("user")
@@ -248,7 +272,8 @@ def logout():
 def add_article():
     """
     Allows users to contribute towards the site
-    with their own unique articles
+    with their own unique articles and stores articles
+    in MongoDB articles collection.
     """
     topics = mongo.db.topics.find().sort("topic_name", 1)
     locations = mongo.db.locations.find().sort("location_name", 1)
@@ -281,6 +306,7 @@ def add_article():
 def edit_article(article_id):
     """
     Allows users to edit their contributions to the site
+    and updates the articles collection in MongoDB.
     """
     article = mongo.db.articles.find_one({"_id": ObjectId(article_id)})
     topics = mongo.db.topics.find().sort("topic_name", 1)
@@ -319,6 +345,8 @@ def edit_article(article_id):
 def delete_article(article_id):
     """
     Allows users to delete their contributions to site
+    and removes the specific article from the articles collection in
+    MongoDB.
     """
     article = mongo.db.articles.find_one({"_id": ObjectId(article_id)})
     article_creator = article["created_by"]
@@ -339,7 +367,10 @@ def delete_article(article_id):
 
 @app.route("/topics")
 def topics():
-
+    """
+    Displays a series of topics on the topics page
+    and links to the topics collection in MongoDB.
+    """
     if "user" not in session:
         flash("Please Log in to continue")
         return redirect(url_for("login"))
@@ -364,6 +395,11 @@ def topics():
 
 @app.route("/filter/topic/<topic_id>")
 def filter_topics(topic_id):
+    """
+    Filters articles page based on topic
+    to only show articles with the same topic
+    name.
+    """
     topics = list(mongo.db.topics.find())
     topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
     articles = list(mongo.db.articles.find(
@@ -382,20 +418,23 @@ def filter_topics(topic_id):
 @app.route("/add_topic", methods=["GET", "POST"])
 def add_topic():
     """
-    Allows users to contribute towards the site
-    with their own unique articles
+    Allows Admin to add more topics to the site
+    and MongoDB as they see fit.
     """
     topics = mongo.db.topics.find().sort("topic_name", 1)
 
     if "user" not in session:
         flash("Please Log in to continue")
         return redirect(url_for("login"))
+
     elif session["user"].lower() != "admin":
         flash("You are not authorized to view this page")
         return redirect(url_for("topics"))
+
     elif request.method != "POST":
         return render_template("add_topic.html",
                                topics=topics)
+
     else:
         topic = {
             "topic_name": request.form.get("topic_name"),
@@ -413,7 +452,8 @@ def add_topic():
 @app.route("/edit_topic/<topic_id>", methods=["GET", "POST"])
 def edit_topic(topic_id):
     """
-    Allows users to edit their contributions to the site
+    Allows admin to edit site topics and updates
+    MongoDB accordingly
     """
     topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
 
@@ -427,7 +467,7 @@ def edit_topic(topic_id):
 
     elif request.method != "POST":
         return render_template("edit_topic.html", topic=topic)
-   
+
     else:
         adjust = {
             "topic_name": request.form.get("topic_name"),
@@ -442,7 +482,9 @@ def edit_topic(topic_id):
 @app.route("/delete_topic/<topic_id>")
 def delete_topic(topic_id):
     """
-    Allows users to delete their contributions to site
+    Allows admin to delete topics as they see fit and
+    removes the topic from the topics collection in the
+    database.
     """
     topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
 
@@ -462,7 +504,10 @@ def delete_topic(topic_id):
 
 @app.route("/further_reading")
 def further_reading():
-
+    """
+    Displays external reading source information and links
+    to the further_reading collection in the database.
+    """
     further_reading = list(mongo.db.further_reading.find())
 
     return render_template("further_reading.html",
@@ -473,8 +518,9 @@ def further_reading():
 @app.route("/add_further_reading", methods=["GET", "POST"])
 def add_further_reading():
     """
-    Allows users to contribute towards the site
-    with their own unique articles
+    Allows admin to add relevant external reading
+    sources information to the site and the further_reading
+    collection in the database as they see appropriate.
     """
     topics = mongo.db.topics.find().sort("topic_name", 1)
 
@@ -500,8 +546,6 @@ def add_further_reading():
         }
         mongo.db.further_reading.insert_one(reading)
         flash("Further Reading contribution successful!")
-        print(topics)
-
         return redirect(url_for("topics"))
 
     return render_template("topics.html", topics=topics,
@@ -512,7 +556,9 @@ def add_further_reading():
 @app.route("/edit_further_reading/<reading_id>", methods=["GET", "POST"])
 def edit_further_reading(reading_id):
     """
-    Allows users to edit their contributions to the site
+    Allows admin to update the further reading page
+    and further_reading collection in the database
+    as they see fit.
     """
     reading = mongo.db.further_reading.find_one({"_id": ObjectId(reading_id)})
     topics = mongo.db.topics.find().sort("topic_name", 1)
@@ -547,7 +593,10 @@ def edit_further_reading(reading_id):
 @app.route("/delete_further_reading/<reading_id>")
 def delete_further_reading(reading_id):
     """
-    Allows users to delete their contributions to site
+    Allows admin to delete material from
+    the further reading page and removes
+    this material from further_reading collection
+    in the database as admin sees appropriate.
     """
     reading = mongo.db.further_reading.find_one({"_id": ObjectId(reading_id)})
 
@@ -566,6 +615,11 @@ def delete_further_reading(reading_id):
 
 @app.route("/filter_reading/further_reading/<topic_id>")
 def filter_reading(topic_id):
+    """
+    Filters further reading based on topic
+    so that when it is displayed to the user
+    it is relevant to the topic they have clicked on.
+    """
     topics = list(mongo.db.topics.find())
     topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
 
@@ -576,6 +630,16 @@ def filter_reading(topic_id):
                            topic=topic,
                            topics=topics,
                            page_title="Further Reading")
+
+
+# @app.errorhandler(500)
+# def server_error(error):
+# return render_template("500.html", error=error), 500
+
+
+# @app.errorhandler(404)
+# def error404(e):
+# return render_template('404.html'), 404
 
 
 # Change to False before submission
