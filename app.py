@@ -92,7 +92,6 @@ def articles():
         if article["topic_name"] in topics:
             topics["article"].append(article._id)
         else:
-            print(article["_id"])
             topics["article_id"] = article["_id"]
 
     return render_template("articles.html",
@@ -167,6 +166,11 @@ class RegistrationForm(Form):
     ])
 
     confirm = PasswordField('Repeat Password')
+
+
+"""
+End Credit
+"""
 
 
 @app.route("/registration", methods=["GET", "POST"])
@@ -356,7 +360,7 @@ def delete_article(article_id):
         return redirect(url_for("login"))
 
     elif session["user"] != article_creator and session["user"] != "admin":
-        flash("You are not authorized to edit this material")
+        flash("You are not authorized to delete this material")
         return redirect(url_for("articles"))
 
     else:
@@ -384,7 +388,6 @@ def topics():
             if topic["topic_name"] in topics:
                 topic["article_list"].append(topic._id)
             else:
-                print(topic["_id"])
                 topic["topic_id"] = topic["_id"]
 
         return render_template("topics.html",
@@ -493,7 +496,7 @@ def delete_topic(topic_id):
         return redirect(url_for("login"))
 
     elif session["user"].lower() != "admin":
-        flash("You are not authorized to edit this material")
+        flash("You are not authorized to delete this material")
         return redirect(url_for("topics"))
 
     else:
@@ -625,6 +628,7 @@ def filter_reading(topic_id):
 
     further_reading = list(mongo.db.further_reading.find(
         {"topic_name": topic["topic_name"]}).sort("_id", -1))
+
     return render_template("further_reading.html",
                            further_reading=further_reading,
                            topic=topic,
