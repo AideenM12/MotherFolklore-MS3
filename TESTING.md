@@ -11,10 +11,50 @@
         
         * [Contact Form](#Contact-Form)
         * [404 Page](#404-Page)
+   * [Manual Testing of Route Handlers](#Manual-Testing-of-Route-Handlers)
    * [Site Responsiveness](#Site-Responsiveness)
    * [User Testing](#User-Testing)
    * [Known Bugs and Issues](#Known-Bugs-and-Issues)
    * [Further Testing](#Further-Testing) 
+
+
+## Manual Testing of Route Handlers
+* In order to ensure each route handler performed correctly with regards to security features and defensive programming the following steps were taken to test each relevent route handler:
+   1. Sign into MotherFolklore as Admin.
+   2. Navigate to the relevant pages that are user/Admin specific and copy the relevant url.
+   3. Sign Out as Admin.
+   4. Sign in as a standard user.
+   5. Paste the relevant url into the google search bar.
+   6. Check to see if the page redirects as anticipated. 
+      * If the page redirects this confirms that the route handler is functioning as expected and no content from this page can be altered/deleted by anyone other than the content's owner or the site Admin.
+      * If the page does not redirect as expected then the route handler has failed to protect the site's content and needs to be fixed. 
+
+### Edit Article Route Handler
+* The above steps were implemented to test the edit article route handler. As indicated by the image below, this route handler was functioning as expected at the time of submission by redirecting the user to the articles page and subsequently passed this test. 
+
+* <img src="assets/documentation/doc-images/editarticleroutehandler.png" width="450" height="250" alt="test-edit-article">
+
+### Add Topic Route Handler
+* The above steps were implemented to test the add topic route handler. As indicated by the image below, this route handler was functioning as expected at the time of submission by redirecting the user to the topics page and subsequently passed this test. 
+
+* <img src="assets/documentation/doc-images/add-topic-route-handler.png" width="350" height="150" alt="test-add-topic">
+
+### Edit Topic Route Handler
+* The above steps were implemented to test the edit topic route handler. As indicated by the image below, this route handler was functioning as expected at the time of submission by redirecting the user to the topics page and subsequently passed this test. 
+
+* <img src="assets/documentation/doc-images/edit-topic-route-handler.png" width="350" height="150" alt="test-edit-topic">
+
+### Add Further Reading Route Handler
+* The above steps were implemented to test the add further reading route handler. As indicated by the image below, this route handler was functioning as expected at the time of submission by redirecting the user to the topics page and subsequently passed this test. 
+
+* <img src="assets/documentation/doc-images/add-fr-route-handler.png" width="350" height="150" alt="test-add-further-reading">
+
+### Edit Further Reading Route Handler
+* The above steps were implemented to test the edit further reading route handler. As indicated by the image below, this route handler was functioning as expected at the time of submission by redirecting the user to the topics page and subsequently passed this test. 
+
+* <img src="assets/documentation/doc-images/edit-fr-route-handler.png" width="350" height="150" alt="test-edit-further-reading">
+
+* All delete functions do not display id specific urls at the time of deletion so similar tests could not be performed on these functions. However similar defensive programming has been implemented so as to prevent any malicious deletion of content and only allow content to be deleted by the the content's owner or the site admin.
 
 ## Known Bugs and Issues
 * One known bug was the failure of the parallax container to render on the profile page. The initial file path was as follows on all pages that used these images:
@@ -44,4 +84,3 @@ After this discovery and a great deal of trouble shooting the following code was
 ```
 "article_list": [""]
 ```
-

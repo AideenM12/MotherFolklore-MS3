@@ -72,126 +72,7 @@ def index():
 
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
-
     return render_template("contact.html")
-
-
-@app.route("/further_reading")
-def further_reading():
-
-    further_reading = list(mongo.db.further_reading.find())
-
-    return render_template("further_reading.html",
-                           page_title="Further Reading",
-                           further_reading=further_reading)
-
-
-@app.route("/add_further_reading", methods=["GET", "POST"])
-def add_further_reading():
-    """
-    Allows users to contribute towards the site
-    with their own unique articles
-    """
-    topics = mongo.db.topics.find().sort("topic_name", 1)
-
-    if "user" not in session:
-        flash("Please Log in to continue")
-        return redirect(url_for("login"))
-    elif session["user"].lower() != "admin":
-        flash("You are not authorized to view this page")
-        return redirect(url_for("topics"))
-    elif request.method != "POST":
-        return render_template("add_further_reading.html",
-                               further_reading=further_reading,
-                               topics=topics)
-    else:
-        reading = {
-            "topic_name": request.form.get("topic_name"),
-            "book_title": request.form.get("book_title"),
-            "website": request.form.get("website"),
-            "article_title": request.form.get("article_title"),
-            "author": request.form.get("author"),
-            "date_published": request.form.get("date_published"),
-            "publisher": request.form.get("publisher"),
-        }
-        mongo.db.further_reading.insert_one(reading)
-        flash("Further Reading contribution successful!")
-        print(topics)
-
-        return redirect(url_for("topics"))
-
-    return render_template("topics.html", topics=topics,
-                           reading=reading,
-                           further_reading=further_reading)
-
-
-@app.route("/edit_further_reading/<reading_id>", methods=["GET", "POST"])
-def edit_further_reading(reading_id):
-    """
-    Allows users to edit their contributions to the site
-    """
-    reading = mongo.db.further_reading.find_one({"_id": ObjectId(reading_id)})
-    topics = mongo.db.topics.find().sort("topic_name", 1)
-
-    if "user" not in session:
-        flash("Please Log in to continue")
-        return redirect(url_for("login"))
-    elif session["user"].lower() != "admin":
-        flash("You are not authorized to view this page")
-        return redirect(url_for("topics"))
-
-    elif request.method != "POST":
-        return render_template("edit_further_reading.html", reading=reading,
-                               topics=topics)
-
-    else:
-        adjust = {
-            "topic_name": request.form.get("topic_name"),
-            "book_title": request.form.get("book_title"),
-            "website": request.form.get("website"),
-            "article_title": request.form.get("article_title"),
-            "author": request.form.get("author"),
-            "date_published": request.form.get("date_published"),
-            "publisher": request.form.get("publisher"),
-        }
-        mongo.db.further_reading.update({"_id": ObjectId(reading_id)}, adjust)
-        flash("Material update successful!")
-
-    return redirect(url_for("topics"))
-
-
-@app.route("/delete_further_reading/<reading_id>")
-def delete_further_reading(reading_id):
-    """
-    Allows users to delete their contributions to site
-    """
-    reading = mongo.db.further_reading.find_one({"_id": ObjectId(reading_id)})
-
-    if "user" not in session:
-        flash("Please Log in to continue")
-        return redirect(url_for("login"))
-
-    elif session["user"].lower() != "admin":
-        flash("You are not authorized to view this page")
-        return redirect(url_for("topics"))
-    else:
-        mongo.db.further_reading.remove({"_id": ObjectId(reading_id)})
-        flash("Material successfully deleted.")
-        return redirect(url_for("topics", reading=reading))
-
-
-@app.route("/filter_reading/further_reading/<topic_id>")
-def filter_reading(topic_id):
-    topics = list(mongo.db.topics.find())
-    topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
-
-    further_reading = list(mongo.db.further_reading.find(
-        {"topic_name": topic["topic_name"]}).sort("_id", -1))
-    return render_template("further_reading.html",
-                           further_reading=further_reading,
-                           topic=topic,
-                           topics=topics,
-                           page_title="Further Reading")
 
 
 @app.route("/articles")
@@ -410,13 +291,14 @@ def edit_article(article_id):
         flash("Please Log in to continue")
         return redirect(url_for("login"))
 
+    elif session["user"] != article_creator and session["user"] != "admin":
+        flash("You are not authorized to edit this material")
+        return redirect(url_for("articles"))
+
     elif request.method != "POST":
         return render_template("edit_article.html", article=article,
                                topics=topics, locations=locations)
 
-    elif session["user"] != article_creator and session["user"] != "admin":
-        flash("You are not authorized to edit this material")
-        return redirect(url_for("articles"))
     else:
         adjust = {
             "topic_name": request.form.get("topic_name"),
@@ -539,13 +421,13 @@ def edit_topic(topic_id):
         flash("Please Log in to continue")
         return redirect(url_for("login"))
 
-    elif request.method != "POST":
-        return render_template("edit_topic.html", topic=topic)
-
-    elif session["user"] != session["user"] != "admin":
+    elif session["user"].lower() != "admin":
         flash("You are not authorized to edit this material")
         return redirect(url_for("topics"))
 
+    elif request.method != "POST":
+        return render_template("edit_topic.html", topic=topic)
+   
     else:
         adjust = {
             "topic_name": request.form.get("topic_name"),
@@ -568,7 +450,7 @@ def delete_topic(topic_id):
         flash("Please Log in to continue")
         return redirect(url_for("login"))
 
-    elif session["user"] != session["user"] != "admin":
+    elif session["user"].lower() != "admin":
         flash("You are not authorized to edit this material")
         return redirect(url_for("topics"))
 
@@ -576,6 +458,124 @@ def delete_topic(topic_id):
         mongo.db.topics.remove({"_id": ObjectId(topic_id)})
         flash("Topic successfully deleted.")
         return redirect(url_for("topics", topic=topic))
+
+
+@app.route("/further_reading")
+def further_reading():
+
+    further_reading = list(mongo.db.further_reading.find())
+
+    return render_template("further_reading.html",
+                           page_title="Further Reading",
+                           further_reading=further_reading)
+
+
+@app.route("/add_further_reading", methods=["GET", "POST"])
+def add_further_reading():
+    """
+    Allows users to contribute towards the site
+    with their own unique articles
+    """
+    topics = mongo.db.topics.find().sort("topic_name", 1)
+
+    if "user" not in session:
+        flash("Please Log in to continue")
+        return redirect(url_for("login"))
+    elif session["user"].lower() != "admin":
+        flash("You are not authorized to view this page")
+        return redirect(url_for("topics"))
+    elif request.method != "POST":
+        return render_template("add_further_reading.html",
+                               further_reading=further_reading,
+                               topics=topics)
+    else:
+        reading = {
+            "topic_name": request.form.get("topic_name"),
+            "book_title": request.form.get("book_title"),
+            "website": request.form.get("website"),
+            "article_title": request.form.get("article_title"),
+            "author": request.form.get("author"),
+            "date_published": request.form.get("date_published"),
+            "publisher": request.form.get("publisher"),
+        }
+        mongo.db.further_reading.insert_one(reading)
+        flash("Further Reading contribution successful!")
+        print(topics)
+
+        return redirect(url_for("topics"))
+
+    return render_template("topics.html", topics=topics,
+                           reading=reading,
+                           further_reading=further_reading)
+
+
+@app.route("/edit_further_reading/<reading_id>", methods=["GET", "POST"])
+def edit_further_reading(reading_id):
+    """
+    Allows users to edit their contributions to the site
+    """
+    reading = mongo.db.further_reading.find_one({"_id": ObjectId(reading_id)})
+    topics = mongo.db.topics.find().sort("topic_name", 1)
+
+    if "user" not in session:
+        flash("Please Log in to continue")
+        return redirect(url_for("login"))
+    elif session["user"].lower() != "admin":
+        flash("You are not authorized to view this page")
+        return redirect(url_for("topics"))
+
+    elif request.method != "POST":
+        return render_template("edit_further_reading.html", reading=reading,
+                               topics=topics)
+
+    else:
+        adjust = {
+            "topic_name": request.form.get("topic_name"),
+            "book_title": request.form.get("book_title"),
+            "website": request.form.get("website"),
+            "article_title": request.form.get("article_title"),
+            "author": request.form.get("author"),
+            "date_published": request.form.get("date_published"),
+            "publisher": request.form.get("publisher"),
+        }
+        mongo.db.further_reading.update({"_id": ObjectId(reading_id)}, adjust)
+        flash("Material update successful!")
+
+    return redirect(url_for("topics"))
+
+
+@app.route("/delete_further_reading/<reading_id>")
+def delete_further_reading(reading_id):
+    """
+    Allows users to delete their contributions to site
+    """
+    reading = mongo.db.further_reading.find_one({"_id": ObjectId(reading_id)})
+
+    if "user" not in session:
+        flash("Please Log in to continue")
+        return redirect(url_for("login"))
+
+    elif session["user"].lower() != "admin":
+        flash("You are not authorized to view this page")
+        return redirect(url_for("topics"))
+    else:
+        mongo.db.further_reading.remove({"_id": ObjectId(reading_id)})
+        flash("Material successfully deleted.")
+        return redirect(url_for("topics", reading=reading))
+
+
+@app.route("/filter_reading/further_reading/<topic_id>")
+def filter_reading(topic_id):
+    topics = list(mongo.db.topics.find())
+    topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
+
+    further_reading = list(mongo.db.further_reading.find(
+        {"topic_name": topic["topic_name"]}).sort("_id", -1))
+    return render_template("further_reading.html",
+                           further_reading=further_reading,
+                           topic=topic,
+                           topics=topics,
+                           page_title="Further Reading")
 
 
 # Change to False before submission
