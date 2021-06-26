@@ -17,12 +17,12 @@
       {% from "_formhelpers.html" import render_field %}
       <form method="POST" action="{{ url_for('registration') }}" class="card-panel s8 offset-s2">
          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-         <dl>
+         
             {{render_field(form.username)}}
             {{render_field(form.email)}}
             {{render_field(form.password)}}
             {{render_field(form.confirm)}}
-         </dl>
+         
          <p class="center-align "><input type=submit class="register-btn" value=Register></p>
       </form>
       {% if error %}
