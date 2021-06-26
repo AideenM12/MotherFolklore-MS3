@@ -636,9 +636,9 @@ def filter_reading(topic_id):
                            page_title="Further Reading")
 
 
-# @app.errorhandler(500)
-# def server_error(error):
-# return render_template("500.html", error=error), 500
+@app.errorhandler(500)
+def server_error(error):
+    return render_template("500.html", error=error), 500
 
 
 @app.errorhandler(404)
