@@ -474,7 +474,7 @@ def edit_topic(topic_id):
     else:
         adjust = {
             "topic_name": request.form.get("topic_name"),
-            "article_list": []
+            "article_list": [""]
         }
         mongo.db.topics.update({"_id": ObjectId(topic_id)}, adjust)
         flash("Topic update successful!")
@@ -641,9 +641,9 @@ def filter_reading(topic_id):
 # return render_template("500.html", error=error), 500
 
 
-# @app.errorhandler(404)
-# def error404(e):
-# return render_template('404.html'), 404
+@app.errorhandler(404)
+def error404(e):
+    return render_template('404.html'), 404
 
 
 # Change to False before submission

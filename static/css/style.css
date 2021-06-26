@@ -90,7 +90,7 @@ footer>h5 {
 }
 
 .homecard {
-	background-color: rgba(251, 251, 251, 0.8);
+	background-color: rgba(251, 251, 251, 0.8) !important;
 	padding: 10px;
 	color: rgba(19, 21, 21);
 	margin: 0;
@@ -98,7 +98,7 @@ footer>h5 {
 
 .login,
 .sign-up>.parallax-container {
-	height: 50vh;
+	height: 60vh;
 }
 
 

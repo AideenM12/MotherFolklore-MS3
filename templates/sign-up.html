@@ -4,7 +4,9 @@
 <main class="sign-up">
 	<!--Parallax Container-->
    <div class="parallax-container">
-      <div class="parallax"><img src="static/images/childrenoflir.jpg"></div>
+      <div class="parallax">
+         <img src="{{ url_for('static', filename='images/childrenoflir.jpg') }}" alt="childrenoflir">
+      </div>
    </div>
    <!-------Heading-------->
    <div class="container">
@@ -30,7 +32,9 @@
    </div>
    <!-------Parallax Container------->
    <div class="parallax-container">
-      <div class="parallax"><img src="static/images/banshee3.jpg"></div>
+      <div class="parallax">
+         <img src="{{ url_for('static', filename='images/banshee3.jpg') }}" alt="banshee">
+      </div>
    </div>
 </main>
 {% endblock %}

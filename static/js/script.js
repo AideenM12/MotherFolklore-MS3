@@ -1,10 +1,18 @@
+//Main JS file
 $(document).ready(function(){
+    //Initializes mobile sidenav
     $('.sidenav').sidenav({edge: "right"});
+    //Initializes collapsible articles container
     $('.collapsible').collapsible();
+    //Initializes form select fields
     $('select').formSelect();
+    //Initializes parallax container
     $('.parallax').parallax();
+    //Initializes delete modal alerts
     $('.modal').modal();
+    //Initializes topics menu dropdown
     $('.dropdown-trigger').dropdown();
+    //Initializes datepicker
     $(".datepicker").datepicker({
       format: "dd mmmm, yyyy",
       yearRange: 3,
@@ -15,6 +23,7 @@ $(document).ready(function(){
    });
   });
 
+//CSRF Token
   var csrf_token = "{{ csrf_token() }}";
 
   $.ajaxSetup({

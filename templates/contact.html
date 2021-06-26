@@ -12,7 +12,9 @@
 <main>
    <!--------Parallax Container-------->
    <div class="parallax-container login">
-      <div class="parallax"><img src="static/images/childrenoflir.jpg"></div>
+      <div class="parallax">
+         <img src="{{ url_for('static', filename='images/childrenoflir.jpg') }}" alt="childrenoflir">
+      </div>
    </div>
    <!----------------Contact Form------------>
    <h3 class="center-align">Contact Us!</h3>
@@ -51,7 +53,9 @@
    </div>
    <!-----------Parallax Container------------->
    <div class="parallax-container">
-      <div class="parallax"><img src="static/images/banshee3.jpg"></div>
+      <div class="parallax">
+         <img src="{{ url_for('static', filename='images/banshee3.jpg') }}" alt="banshee">
+      </div>
    </div>
 </main>
 <script src="{{ url_for('static', filename='js/email.js') }}"></script>
