@@ -2,6 +2,9 @@
 
    * [Testing User Stories](#Testing-User-Stories)
    * [Validators](#Validators)
+      * [HTML Validators](#HMTL-Validators)
+         * [HTML Pages](#HTML-Pages)
+         * [Data Sensitive HTML Pages](#Data-Sensitive-HTML-Pages)
    * [Testing Features](#Testing-Features)
         * [Navigation](#Navigation)
         
@@ -17,6 +20,16 @@
    * [Known Bugs and Issues](#Known-Bugs-and-Issues)
    * [Further Testing](#Further-Testing) 
 
+## Validators
+### HTML 
+#### HTML Pages
+#### Data Sensitive HTML Pages
+
+Because some of the pages of the site contain an Object ID in the url the validation results of these pages are listed below instead of using photos.
+
+* **Edit Article Page** &#40; `edit_article.html` &#41;: 0 Errors & 0 Warnings Found
+* **Edit Topic Page** &#40; `edit_topic.html` &#41;: 0 Errors & 0 Warnings Found
+* **Edit Further Reading Page** &#40; `edit_further_reading.html` &#41;: 0 Errors & 0 Warnings Found
 
 ## Manual Testing of Route Handlers
 * In order to ensure each route handler performed correctly with regards to security features and defensive programming the following steps were taken to test each relevent route handler:
