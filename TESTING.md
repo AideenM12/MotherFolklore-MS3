@@ -22,14 +22,87 @@
 
 ## Validators
 ### HTML 
-#### HTML Pages
-#### Data Sensitive HTML Pages
+All of the following HTML were validated by using [W3C Markup Validation Service](https://validator.w3.org/).
+
+— **HTML Pages** —
+* **Add Article Page** &#40; `add_article.html` &#41;:
+
+<img src="assets/documentation/doc-images/add-article-w3validator.png" width="550" height="350" alt="add-article-validator">
+
+
+* **Add Further Reading Page** &#40; `add_further_reading.html` &#41;:
+
+<img src="assets/documentation/doc-images/add-fr-w3validator.png" width="550" height="350" alt="add-further-reading-validator">
+
+
+* **Add Topic Page** &#40; `add_topic.html` &#41;:
+
+<img src="assets/documentation/doc-images/add-topic-w3validator.png" width="550" height="350" alt="add-topic-validator">
+
+
+* **Articles Page** &#40; `articles.html` &#41;:
+
+<img src="assets/documentation/doc-images/articles-w3validator.png" width="550" height="350" alt="articles-validator">
+
+
+* **Contact Page** &#40; `contact.html` &#41;:
+
+<img src="assets/documentation/doc-images/contact-w3validator.png" width="550" height="350" alt="contact-validator">
+
+
+* **Home Page** &#40; `index.html` &#41;:
+
+<img src="assets/documentation/doc-images/home-w3validator.png" width="550" height="350" alt="home-validator">
+
+
+* **Login Page** &#40; `login.html` &#41;:
+
+<img src="assets/documentation/doc-images/login-w3validator.png" width="550" height="350" alt="login-validator">
+
+
+* **Sign-Up Page** &#40; `sign-up.html` &#41;:
+
+<img src="assets/documentation/doc-images/signup-w3validator.png" width="550" height="350" alt="signup-validator">
+
+
+* **Topics Page** &#40; `topics.html` &#41;:
+
+<img src="assets/documentation/doc-images/topics-w3validator.png" width="550" height="350" alt="topics-validator">
+
+
+
+
+-— **Data Sensitive HTML Pages** —
 
 Because some of the pages of the site contain an Object ID in the url the validation results of these pages are listed below instead of using photos.
 
 * **Edit Article Page** &#40; `edit_article.html` &#41;: 0 Errors & 0 Warnings Found
 * **Edit Topic Page** &#40; `edit_topic.html` &#41;: 0 Errors & 0 Warnings Found
 * **Edit Further Reading Page** &#40; `edit_further_reading.html` &#41;: 0 Errors & 0 Warnings Found
+
+### CSS
+All CSS was validated by using [W3C Jigsaw CSS Validation Service](https://jigsaw.w3.org/css-validator/) with no issues detected. A screenshot of these results can be seen below:
+
+<img src="assets/documentation/doc-images/jigsaw-validator.png" width="550" height="350" alt="CSS-validator">
+
+### Javascript
+* All Javascript code was passed through the [JShint](https://jshint.com/) validator with little to no issues with the exception of 'let' being available in ES6 and the '$' being recognised as an unused variable. Screenshots of the results of these files can be found below:
+
+* **emailjs file**
+
+<img src="assets/documentation/doc-images/emailjs-jshint.png" width="450" height="350" alt="emailjs-JShint-validator">
+
+
+* **scriptjs file**
+
+<img src="assets/documentation/doc-images/emailjs-jshint.png" width="450" height="350" alt="script-JShint-validator">
+
+
+### Python 
+* The app.py file was passed through the [PEP8](http://pep8online.com/) validator and the results can be seen below:
+
+<img src="assets/documentation/doc-images/PEP8-validator.png" width="450" height="350" alt="PEP8-validator">
+
 
 ## Manual Testing of Route Handlers
 * In order to ensure each route handler performed correctly with regards to security features and defensive programming the following steps were taken to test each relevent route handler:
