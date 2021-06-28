@@ -75,12 +75,23 @@ The primary goal of this site is to facillate Irish History lovers to be able to
 * Social Media Icons
 
 ### Home page features:
+* A parallax container displays the two images described in the Design section below.
+* A card is displayed to the user describing the site's purpose. 
+* If the user is not signed in there are two call to action buttons, one which invites the user to register an account with the site and another which asks current users to sign in as seen in the image below. 
+
+<img src="assets/documentation/doc-images/homebuttons.png" width="450" height="300" alt="home-page-buttons">
+
+* If the user is  signed in there are thre call to action buttons, one which invites the user to make an article contribution, visit the articles page or visit the topics page to promote easy of use.
+
+<img src="assets/documentation/doc-images/homebuttons2.png" width="650" height="300" alt="home-page-buttons">
 
 ### Articles page features:
 * The Articles Page contains a search bar where users can search for keywords that appear in:
     * The Article Name
     * The Article Content
     * The Topic Name
+
+<img src="assets/documentation/doc-images/searchbar.png" width="550" height="200" alt="searchbar">
 
 * Beneath the search bar there are series of collapsible dropdowns which contain:
     * The article content
@@ -96,11 +107,29 @@ The primary goal of this site is to facillate Irish History lovers to be able to
 
 ### Login page features:
 
+* A parallax container displays the two images described in the Design section below. 
+* A Log in form is presented to the user which asks for their username and password which are validated by the login route handler. An image of the login form can be seen below.
+
+<img src="assets/documentation/doc-images/loginpage.png" width="450" height="300" alt="login-form">
+
 ### Sign-Up page features:
 
+* A parallax container displays the two images described in the Design section below. 
+* A register form is presented to the user which asks for their username, email address and password which are validated by the sign route handler. The password must be declared twice to ensure it matches or else the user will be notified that their passwords do not match. This is done to ensure that the user has input a password that they are familiar with and can remember and to avoid any possible typos that could hinder the user from signing in the future. An image of the registration form can be seen below.
+
+<img src="assets/documentation/doc-images/signupform.png" width="450" height="500" alt="signup-form">
+
 ### Profile page features:
+* A parallax container displays the two images described in the Design section below.
 
 ### Topics page features:
+* The topics page presents the user with a series of topics through which they can filter the articles which they wish to look at. 
+
+<img src="assets/documentation/doc-images/topicspage.png" width="450" height="500" alt="topicspage">
+
+* The user can enable this filter function by clicking the view button.
+
+<img src="assets/documentation/doc-images/viewbutton.png" width="450" height="500" alt="topicspage">
 
 ### Further Reading page features:
 
