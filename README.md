@@ -125,23 +125,36 @@ The primary goal of this site is to facillate Irish History lovers to be able to
 ### Topics page features:
 * The topics page presents the user with a series of topics through which they can filter the articles which they wish to look at. 
 
-<img src="assets/documentation/doc-images/topicspage.png" width="450" height="500" alt="topicspage">
+<img src="assets/documentation/doc-images/topicsimage.png" width="550" height="450" alt="topicspage">
 
 * The user can enable this filter function by clicking the view button.
 
-<img src="assets/documentation/doc-images/viewbutton.png" width="450" height="500" alt="topicspage">
+<img src="assets/documentation/doc-images/viewbutton.png" width="150" height="100" alt="view-button">
+
+* The topics page also allows the user to filter the further reading page so that they can view external source material based on that specific topic by clicking the further reading button. 
+
+<img src="assets/documentation/doc-images/frbutton.png" width="150" height="100" alt="fr-button">
 
 ### Further Reading page features:
 
+* The further reading page allows users to view external source material which is filtered based on topic as seen in the image below.
+
+<img src="assets/documentation/doc-images/furtherreadingpage.png" width="650" height="450" alt="further-reading-page">
+
 ### Logout features:
+* The log out button removes the user's session cookie from the app using the pop method and redirects the user to the login page.
 
 ### Feature exclusive to Admin:
 
-
-
+* Only the Admin can edit/delete all articles content on the site, otherwise the content must belong to the session user in order for it to be edited or deleted. 
+* Only Admin can add new topics to the topics page.
+* Only Admin can edit/delete existing topics on the topics page.
+* Only Admin can add new material to the further reading page.
+* Only Admin can edit/delete material on the further reading page.
 
 
 ## Features left to implement
+* During the development of this project it quickly became apparent that the scope of the project could easily become infinite. Due to time constraints and the limitations of the site creator's skill set all other possible future features were dismissed to prevent scope creep. Possible future features will be re-evaluated at a later date but for now there are no features left to implement because it was felt that too many features could in fact hamper creating a site built on the principles of good UX design. 
 
 
 
@@ -215,10 +228,8 @@ This palette was found on the [Coolors Website](https://coolors.co).
    - Bootstrap was used to make this website responsive
 - [Fontawesome](https://fontawesome.com/)
     - The icons used on this page were found in Fontawesome.
-- [Hover.css](https://ianlunn.github.io/Hover/) 
-    - The hover feature of the buttons of the site were implemented using Hover.css. 
-- [Popper.js](https://popper.js.org/)
-    - Certain bootstrap responsive elements require Popper.js in order to function correctly.
+ 
+
 - [Balsamiq](https://balsamiq.com/)
     - The wireframes and sitemap for this project were created using Balsamiq.
 - [FreePik](https://www.freepik.com/)
