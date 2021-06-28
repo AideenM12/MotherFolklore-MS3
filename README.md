@@ -163,25 +163,34 @@ The primary goal of this site is to facillate Irish History lovers to be able to
 
 ### Colors
 
- 
+* The colors of this site were chosen in order to replicate the feel of old newspapers and books. It's a simple black and white monochrome palette coupled with shades of grey so as not to overwhelm the user and to adhere to the principles of good UX design. They match the monochrome images that have been selected for this site. 
+
+This palette was created on the [Coolors Website](https://coolors.co).
 
 <img src="assets/documentation/doc-images/MS3-Palette.png" width="450" height="250" alt="milestone palette">
-
-This palette was found on the [Coolors Website](https://coolors.co).
-
 
 
 ### Typography
 * The 'Metal Mania' font was chosen for header text because of its striking style and historical feel as well as it's clarity. Other fonts that were found were perhaps more fitting in terms of how frequently they were used in the past but in order to stick with the principals of good UX the aforementioned font was chosen based on its readability.
 
+
+<img src="assets/documentation/doc-images/metalmania.png" width="350" height="150" alt="Metal-Mania">
+
+
 * The 'IM Fell English SC' was chosen based on its similarity to the text often found in older literature in order to enhance the historic feel of the site and promote a positive user experience.
+
+
+<img src="assets/documentation/doc-images/Englishfont.png" width="350" height="150" alt="English-font">
+
 
 * Both fonts were found on [Google Fonts](https://fonts.google.com/)
 
 
 
 ### Imagery
+* The Children of Lir image was selected because it matched the subject matter and the color scheme of the site. It appears to be an image that may have originated in an old out of print book which helps to create the overall feel of the site. One of the Admin created articles is the children of lir so that the user can learn about this image during their exploration of the site. 
 
+* The Banshee image was selected for the same reason mentioned above. This image was originally depicted in the book "The Halfpenny Miscellany" from 1862 so it was chosen for it's authenticity and the fact that it would help achieve the desired feel of site and also it features as one of the Admin created articles available on the site.
 
 
 
@@ -194,7 +203,9 @@ This palette was found on the [Coolors Website](https://coolors.co).
 
 * The wireframe mockup links can be found below:
 
-* [Home Page Wireframes](assets/documentation/wireframes/MS3-home-wireframe.pdf)
+* [Home Page Wireframes](assets/documentation/wireframes/MS3-homepage-wireframe.pdf)
+
+* [Articles Page Wireframes](assets/documentation/wireframes/MS3-articles-wireframe.pdf)
 
 * [Contact Page Wireframes](assets/documentation/wireframes/MS3-contact-wireframe.pdf)
 
@@ -204,6 +215,13 @@ This palette was found on the [Coolors Website](https://coolors.co).
 
 * [Edit-Delete Page Wireframes](assets/documentation/wireframes/MS3-edit-delete-wireframe.pdf)
 
+* [Login Page Wireframes](assets/documentation/wireframes/MS3-login-wireframe.pdf)
+
+* [Add Article Page Wireframes](assets/documentation/wireframes/MS3-add-article-wireframe.pdf)
+
+* [Topics Page Wireframes](assets/documentation/wireframes/MS3-topics-wireframe.pdf)
+
+* [Further Reading Page Wireframes](assets/documentation/wireframes/MS3-fr-wireframe.pdf)
 
 ### Database Schema
 
@@ -261,6 +279,7 @@ Testing information can be found here in the separate [TESTING.md file](TESTING.
 This project was developed using [Gitpod IDE](https://gitpod.io) and pushed to Github using the in-built terminal. However, because Github can only host static websites it was necessary to deploy this project to heroku because it is a compatible hosting platform for a back-end focused site like MotherFolklore. 
 
 This project was deployed using Heroku and stored in GitHub.
+
 Before deploying the website to Heroku, the following three must be followed to allow the app to work in Heroku:
 1. Create requirements.txt file that contains the names of packages being used in Python. It is important to update this file if other packages or modules are installed during project development by using the following command:
 
