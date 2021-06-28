@@ -258,9 +258,18 @@ This palette was found on the [Coolors Website](https://coolors.co).
 Testing information can be found here in the separate [TESTING.md file](TESTING.md)
 
 ## Deployment
-This project was developed using [Gitpod IDE](https://gitpod.io) and pushed to Github using the in-built terminal.
+This project was developed using [Gitpod IDE](https://gitpod.io) and pushed to Github using the in-built terminal. However, because Github can only host static websites it was necessary to deploy this project to heroku because it is a compatible hosting platform for a back-end focused site like MotherFolklore. 
 
 This project was deployed using Heroku and stored in GitHub.
+Before deploying the website to Heroku, the following three must be followed to allow the app to work in Heroku:
+1. Create requirements.txt file that contains the names of packages being used in Python. It is important to update this file if other packages or modules are installed during project development by using the following command:
+
+    - pip freeze --local > requirements.txt
+
+2. Create Procfile that contains the name of the application file so that Heroku knows what to run. If the Procfile has a blank line when it is created remove this as this may cause problems.
+
+3. Push these files to GitHub.
+Once those steps are done, the website can be deployed in Heroku using the steps listed below:
 
 ### Deployment Steps
 
