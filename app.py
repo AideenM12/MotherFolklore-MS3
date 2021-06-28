@@ -441,6 +441,7 @@ def add_topic():
     else:
         topic = {
             "topic_name": request.form.get("topic_name"),
+            "topic_content": request.form.get("topic_content"),
             "article_list": [""]
 
         }
@@ -474,6 +475,7 @@ def edit_topic(topic_id):
     else:
         adjust = {
             "topic_name": request.form.get("topic_name"),
+            "topic_content": request.form.get("topic_content"),
             "article_list": [""]
         }
         mongo.db.topics.update({"_id": ObjectId(topic_id)}, adjust)

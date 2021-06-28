@@ -6,11 +6,18 @@
       <div class="row">
          <form class="col s12 card-panel" method="POST" action="{{ url_for('add_topic') }}">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
-            <!---------New Topic Input Field--------->
+            <!---------New Topic Name Input Field--------->
             <div class="row">
                <div class="input-field col s12">
                   <input id="topic_name" name="topic_name" type="text" class="validate" required>
                   <label for="topic_name">Topic Name</label>
+               </div>
+               <!---------New Topic Content Input Field--------->
+               <div class="row">
+                  <div class="input-field col s12">
+                     <textarea id="topic_content" name="topic_content" class="materialize-textarea" required></textarea>
+                     <label for="topic_content">Topic Content</label>
+                  </div>
                </div>
                <!------------Submit/Cancel Buttons------->
                <div class="row center-align">
