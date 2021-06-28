@@ -39,7 +39,7 @@ The live website can be viewed [here](https://motherfolklore.herokuapp.com/)
 ## Strategy
 
 ### Project Goals
-The primary goal of this site is to facillate Irish History lovers to be able to read and share local history from their regions. It was inspired by the [Three Castles Burning Podcast](https://threecastlesburning.libsyn.com/) which deals with lesser known tales and folklore from the capital. The primary goal of the site is to allow site users to share lesser known stories from the rest of the country and perhaps debunk some well kept myths too.
+The primary goal of this site is to facillate Irish History lovers to be able to read and share local history from their regions. It was inspired by the [Three Castles Burning Podcast](https://threecastlesburning.libsyn.com/) which deals with lesser known tales and folklore from the capital. The primary goal of the site is to allow site users to share lesser known stories from the rest of the country and perhaps debunk some well kept myths too. 
 
 
 
@@ -225,7 +225,7 @@ This palette was created on the [Coolors Website](https://coolors.co).
 
 ### Database Schema
 
-<img src="assets/documentation/doc-images/dbschema.png" width="600" height="350" alt="database schema">
+<img src="assets/documentation/doc-images/dbschema.png" width="900" height="300" alt="database schema">
 
 
 ### Sitemap

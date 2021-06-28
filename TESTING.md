@@ -20,7 +20,42 @@
    * [Known Bugs and Issues](#Known-Bugs-and-Issues)
    * [Further Testing](#Further-Testing) 
 
+## Testing User Stories
+
+### Test Case 1
+
+> As a first time user I want to know the main purpose of the site immediately upon arriving on the site.
+
+**Description**
+Verify that the site's purpose is explcitly clear when a user navigates to the sites landing page.
+
+**Steps**
+1. Open one's internet browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Scroll to the content directly beneath the site's first image.
+4. Read the site description directly beneath the image in order to understand the site's purpose.
+
+**Expected Result:**
+A card container with text explaining the site's purpose will be displayed beneath the first image.
+
+**Actual Result:**
+A card container with text explaining the site's purpose is displayed beneath the first image.
+
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:** 
+
+<img src="assets/documentation/doc-images/site-description.png" width="750" height="300" alt="site-description">
+
+---
+
+### Test Case 2
+
+> As a first time user I want to be able to easily access information about local Irish history.
+
 ## Validators
+
 ### HTML 
 All of the following HTML were validated by using [W3C Markup Validation Service](https://validator.w3.org/).
 
@@ -171,6 +206,48 @@ After this discovery and a great deal of trouble shooting the following code was
 "article_list": [""]
 ```
 
+* One small bug which was encountered during development was that when the further reading page was rendered on small screens the text overlapped itself as seen in the image below:
+
+<img src="assets/documentation/doc-images/textoverlap.png" width="450" height="250" alt="textoverlap">
+
+The original that caused this issue is as presented below:
+```
+<p><span class="highlight">Website:</span> {{ reading.website }}</p><br>
+   {% endif %}
+   {% if reading.article_title %}
+   <p><span class="highlight"> Article title:</span> {{ reading.article_title }}</p><br>
+   {% endif %}
+   <p><span class="highlight">Author:</span>{{ reading.author }}</p><br>
+   <p><span class="highlight">Date Published:</span> {{ reading.date_published }}</p><br>
+   <p><span class="highlight">Publisher: </span> {{ reading.publisher }}</p><br>
+```
+
+In order to resolve this issue several different edits were made until the below code finally rectified the issue:
+```
+ <p class="highlight">Book title:</p>
+            <p>{{ reading.book_title }}</p>
+            <br>
+            {% endif %}
+            {% if reading.website %}
+            <p class="highlight">Website:</p>
+            <p>{{ reading.website }}</p>
+            <br>
+            {% endif %}
+            {% if reading.article_title %}
+            <p class="highlight"> Article title:</p>
+            <p>{{ reading.article_title }}</p>
+            <br>
+            {% endif %}
+            <p class="highlight">Author:</p>
+            <p>{{ reading.author }}</p>
+            <br>
+            <p class="highlight">Date Published:</p>
+            <p>{{ reading.date_published }}</p>
+            <br>
+            <p class="highlight">Publisher: </p>
+            <p>{{ reading.publisher }}</p>
+            <br>
+```
 
 ## Further Testing
 
