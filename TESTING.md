@@ -170,3 +170,93 @@ After this discovery and a great deal of trouble shooting the following code was
 ```
 "article_list": [""]
 ```
+
+
+## Further Testing
+
+* Testing was performed in the following browsers on both laptop and mobile devices:
+    - Google Chrome
+
+    - Mozilla Firefox
+
+    - Opera 
+
+    - Microsoft Edge
+
+    No issues were detected in any of these browsers at the time of submission.
+
+
+    The below image is an example result of lighthouse testing performed on the index page for desktop with every other test achieving similar results. The lighthouse tool found in Google Dev Tools was used repeatedly throughout the building of the project and was essential in discovering and resolving the issues described below. A lighthouse test was performed on both mobile and desktop for each individual page on the site with links to the full reports of each of these tests found below. The lighthouse tool tested each of the following criteria: performance, accessibility, best practices and SEO of each individual page in both mobile and desktop. Each test resulted in a score of 90 or above for desktop criteria and 70 or above for mobile criteria.
+
+
+    <img src="assets/documentation/doc-images/Lighthouse.png" width="600" height="250">
+
+* **Home Page**
+
+    [Lighthouse Desktop Index page results](assets/documentation/doc-images/Homedesktop.pdf) |
+    [Lighthouse Mobile Index page results](assets/documentation/doc-images/Homemobile.pdf)
+
+* **Contact Page**
+
+    [Lighthouse Desktop Contact page results](assets/documentation/doc-images/Contactdesktop.pdf) | 
+    [Lighthouse Mobile Contact page results](assets/documentation/doc-images/Contactdesktop.pdf) 
+
+* **Articles Page**
+
+    [Lighthouse Desktop Articles page results](assets/documentation/doc-images/Articlesdesktop.pdf) | 
+    [Lighthouse Mobile Articles page results](assets/documentation/doc-images/Articlesmobile.pdf) 
+
+* **Sign-Up Page**
+
+    [Lighthouse Desktop Sign-Up page results](assets/documentation/doc-images/Signupdesktop.pdf) | 
+    [Lighthouse Mobile Sign-Up page results](assets/documentation/doc-images/Signupmobile.pdf) 
+
+* **Log In Page**
+
+    [Lighthouse Desktop Login page results](assets/documentation/doc-images/Logindesktop.pdf) | 
+    [Lighthouse Mobile Login page results](assets/documentation/doc-images/Loginmobile.pdf) 
+
+* **Profile Page**
+
+    [Lighthouse Desktop Profile page results](assets/documentation/doc-images/Profiledesktop.pdf) | 
+    [Lighthouse Mobile Profile page results](assets/documentation/doc-images/Profilemobile.pdf) 
+
+* **Add Article Page**
+
+    [Lighthouse Desktop Add Article page results](assets/documentation/doc-images/Add-articledesktop.pdf) | 
+    [Lighthouse Mobile Add Article page results](assets/documentation/doc-images/Add-articlemobile.pdf) 
+
+* **Edit Article Page**
+   
+    [Lighthouse Desktop Edit Article page results](assets/documentation/doc-images/Edit-articledesktop.pdf) | 
+    [Lighthouse Mobile Edit Article page results](assets/documentation/doc-images/Edit-articlemobile.pdf)
+
+* **Topics Page**
+
+    [Lighthouse Desktop Topics page results](assets/documentation/doc-images/Topicsdesktop.pdf) | 
+    [Lighthouse Mobile Topics page results](assets/documentation/doc-images/Topicsmobile.pdf)
+
+* **Add Topic Page**
+
+    [Lighthouse Desktop Add Topic page results](assets/documentation/doc-images/Add-topicdesktop.pdf) | 
+    [Lighthouse Mobile Add Topic page results](assets/documentation/doc-images/Add-topicmobile.pdf)
+
+* **Edit Topic Page**
+
+    [Lighthouse Desktop Edit Topic page results](assets/documentation/doc-images/Edit-topicdesktop.pdf) | 
+    [Lighthouse Mobile Edit Topic page results](assets/documentation/doc-images/Edit-topicmobile.pdf)
+
+* **Further Reading Page**
+
+    [Lighthouse Desktop Further Reading page results](assets/documentation/doc-images/Further-readingdesktop.pdf) | 
+    [Lighthouse Mobile Further Reading page results](assets/documentation/doc-images/Further-readingmobile.pdf)
+
+* **Add Further Reading Page**
+
+    [Lighthouse Desktop Add Further Reading page results](assets/documentation/doc-images/Add-fr-desktop.pdf) | 
+    [Lighthouse Mobile Add Further Reading page results](assets/documentation/doc-images/Add-fr-mobile.pdf)
+
+* **Edit Further Reading Page**
+
+    [Lighthouse Desktop Edit Further Reading page results](assets/documentation/doc-images/Edit-fr-desktop.pdf) | 
+    [Lighthouse Mobile Edit Further Reading page results](assets/documentation/doc-images/Edit-fr-mobile.pdf)
