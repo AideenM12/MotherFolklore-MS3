@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
 <!---------Articles Page Main Body-------------->
 <main>
    <h3 class="center-align">{{ page_title }}</h3>
@@ -62,16 +63,18 @@
                </div>
             </div>
             <!----------Article Body---------->
+            <a href="#" id="scroll" style="display: none;"><span></span></a>
             <div class="collapsible-body">
+               <a href="#" id="scroll" style="display: none;"><span></span></a>
                {% if article.image_url %}
                <img src="{{ article.image_url }}" width="400" height="400" class="article-image" alt="image"><br>
                {% endif %}
-               {{ article.topic_name }}<br>
+               <p><span class="highlight"> Topic:</span> {{ article.topic_name }}</p><br>
                {{ article.article_article }}<br>
-               <p><span class="highlight"> Location:</span>{{ article.location_name }}<br></p>
+               <p><span class="highlight"> Location:</span>{{ article.location_name }}</p>
                <p><span class="highlight">Created by:</span> {{ article.created_by }}</p>
-               <br>
                <p><span class="highlight">Date:</span> {{ article.date_added }}</p>
+               
             </div>
          </li>
          {% endfor %}

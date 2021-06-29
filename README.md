@@ -154,6 +154,9 @@ The primary goal of this site is to facillate Irish History lovers to be able to
 
 
 ## Features left to implement
+
+* The floating back to top button on the articles page was created not long before project submission and because of this it was not possible to concentrate this button specifically inside the collapsible body div container. This hinders the UX because the user is brought to the top of the screen instead of the top of the article container, this issue will hopefully be resolved at a later date.
+
 * During the development of this project it quickly became apparent that the scope of the project could easily become infinite. Due to time constraints and the limitations of the site creator's skill set all other possible future features were dismissed to prevent scope creep. Possible future features will be re-evaluated at a later date but for now there are no features left to implement because it was felt that too many features could in fact hamper creating a site built on the principles of good UX design. 
 
 
@@ -359,7 +362,27 @@ The childrenoflir.jpg was originally obtained from [yourirish.com](https://www.y
 The banshee3.jpg was originally obtained from [monstersandcritics.com](https://www.monstersandcritics.com/tv/josh-gates-destination-truth-goes-in-search-of-the-irish-banshee/)
 
 
+### Content
+* The information presented in the Banshee article was taken from [newworldencyclopedia.org](https://www.
+newworldencyclopedia.org/entry/Banshee)
+
+* The information presented in The Children of Lir article was taken from [shortkidstories.com](https://www.shortkidstories.com/story/children-lir/)
+
+* The information presented in the St. Brigid's Cloak article was taken from [yourirish.com](https://www.yourirish.com/folklore/magic-cloak-st-brigid)
+
+* The information presented in the Tír na nÓg article was taken from [explore.blarney.com](http://explore.blarney.com/tir-na-nog-the-story-of-niamh-and-oisin/)
+
+* The information presented in the Pandemic that inspired Dracula article was taken from [rte.ie](https://www.rte.ie/news/connacht/2018/1110/1010033-dracula-sligo/)
+
+* The information presented in the Yeats and Folklore article was taken from [shamrockgift.com](https://www.shamrockgift.com/blog/yeats-irish-folklore/)
+
+* The information presented in the Counting Crows article was taken from [rte.ie](https://www.rte.ie/brainstorm/2020/1210/1183545-magpies-nursery-rhyme-superstitions/)
+
+* The information presented in the Claddagh Ring article was taken from [theirishgifthouse.com](https://theirishgifthouse.com/contents/en-us/d2105420_Irish_Wedding_Traditions.html)
+
 ### Code
+
+* The code for the floating back to top button was taken from [codepen.io](https://codepen.io/desirecode/pen/MJPJqV)
 
 
 ### Acknowledgements

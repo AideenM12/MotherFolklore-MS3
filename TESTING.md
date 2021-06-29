@@ -249,6 +249,8 @@ In order to resolve this issue several different edits were made until the below
             <br>
 ```
 
+* The floating back to top button on the articles page was created not long before project submission and because of this it was not possible to concentrate this button specifically inside the collapsible body div container. This hinders the UX because the user is brought to the top of the screen instead of the top of the article container, this issue will hopefully be resolved at a later date. 
+
 ## Further Testing
 
 * Testing was performed in the following browsers on both laptop and mobile devices:

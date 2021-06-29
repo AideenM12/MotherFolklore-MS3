@@ -151,7 +151,8 @@ class RegistrationForm(Form):
     WTForms is used to validate the registration form fields.
     """
     username = TextField('Username',
-                         [validators.Length(min=4, max=20),
+                         [validators.Length(min=4, max=20,
+                          message="Username max length 20 characters"),
                           validators.Regexp(r'^\w+$', message=(
                               "Username must contain only letters "
                               "numbers or underscore"))])

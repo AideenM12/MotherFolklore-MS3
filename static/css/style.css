@@ -168,7 +168,7 @@ option {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	width: 40%;
+	width: 70%;
 }
 
 .collapsible-body {
@@ -200,6 +200,40 @@ option {
 li>a {
 	color: #ededed;
 	font-size: 20px;
+}
+
+/*----Back to Top Button ------------*/
+/*----This Code was found on Codepen.io----*/
+
+#scroll {
+    position:fixed;
+    right:10px;
+    bottom:10px;
+    cursor:pointer;
+    width:50px;
+    height:50px;
+    background-color:#131515;
+    text-indent:-9999px;
+    display:none;
+    -webkit-border-radius:60px;
+    -moz-border-radius:60px;
+    border-radius:60px
+}
+#scroll span {
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-8px;
+    margin-top:-12px;
+    height:0;
+    width:0;
+    border:8px solid transparent;
+    border-bottom-color:#ededed;
+}
+#scroll:hover {
+    background-color:#878888;
+    opacity:1;filter:"alpha(opacity=100)";
+    -ms-filter:"alpha(opacity=100)";
 }
 
 
