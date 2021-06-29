@@ -34,7 +34,7 @@ $(document).ready(function(){
       }
   });
 
-
+// Floating Back to Top Button functionality
 // This code was found on https://codepen.io/desirecode/pen/MJPJqV
 
   $(document).ready(function(){ 

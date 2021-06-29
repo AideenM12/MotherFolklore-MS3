@@ -159,7 +159,7 @@ class RegistrationForm(Form):
 
     email = TextField('Email Address', [validators.Length(min=6, max=50)])
 
-    password = PasswordField('New Password', [
+    password = PasswordField('Password', [
         validators.InputRequired(),
         validators.EqualTo('confirm', message='Passwords must match'),
         validators.Regexp(r'^\w+$', message=(

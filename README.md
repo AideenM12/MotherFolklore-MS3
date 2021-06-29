@@ -384,6 +384,21 @@ newworldencyclopedia.org/entry/Banshee)
 
 * The code for the floating back to top button was taken from [codepen.io](https://codepen.io/desirecode/pen/MJPJqV)
 
+* The CSS Code for the bootstrap-style inline list was taken from [stackoverflow.com](https://stackoverflow.com/questions/42884750/how-to-create-inline-lists-in-materializecss)
+
+* The code that appears over the parallax container on the home page was found on [codepen.io](https://codepen.io/j_holtslander/pen/NoKqQP)
+
+* The code for the pagination links on the articles page was taken from Ed Bradley's [Self-Isolution Project](https://github.com/Edb83/self-isolution/blob/master/app.py)
+
+* The code for the login and registration forms and route handlers was taken from the following links:
+ * [pythonprogramming.net](https://pythonprogramming.net/flask-registration-tutorial/)
+ * [WTForms.readthedocs.io](https://wtforms.readthedocs.io/en/stable/crash_course/)
+
+* The email.js code was sourced from Matt Rudge's Code Institute tutorial on the same subject.
+
+* A large portion of this project's code was inspired by Tim Nelson's mini project walkthrough tutorial. This Code Institute tutorial was instrumental in the creation of this site. 
+
+* The TESTING.md section of this project was inspired by my classmate, Daisy McGirr's, workshop on testing. This workshop proved very useful for a great deal of students, myself included, in approaching all matters of testing. 
 
 ### Acknowledgements
 
