@@ -54,14 +54,13 @@ The primary goal of this site is to facillate Irish History lovers to be able to
 ### User Stories
 
 * As a first time user I want to know the main purpose of the site immediately upon arriving on the site.
-* As a first time user I want to be able to easily access information about local Irish history.
+* As a first time user I want to be able to easily access information about local Irish folklore.
 * As a first time user I want the site UX to be intuitive for ease of use. 
 * As a returning user I want to be able to register with the site and create my own profile which I can log in to at any time.
 * As a returning user I want to be able to add local history of my own to the site.
 * As a returning user I want to be able to edit/delete any contribution I have made to the site. 
 * As a user I want the site be responsive to all devices.
 * As a user I want to be able to contact the admin with any queries or suggestions I may have.
-* As a user I want to be able to find local Irish history specific to my provincial region. 
 * As a user I want to be able to find out further information about local Irish history through links to additional material and literature provided by the site.
 
 
@@ -391,8 +390,8 @@ newworldencyclopedia.org/entry/Banshee)
 * The code for the pagination links on the articles page was taken from Ed Bradley's [Self-Isolution Project](https://github.com/Edb83/self-isolution/blob/master/app.py)
 
 * The code for the login and registration forms and route handlers was taken from the following links:
- * [pythonprogramming.net](https://pythonprogramming.net/flask-registration-tutorial/)
- * [WTForms.readthedocs.io](https://wtforms.readthedocs.io/en/stable/crash_course/)
+    - [pythonprogramming.net](https://pythonprogramming.net/flask-registration-tutorial/)
+    - [WTForms.readthedocs.io](https://wtforms.readthedocs.io/en/stable/crash_course/)
 
 * The email.js code was sourced from Matt Rudge's Code Institute tutorial on the same subject.
 

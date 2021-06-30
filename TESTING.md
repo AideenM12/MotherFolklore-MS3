@@ -52,7 +52,314 @@ Pass
 
 ### Test Case 2
 
-> As a first time user I want to be able to easily access information about local Irish history.
+> As a first time user I want to be able to easily access information about local Irish folklore.
+
+**Description**
+Verify that the site.
+
+**Steps**
+1. Open one's internet browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Select the articles tab in the navigation bar.
+4. Scroll down the page to find a suitable article of choice to read more about Irish folklore and use pagination links to view the entire article content available.
+5. Click on the title of the article of choice.
+6. Read article of choice.
+
+**Expected Result:**
+A collapsible dropdown container will display the user's article of choice.
+
+**Actual Result:**
+A collapsible dropdown container displays the user's article of choice.
+
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:** 
+
+<img src="assets/documentation/doc-images/articlestest.png" width="250" height="300" alt="articles-test">
+
+<img src="assets/documentation/doc-images/articlestest1.png" width="250" height="300" alt="articles-test-1">
+
+
+---
+
+### Test Case 3
+
+> * As a first time user I want the site UX to be intuitive for ease of use.
+
+**Description**
+Verify that the site provides the user with an intuitively designed navigation bar and footer.
+
+**Steps**
+1. Open one's internet browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Select the tab of choice in the navigation bar.
+4. Alternatively create an account for a greater depth of user experience.
+5. Use the navigation and footer links to explore the site and find desired content/services.
+6. Logout once site exploration has concluded.
+
+**Expected Result:**
+A navigation bar will provide the user with links to the site's content that they can use intuitively. A series of footer icons will provide the user with links to the site's social media accounts.
+
+**Actual Result:**
+A navigation bar provides the user with links to the site's content that they can use intuitively. A series of footer icons provides the user with links to the site's social media accounts.
+
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:** 
+
+<img src="assets/documentation/doc-images/navbar.png" width="400" height="50" alt="navbar">
+
+<img src="assets/documentation/doc-images/footer-icons.png" width="150" height="50" alt="footer-icons">
+
+---
+
+### Test Case 4
+
+> * As a returning user I want to be able to register with the site and create my own profile which I can log in to at any time.
+
+**Description**
+Verify that the site provides the user with an opportunity to register with the site and create their own account.
+
+**Steps**
+1. Open one's internet browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Select the Sign Up tab in the navigation bar.
+4. Fill in the registration form as instructed.
+5. Once the registration form has been successfully filled out and submitted the user will be notified that the creation of their account has been successful.
+
+
+**Expected Result:**
+A registration form will be provided and once successfully completed and submitted the user will be notified that their account creation has been successful.
+
+**Actual Result:**
+A registration form is provided and once it is successfully completed and submitted the user is notified that their account creation has been successful.
+
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:** 
+
+<img src="assets/documentation/doc-images/register-form.png" width="400" height="400" alt="register-form">
+
+<img src="assets/documentation/doc-images/register-successful.png" width="400" height="400" alt="register-successful">
+
+---
+
+### Test Case 5
+
+> * As a returning user I want to be able to add local history of my own to the site.
+
+**Description**
+Verify that the site provides the user with an opportunity to contribute their own content to the site.
+
+**Steps**
+1. Open one's internet browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Select the Log In tab in the navigation bar.
+4. Enter user's log in details.
+5. After logging in select the contribute tab in the navigation bar.
+6. Fill in the add an article form with one's desired information that they wish to contribute to the site.
+7. Once the form has been correctly filled in click the add article button.
+8. The user will then recieve a notification that their contribution has been successful.
+
+
+**Expected Result:**
+An add an article form will be provided and once successfully completed and submitted the user will be notified that their article contribution has been successful.
+
+**Actual Result:**
+An add an article form is provided and once successfully completed and submitted the user is notified that their article contribution has been successful.
+
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:** 
+
+<img src="assets/documentation/doc-images/add-article.png" width="400" height="400" alt="add-article-form">
+
+<img src="assets/documentation/doc-images/article-success.png" width="300" height="100" alt="article-successful">
+
+---
+
+### Test Case 6
+
+> * As a returning user I want to be able to edit/delete any contribution I have made to the site.
+
+**Description**
+Verify that the site provides the user with an opportunity to edit and delete their own content on the site.
+
+**Steps to Edit**
+1. Open one's internet browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Select the Log In tab in the navigation bar.
+4. Enter user's log in details.
+5. After logging in view user's own content on the profile page.
+6. Click the edit button on the content that you wish to edit.
+7. Make the necessary alterations in the edit form provided.
+8. Click the the edit article button.
+9. The user will recieve a notification that their edit has been successful.
+
+
+**Expected Result:**
+An edit article form will be provided and once successfully completed and submitted the user will be notified that their article edit has been successful.
+
+**Actual Result:**
+An edit article form is provided and once successfully completed and submitted the user is notified that their article edit has been successful.
+
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:** 
+
+* <img src="assets/documentation/doc-images/userarticle.png" width="500" height="200" alt="user-article">
+
+
+* <img src="assets/documentation/doc-images/edit-article-form.png" width="400" height="400" alt="edit-article-form">
+
+* <img src="assets/documentation/doc-images/article-update.png" width="300" height="100" alt="update-successful">
+
+**Steps to Delete**
+1. Open one's internet browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Select the Log In tab in the navigation bar.
+4. Enter user's log in details.
+5. After logging in view user's own content on the profile page.
+6. Click the delete button on the content that you wish to edit.
+7. Read the modal alert provided.
+8. Click the delete button if you wish to delete the selected material.
+9. The user will recieve a notification that their deletion has been successful.
+
+
+**Expected Result:**
+A delete button will be provided next to the users own content and once successfully clicked a modal will appear to confirm the users choice. Once the delete button in the modal has been selected the material will be permenantly deleted and the user will recieve a notification to say the deletion has been successful.
+
+**Actual Result:**
+A delete button is provided next to the users own content and once successfully clicked a modal appears to confirm the users choice. Once the delete button in the modal is selected the material is permenantly deleted and the user recieves a notification to say the deletion has been successful.
+
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:** 
+
+* <img src="assets/documentation/doc-images/userarticle.png" width="500" height="200" alt="user-article">
+
+* <img src="assets/documentation/doc-images/delete-article.png" width="500" height="350" alt="delete-article">
+
+* <img src="assets/documentation/doc-images/delete-successful.png" width="300" height="100" alt="delete-successful">
+---
+
+### Test Case 7
+
+> As a user I want the site be responsive to all devices.
+
+**Description**
+Verify that the site is responsive on all devices.
+
+**Steps**
+1. Open one's internet browser of choice on one's device of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Test the responsivness of the site on each available device.
+4. Document the results.
+
+**Expected Result:**
+The site will be responsive across all available devices.
+
+**Actual Result:**
+* The website was primarily tested on the following devices:
+
+    - Hp Pavilion g series laptop
+    - Samsung A10
+
+* Other devices used for site testing include:
+
+    - HP 250 G6 Notebook PC 
+    - Huawei P smart 2020
+    - Iphone SE
+    - Samsung A70
+
+* Other tests performed to determine site responsiveness were conducted using google Dev Tools in order to view the site on a variety of devices. The [Am I Responsive](http://ami.responsivedesign.is/) website was also used to test the visual presentation of the site on different devices.
+
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:** 
+
+<img src="assets/documentation/doc-images/MS3-Mockup.png" height="600" width="800" alt="site-mockup">
+
+---
+
+### Test Case 8
+
+> * As a user I want to be able to contact the admin with any queries or suggestions I may have.
+
+**Description**
+Verify that the site provides the user with a contact page so that they can contact the site's admin with any queries they may have.
+
+**Steps**
+1. Open one's internet browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Select the Log In tab in the navigation bar.
+4. Enter user's log in details.
+5. After logging in navigate to the contact page.
+6. Fill out the contact form with the relevant information and click submit.
+7. Once the contact form has been successfully filled out and submitted the user will recieve a notification.
+
+
+**Expected Result:**
+A contact form will be provided and once successfully completed and submitted the user will be notified that their message has been successfully sent.
+
+**Actual Result:**
+A contact form is provided and once successfully completed and submitted the user is notified that their message has been successfully sent.
+
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:** 
+
+<img src="assets/documentation/doc-images/contact-form.png" width="400" height="400" alt="contact-form">
+
+<img src="assets/documentation/doc-images/contact-message.png" width="500" height="100" alt="contact-message">
+
+---
+
+### Test Case 9
+
+> * As a user I want to be able to find out further information about local Irish history through links to additional material and literature provided by the site.
+
+**Description**
+Verify that the site provides the user with a further reading page so that they can delve deeper into the subject matter that interests them with additional reading material.
+
+**Steps**
+1. Open one's internet browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Select the Log In tab in the navigation bar.
+4. Enter user's log in details.
+5. After logging in navigate to the topics page.
+6. Click the further reading button underneath the topic of choice.
+7. Observe the bibliography of further reading provided on the topic of choice.
+
+
+**Expected Result:**
+A further reading page will be provided to allow the user to study their topic of choice in more depth.
+
+**Actual Result:**
+A further reading page is provided to allow the user to study their topic of choice in more depth.
+
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:** 
+
+* <img src="assets/documentation/doc-images/topicsimage.png" width="600" height="400" alt="topics-image">
+
+* <img src="assets/documentation/doc-images/frbutton.png" width="200" height="100" alt="further-reading-button">
+
+* <img src="assets/documentation/doc-images/furtherreadingpage.png" width="600" height="300" alt="further-reading">
+
+---
+
+
 
 ## Validators
 
