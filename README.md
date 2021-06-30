@@ -163,6 +163,16 @@ The primary goal of this site is to facillate Irish History lovers to be able to
 ### Logout features:
 * The log out button removes the user's session cookie from the app using the pop method and redirects the user to the login page.
 
+### 404 Page
+* A 404 Page has been created in order to deal with user errors in navigation or invalid search data in order to assist the user in returning to the home page. All navigation features are present on the 404 page as well as a button labelled 'home' in order to easily redirect the user back to the relevant page.
+
+<img src="assets/documentation/doc-images/404.png" width="650" height="450" alt="404-page">
+
+### 500 Page 
+* A 500 page has been created to deal with any potential internal server errors.
+
+<img src="assets/documentation/doc-images/500.png" width="650" height="450" alt="500-page">
+
 ### Feature exclusive to Admin:
 
 * Only the Admin can edit/delete all articles content on the site, otherwise the content must belong to the session user in order for it to be edited or deleted. 
@@ -249,6 +259,8 @@ This palette was created on the [Coolors Website](https://coolors.co).
 
 <img src="assets/documentation/doc-images/dbschema.png" width="900" height="300" alt="database schema">
 
+* The site contains five collections which are stored in MongoDB. The users collection stores the user's username and password which enables the user to create an account and have a profile page. The articles collection stores all data related to the site's article content and also links to the user's collection if they have created site content using their account. All of their contributions are then linked and displayed to their profile page. The topics collection links to the article content by assigning articles a topic_name. This enables  the filter_topic functionality which allows users to filter articles by topic. The locations collection allows users to select a specific geographical location of the origin point of their article. Finally the further reading collection stores data related to external reading source material. It is also linked to the topics collection as all further reading data is filtered and presented to the user based on a specific topic. Only the Admin has clearance to edit/delete the data found in the topics and further reading collections. 
+
 
 ### Sitemap
 * The sitemap was created using [Balsamiq wireframes](https://balsamiq.com/)
@@ -257,30 +269,39 @@ This palette was created on the [Coolors Website](https://coolors.co).
 
 ## Technologies Used
 - This project is primarily built using HTML5 semantic markup, CSS stylesheets, Javascript, Python, Flask and MongoDB.
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+    - Flask was used as the main python framework in the building of this project.
 - [jQuery](https://jquery.com/)
     - This framework was used to create some of the site's interactive functions.
 - [Gitpod](https://gitpod.io)
     - This project was built using Gitpod as the IDE.
+- [Github](https://github.com/)
+    - Github was used for online version control and storing files and documents.
+- [Heroku](https://id.heroku.com/)
+    - Heroku was used as a cloud based platform to deploy this site.
 - [Google fonts](https://fonts.google.com/) 
     - The font styles used on this website were chosen from Google fonts.
-- [Bootstrap 4.5](https://getbootstrap.com/)
-   - Various aspects of this website were structured using Bootstrap.
-   - Bootstrap was used to make this website responsive
+- [Materializecss](https://materializecss.com/)
+   - Various aspects of this website were structured using Materialize.
+   - Materialize was used to make this website responsive
 - [Fontawesome](https://fontawesome.com/)
     - The icons used on this page were found in Fontawesome.
- 
-
+- [MongoDB](https://www.mongodb.com/)
+    - MongoDB Atlas was used as the database for the creation of this project.
+- [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
+    - Jinja was used for templating.
+- [flask-paginate](https://pythonhosted.org/Flask-paginate/)
+    - flask-paginate was used to create the site's pagination links.
 - [Balsamiq](https://balsamiq.com/)
     - The wireframes and sitemap for this project were created using Balsamiq.
-- [FreePik](https://www.freepik.com/)
-    - All of the vectors used in this project were found on Freepik. 
-- [Freeformatter- CSS beautifier](https://www.freeformatter.com/css-beautifier.html)
+ - [Freeformatter- CSS beautifier](https://www.freeformatter.com/css-beautifier.html)
     - This was used to format the CSS stylesheet.
 - [Freeformatter- HTML formatter](https://www.freeformatter.com/html-formatter.html)
     - This was used to format each HTML page
+- [PEP8online](http://pep8online.com/)
+    - PEP8 online was used to make sure all python code was pep8 compliant.
 - [Google DevTools](https://developers.google.com/web/tools/chrome-devtools) 
     - Google Dev Tools was extensively used throughout the project for various styling and testing purposes. Its lighthouse feature was used as one of the main testing tools for this project.
-
 - [EmailJS](https://www.emailjs.com/)
     - The contact-form was created using EmailJS following a code institute tutorial.
 - [CSS-Tricks](https://css-tricks.com/)
@@ -293,6 +314,10 @@ This palette was created on the [Coolors Website](https://coolors.co).
     - Beautifier.io was used to format all javascript files in this project.
 - [Dbdiagram.io](https://dbdiagram.io/home)
     - Dbdiagram.io was used to create the Database Schema presented in this document.
+- [Coolors.co](https://coolors.co/)
+    - Coolors.co was used to create the project's color palette.
+- [StackOverflow](https://stackoverflow.com/)
+    - Stack Overflow was used as a general reference resource. 
 
 ## Testing
 Testing information can be found here in the separate [TESTING.md file](TESTING.md)
