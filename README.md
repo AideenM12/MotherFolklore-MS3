@@ -5,7 +5,18 @@
        * [User Stories](#User-Stories) 
     * [Structure](#Structure)
        * [Existing Features](#Existing-Features) 
-            
+            * [Features on all pages](#Features-on-all-pages)
+            * [Home Page Features](#Home-Page-Features)
+            * [Articles Page Features](#Articles-Page-Features)
+            * [Login Page Features](#Login-Page-Features)
+            * [Sign-Up Page Features](#Sign-Up-Page-Features)
+            * [Profile Page Features](#Profile-Page-Features)
+            * [Topics Page Features](#Topics-Page-Features)
+            * [Further Reading Page Features](#Further-Reading-Page-Features)  
+            * [Log Out Features](#Log-Out-Features)
+            * [404 Page](#404-Page)
+            * [500 Page](#500-Page)
+            * [Features exclusive to Admin][#Features-exclusive-to-Admin]          
        * [Features Left To Implement](Feature-Left-To-Implement)  
        * [Design](#Design)
             * [Colors](#Colors)
@@ -23,6 +34,7 @@
       * [How to Fork the respository](#How-to-Fork-the-Respository)
     * [Credits](#Credits)
       * [Media](#Media)
+      * [Content](#Content)
       * [Code](#Code)
       * [Acknowledgements](#Acknowledgements)
 
@@ -43,10 +55,10 @@ The primary goal of this site is to facilitate Irish History lovers to be able t
 
 
 
-**The Ideal User of this site is:**
-* English speaking.
+**The Ideal User of this site:**
+* Is English speaking.
 * Has a passion for history. 
-* Interested in local lore.
+* Is Interested in local lore.
 * Has a curiosity about their provincial area.
 * Wants to learn more about Irish History. 
   
@@ -92,7 +104,7 @@ The primary goal of this site is to facilitate Irish History lovers to be able t
 
 <img src="assets/documentation/doc-images/searchbar.png" width="550" height="200" alt="searchbar">
 
-* Beneath the search bar there are series of collapsible dropdowns which contain:
+* Beneath the search bar there are a series of collapsible dropdowns which contain:
     * The article content
     * The article image
     * The location where the story of the article content originates
@@ -112,7 +124,7 @@ The primary goal of this site is to facilitate Irish History lovers to be able t
 
 <img src="assets/documentation/doc-images/pagination.png" width="450" height="100" alt="pagination">
 
-* A last minute feature to this page is the float back to top button which allows users to navigate back to the top of the screen if the material they are reading is quite lenghty. It is has not been fully implemented to the developer's specifications due to it's last minute implementation and will be a feature to be considered for modification in the future. 
+* A last minute feature to this page is the float back to top button which allows users to navigate back to the top of the screen if the material they are reading is quite lenghty. It is has not been fully implemented to the developer's specifications due to its last minute implementation and will be a feature to be considered for modification in the future. 
 
 <img src="assets/documentation/doc-images/floating-button.png" width="50" height="50" alt="floating-button">
 
@@ -126,7 +138,7 @@ The primary goal of this site is to facilitate Irish History lovers to be able t
 ### Sign-Up page features:
 
 * A parallax container displays the two images described in the Design section below. 
-* A register form is presented to the user which asks for their username, email address and password which are validated by the sign route handler. The password must be declared twice to ensure it matches or else the user will be notified that their passwords do not match. This is done to ensure that the user has input a password that they are familiar with and can remember and to avoid any possible typos that could hinder the user from signing in the future. An image of the registration form can be seen below.
+* A register form is presented to the user which asks for their username, email address and password which are validated by the sign route handler. The password must be declared twice to ensure it matches or else the user will be notified that their passwords do not match. This is done to ensure that the user has input a password that they are familiar with and can remember and to avoid any possible typos that could hinder the user from signing in in the future. An image of the registration form can be seen below.
 
 <img src="assets/documentation/doc-images/signupform.png" width="450" height="500" alt="signup-form">
 
@@ -184,9 +196,9 @@ The primary goal of this site is to facilitate Irish History lovers to be able t
 
 ## Features left to implement
 
-* The floating back to top button on the articles page was created not long before project submission and because of this it was not possible to concentrate this button specifically inside the collapsible body div container. This hinders the UX because the user is brought to the top of the screen instead of the top of the article container, this issue will hopefully be resolved at a later date.
+* The floating back to top button on the articles page was created not long before project submission and because of this it was not possible to concentrate this button specifically inside the collapsible body div container. This hinders the UX because the user is brought to the top of the screen instead of the top of the article container, this issue will  be resolved at a later date.
 
-* During the development of this project it quickly became apparent that the scope of the project could easily become infinite. Due to time constraints and the limitations of the site creator's skill set all other possible future features were dismissed to prevent scope creep. Possible future features will be re-evaluated at a later date but for now there are no features left to implement because it was felt that too many features could in fact hamper creating a site built on the principles of good UX design. 
+* During the development of this project it quickly became apparent that the scope of the project could easily become infinite. Due to time constraints and the limitations of the site creator's skillset all other possible future features were dismissed to prevent scope creep. Possible future features will be re-evaluated at a later date but for now there are no features left to implement because it was felt that too many features could hamper creating a site built on the principles of good UX design. 
 
 
 
@@ -220,9 +232,9 @@ This palette was created on the [Coolors Website](https://coolors.co).
 
 
 ### Imagery
-* The Children of Lir image was selected because it matched the subject matter and the color scheme of the site. It appears to be an image that may have originated in an old out of print book which helps to create the overall feel of the site. One of the Admin created articles is the children of lir so that the user can learn about this image during their exploration of the site. 
+* The Children of Lir image was selected because it matched the subject matter and the color scheme of the site. It appears to be an image that may have originated in an old out of print book which helps to create the overall feel of the site. One of the Admin created articles is the Children of Lir so that the user can learn about this image during their exploration of the site. 
 
-* The Banshee image was selected for the same reason mentioned above. This image was originally depicted in the book "The Halfpenny Miscellany" from 1862 so it was chosen for it's authenticity and the fact that it would help achieve the desired feel of site and also it features as one of the Admin created articles available on the site.
+* The Banshee image was selected for the same reason mentioned above. This image was originally depicted in the book "The Halfpenny Miscellany" from 1862 so it was chosen for its authenticity and the fact that it would help achieve the desired feel of site and it also features as one of the Admin created articles available on the site.
 
 
 
@@ -323,7 +335,7 @@ This palette was created on the [Coolors Website](https://coolors.co).
 Testing information can be found here in the separate [TESTING.md file](TESTING.md)
 
 ## Deployment
-This project was developed using [Gitpod IDE](https://gitpod.io) and pushed to Github using the in-built terminal. However, because Github can only host static websites it was necessary to deploy this project to heroku because it is a compatible hosting platform for a back-end focused site like MotherFolklore. 
+This project was developed using [Gitpod IDE](https://gitpod.io) and pushed to Github using the in-built terminal. However, because Github can only host static websites it was necessary to deploy this project to Heroku because it is a compatible hosting platform for a back-end focused site like MotherFolklore. 
 
 This project was deployed using Heroku and stored in GitHub.
 
@@ -369,7 +381,7 @@ Navigate to the settings tab and then click the Reveal Config Vars button and ad
 
 ### Connect app to Github Repository
 
-1. Click the deply tab and connect to GitHub.
+1. Click the deploy tab and connect to GitHub.
 2. Type the name of the repository into the search bar presented.
 3. Click the Code dropdown button next to the green Gitpod button.
 4. When the correct repository displays click the connect button.
@@ -453,6 +465,6 @@ newworldencyclopedia.org/entry/Banshee)
 
 * I would like to thank Daisy McGirr for taking time out of her busy schedule to provide us with the aforementioned testing workshop and for constantly offering encouragement and help to our Springboard class throughout our Code Institute journey.
 
-* I would like to thank my own Springboard class cohort for being supportive and helpful throughout the duration of the course. This particular channel provided a great deal of respite and also necessary feedback throughout the course which has proven invaluable for maintaining motivation. 
+* I would like to thank my own Springboard class cohorts for being supportive and helpful throughout the duration of the course. This particular channel provided a great deal of respite and also necessary feedback throughout the course which has proven invaluable for maintaining motivation. 
 
 * Finally I would like to thank my boyfriend Shane for constantly helping to test the project throughout its development, providing insightful suggestions as to how to improve user experience. And also for helping to proof read this document and ensure it meets the correct standards of grammar, spelling and readability.

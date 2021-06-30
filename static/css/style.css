@@ -163,7 +163,7 @@ option {
 }
 
 .topic-card{
-	margin-bottom: 15vh !important;
+	margin-bottom: 18vh !important;
 }
 
 
@@ -305,6 +305,9 @@ li>a {
 	.article-image {
 		width: 80%;
 	}
+	.topic-card{
+		margin-bottom: 0;
+	}
 }
 
 @media only screen and (max-width: 576px) {
@@ -347,8 +350,15 @@ li>a {
 	.contact-btn {
 		width: 150px;
 	}
+	/*-----Reading---*/
+	.reading{
+		line-height: 1;
+	}
 	.contact-card {
 		width: fit-content;
+	}
+	.topic-card{
+		margin-bottom: 0;
 	}
 	/*---Article Dropdown Content---*/
 	.collapsible-body {

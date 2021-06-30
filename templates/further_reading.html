@@ -13,32 +13,26 @@
       <h3 class="center-align">{{ reading.topic_name }}</h3>
       {% endif %}
       <!----------Further Reading Content---------->
-      <div class="row">
+      <div class="container">
          <div class="card-panel reading">
             {% if reading.book_title %}
             <p class="highlight">Book title:</p>
             <p>{{ reading.book_title }}</p>
-            <br>
             {% endif %}
             {% if reading.website %}
             <p class="highlight">Website:</p>
             <p>{{ reading.website }}</p>
-            <br>
             {% endif %}
             {% if reading.article_title %}
             <p class="highlight"> Article title:</p>
             <p>{{ reading.article_title }}</p>
-            <br>
             {% endif %}
             <p class="highlight">Author:</p>
             <p>{{ reading.author }}</p>
-            <br>
             <p class="highlight">Date Published:</p>
             <p>{{ reading.date_published }}</p>
-            <br>
             <p class="highlight">Publisher: </p>
             <p>{{ reading.publisher }}</p>
-            <br>
             <!--------Edit/Delete Buttons---------->
             {% if session.user|lower == "admin" %}
             <div class="card-action center-align">
@@ -67,7 +61,7 @@
       to contact us!
    </p>
    <div class="row">
-      <div class="col l4 offset-l4 s4 offset-s2">
+      <div class="col l4 offset-l4 s6 offset-s2">
          <div class=" card  center-align contact-card">
             <div class="card-content">
                <a href="{{ url_for('contact') }}" class="btn contact-btn"> Contact Us!</a>
