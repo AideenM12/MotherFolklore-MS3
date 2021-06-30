@@ -722,7 +722,7 @@ Pass
 ## Validators
 
 ### HTML 
-All of the following HTML were validated by using [W3C Markup Validation Service](https://validator.w3.org/).
+All of the following HTML pages were validated by using [W3C Markup Validation Service](https://validator.w3.org/).
 
 — **HTML Pages** —
 * **Add Article Page** &#40; `add_article.html` &#41;:
@@ -853,7 +853,7 @@ All CSS was validated by using [W3C Jigsaw CSS Validation Service](https://jigsa
  </div>
  </div>
  ```
-In order to trouble shoot the issue the following code was used to try and rectify the problem:
+In order to troubleshoot the issue the following code was used to try and rectify the problem:
 ```
 <div class="parallax-container">
 		<div class="parallax"><img src="{{ url_for('static', filename='images/banshee3.jpg') }}"></div>
@@ -869,7 +869,7 @@ After much consultation with tutor support it was discovered that Topics created
 
 <img src="assets/documentation/doc-images/topicsbug2.png" width="450" height="250" alt="topicsbug2">
 
-After this discovery and a great deal of trouble shooting the following code was added into the add_topic route handler to rectify the issue and ensure that the article list array was initialized with an empty string value: 
+After this discovery and a great deal of troubleshooting the following code was added into the add_topic route handler to rectify the issue and ensure that the article list array was initialized with an empty string value: 
 ```
 "article_list": [""]
 ```

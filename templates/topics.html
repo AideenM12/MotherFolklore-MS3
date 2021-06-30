@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <!------Topics Page Main Body----->
-<header>
+<div class="topics">
    {% if session.user|lower == "admin" %}
    <div class="row">
       <h3 class="center-align">Edit topics</h3>
@@ -13,8 +13,7 @@
       </div>
    </div>
    {% endif %}
-</header>
-<main>
+</div>
 <div class="row">
    <!------Topic Description------>
    {% for topic in topics %}
@@ -62,7 +61,7 @@
 {% if session.user|lower == "admin" %}
 <!----Add Topic Button----->
 <div class="row">
-   <div class="col s12 ">
+   <div class="col  s12 ">
       <div class=" card-panel center-align">
          <a href="{{ url_for('add_topic') }}" class="btn">Add Topic</a>
       </div>
@@ -71,4 +70,3 @@
 {% endif %}
 
 {% endblock %}
-</main>
