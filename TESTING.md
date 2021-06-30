@@ -783,6 +783,9 @@ All CSS was validated by using [W3C Jigsaw CSS Validation Service](https://jigsa
 
 <img src="assets/documentation/doc-images/PEP8-validator.png" width="450" height="350" alt="PEP8-validator">
 
+## Linters
+10 notifications remain in the terminal. The linter has raised issues regarding the 'env.py' file as expected because it contains sensitive material. The other linting notifications regarding the WTForm package imports were left untouched so as not to interfer with this package's security functions. 5 warnings appear with regard to the flask-pagination functionality which were again left untouched because this is borrowed code taken directly from another project so it was felt that it was best to leave it as it was found to maintain its functionality.
+
 
 ## Manual Testing of Route Handlers
 * In order to ensure each route handler performed correctly with regards to security features and defensive programming the following steps were taken to test each relevent route handler:
