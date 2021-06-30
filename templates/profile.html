@@ -29,7 +29,7 @@
    </div>
    {% else %}
    <div class="row">
-      <div class="col s6 offset-s3 ">
+      <div class="col s10 offset-s1 ">
          <div class="card-panel ">
             <div class="card-content center-align ">
                Welcome {{ username }}! You haven't contributed anything yet so feel free to click below and share your knowledge, every contribution is greatly appreciated by all here at MotherFolklore!
@@ -73,6 +73,7 @@
                   </ul>
                </div>
             </div>
+            <a href="#" id="scroll" style="display: none;"><span></span></a>
             <div class="collapsible-body">
                {% if article.image_url %}
                <img src="{{ article.image_url }}" width="400" height="400" class="article-image"><br>

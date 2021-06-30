@@ -100,9 +100,21 @@ The primary goal of this site is to facillate Irish History lovers to be able to
     * The date on which the article was created. 
     * If the article is the property of the session owner then delete and edit buttons appear alongside the article name.
 
+    <img src="assets/documentation/doc-images/articlestest.png" width="250" height="500" alt="articles-test">
+
+    <img src="assets/documentation/doc-images/articlestest1.png" width="250" height="500" alt="articles-test1">
+
+    <img src="assets/documentation/doc-images/userarticle.png" width="550" height="150" alt="user-article">
+
 * The edit and delete buttons allow the user to modify or erase their contribution respectively. A flash message appears to indicate whether the selected action was completed successfully. If the edit button is selected the user is redirected to the edit page where they are presented with an indentical form to the add article form however the input fields are filled with the material they wish to edit in keeping with good UX design principles. If the delete button is selected a modal appears to confirm that the user wishes to delete their contribution so as to avoid accidental erasure of any material. 
 
 * Beneath the collapsible dropdowns appears the pagination links which allow the user to navigate throughout the entire selection of articles and articles are limited to six per page using flask paginate. 
+
+<img src="assets/documentation/doc-images/pagination.png" width="450" height="100" alt="pagination">
+
+* A last minute feature to this page is the float back to top button which allows users to navigate back to the top of the screen if the material they are reading is quite lenghty. It is has not been fully implemented to the developer's specifications due to it's last minute implementation and will be a feature to be considered for modification in the future. 
+
+<img src="assets/documentation/doc-images/floating-button.png" width="50" height="50" alt="floating-button">
 
 ### Login page features:
 
@@ -120,6 +132,14 @@ The primary goal of this site is to facillate Irish History lovers to be able to
 
 ### Profile page features:
 * A parallax container displays the two images described in the Design section below.
+
+* Beneath the parallax container a welcome message is displayed. If the user has not made any site contributions there will be a call to action button inviting them to do so as seen below:
+
+<img src="assets/documentation/doc-images/contribute-CTA.png" width="250" height="300" alt="contribute-CTA">
+
+* If the user has made some site contributions a welcome message is displayed thanking them for their site contributions and all of their site contributions are displayed immediately beneath this message with edit and delete buttons for ease of use as seen below:
+
+<img src="assets/documentation/doc-images/profile-display.png" width="400" height="400" alt="profile-display">
 
 ### Topics page features:
 * The topics page presents the user with a series of topics through which they can filter the articles which they wish to look at. 
@@ -233,7 +253,7 @@ This palette was created on the [Coolors Website](https://coolors.co).
 ### Sitemap
 * The sitemap was created using [Balsamiq wireframes](https://balsamiq.com/)
 
-* A link to the [Sitemap can be found here](assets/documentation/wireframes/Sitemap.pdf)
+* A link to the [Sitemap can be found here](assets/documentation/wireframes/MS3-sitemap-wireframe.pdf)
 
 ## Technologies Used
 - This project is primarily built using HTML5 semantic markup, CSS stylesheets, Javascript, Python, Flask and MongoDB.
