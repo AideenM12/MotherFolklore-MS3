@@ -27,7 +27,7 @@
 > As a first time user I want to know the main purpose of the site immediately upon arriving on the site.
 
 **Description**
-Verify that the site's purpose is explcitly clear when a user navigates to the sites landing page.
+Verify that the site's purpose is explicitly clear when a user navigates to the site landing page.
 
 **Steps**
 1. Open one's internet browser of choice.
@@ -102,7 +102,7 @@ Verify that the site provides the user with an intuitively designed navigation b
 A navigation bar will provide the user with links to the site's content that they can use intuitively. A series of footer icons will provide the user with links to the site's social media accounts.
 
 **Actual Result:**
-A navigation bar provides the user with links to the site's content that they can use intuitively. A series of footer icons provides the user with links to the site's social media accounts.
+A navigation bar provides the user with links to the site's content that they can use intuitively. A series of footer icons provide the user with links to the site's social media accounts.
 
 **Pass/Fail:**
 Pass
@@ -162,7 +162,7 @@ Verify that the site provides the user with an opportunity to contribute their o
 5. After logging in select the contribute tab in the navigation bar.
 6. Fill in the add an article form with one's desired information that they wish to contribute to the site.
 7. Once the form has been correctly filled in click the add article button.
-8. The user will then recieve a notification that their contribution has been successful.
+8. The user will then receive a notification that their contribution has been successful.
 
 
 **Expected Result:**
@@ -232,10 +232,10 @@ Pass
 
 
 **Expected Result:**
-A delete button will be provided next to the users own content and once successfully clicked a modal will appear to confirm the users choice. Once the delete button in the modal has been selected the material will be permenantly deleted and the user will recieve a notification to say the deletion has been successful.
+A delete button will be provided next to the users own content and once successfully clicked a modal will appear to confirm the users choice. Once the delete button in the modal has been selected the material will be permanently deleted and the user will receive a notification to say the deletion has been successful.
 
 **Actual Result:**
-A delete button is provided next to the users own content and once successfully clicked a modal appears to confirm the users choice. Once the delete button in the modal is selected the material is permenantly deleted and the user recieves a notification to say the deletion has been successful.
+A delete button is provided next to the users own content and once successfully clicked a modal appears to confirm the users choice. Once the delete button in the modal is selected the material is permenantly deleted and the user receives a notification to say the deletion has been successful.
 
 **Pass/Fail:**
 Pass
@@ -251,7 +251,7 @@ Pass
 
 ### Test Case 7
 
-> As a user I want the site be responsive to all devices.
+> As a user I want the site to be responsive to all devices.
 
 **Description**
 Verify that the site is responsive on all devices.
@@ -259,7 +259,7 @@ Verify that the site is responsive on all devices.
 **Steps**
 1. Open one's internet browser of choice on one's device of choice.
 2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
-3. Test the responsivness of the site on each available device.
+3. Test the responsiveness of the site on each available device.
 4. Document the results.
 
 **Expected Result:**
@@ -303,7 +303,7 @@ Verify that the site provides the user with a contact page so that they can cont
 4. Enter user's log in details.
 5. After logging in navigate to the contact page.
 6. Fill out the contact form with the relevant information and click submit.
-7. Once the contact form has been successfully filled out and submitted the user will recieve a notification.
+7. Once the contact form has been successfully filled out and submitted the user will receive a notification.
 
 
 **Expected Result:**
@@ -385,7 +385,7 @@ Pass
 ### Footer
 
 **Description**
-Verify that the site footer is present and responsive on all devices across all pages as expected as expected.
+Verify that the site footer is present and responsive on all devices across all pages as expected.
 
 **Steps**
 1. Open your web browser of choice.
@@ -467,7 +467,7 @@ Verify that the article page search bar functions as expected.
 1. Open your web browser of choice.
 2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
 3. Navigate to the articles page.
-4. Type a site contetn-related query into the search bar.
+4. Type a site content-related query into the search bar.
 5. Observe the search results.
 
 **Expected Result:**
@@ -572,7 +572,7 @@ Verify that all of the topics page features function as expected.
 3. Sign In to the user account.
 4. Navigate to the topics page.
 5. Click on the view button beneath the desired topic.
-6. Observe the articles that have been filter by topic.
+6. Observe the articles that have been filtered by topic.
 
 **Expected Result:**
 The view buttons on the topics page will filter articles based on topic.
@@ -596,7 +596,7 @@ Verify that the further reading page features function as expected.
 3. Sign In to the user account.
 4. Navigate to the topics page.
 5. Click on the further reading button beneath the desired topic.
-6. Observe the further reading source material that has been filter by topic.
+6. Observe the further reading source material that has been filtered by topic.
 
 **Expected Result:**
 The further reading buttons on the topics page will filter further reading material based on topic.
@@ -784,11 +784,11 @@ All CSS was validated by using [W3C Jigsaw CSS Validation Service](https://jigsa
 <img src="assets/documentation/doc-images/PEP8-validator.png" width="450" height="350" alt="PEP8-validator">
 
 ## Linters
-10 notifications remain in the terminal. The linter has raised issues regarding the 'env.py' file as expected because it contains sensitive material. The other linting notifications regarding the WTForm package imports were left untouched so as not to interfer with this package's security functions. 5 warnings appear with regard to the flask-pagination functionality which were again left untouched because this is borrowed code taken directly from another project so it was felt that it was best to leave it as it was found to maintain its functionality.
+10 notifications remain in the terminal. The linter has raised issues regarding the 'env.py' file as expected because it contains sensitive material. The other linting notifications regarding the WTForm package imports were left untouched so as not to interfere with this package's security functions. 5 warnings appear with regard to the flask-pagination functionality which were again left untouched because this is borrowed code taken directly from another project so it was felt that it was best to leave it as it was found to maintain its functionality.
 
 
 ## Manual Testing of Route Handlers
-* In order to ensure each route handler performed correctly with regards to security features and defensive programming the following steps were taken to test each relevent route handler:
+* In order to ensure each route handler performed correctly with regards to security features and defensive programming the following steps were taken to test each relevant route handler:
    1. Sign into MotherFolklore as Admin.
    2. Navigate to the relevant pages that are user/Admin specific and copy the relevant url.
    3. Sign Out as Admin.

@@ -39,7 +39,7 @@ The live website can be viewed [here](https://motherfolklore.herokuapp.com/)
 ## Strategy
 
 ### Project Goals
-The primary goal of this site is to facillate Irish History lovers to be able to read and share local history from their regions. It was inspired by the [Three Castles Burning Podcast](https://threecastlesburning.libsyn.com/) which deals with lesser known tales and folklore from the capital. The primary goal of the site is to allow site users to share lesser known stories from the rest of the country and perhaps debunk some well kept myths too. 
+The primary goal of this site is to facilitate Irish History lovers to be able to read and share local history from their regions. It was inspired by the [Three Castles Burning Podcast](https://threecastlesburning.libsyn.com/) which deals with lesser-known tales and folklore from the capital. The primary goal of the site is to allow site users to share lesser-known stories from the rest of the country and perhaps debunk some well-kept myths too. 
 
 
 
@@ -47,19 +47,19 @@ The primary goal of this site is to facillate Irish History lovers to be able to
 * English speaking.
 * Has a passion for history. 
 * Interested in local lore.
-* Has a curiousity about their provincial area.
+* Has a curiosity about their provincial area.
 * Wants to learn more about Irish History. 
   
 
 ### User Stories
 
-* As a first time user I want to know the main purpose of the site immediately upon arriving on the site.
-* As a first time user I want to be able to easily access information about local Irish folklore.
-* As a first time user I want the site UX to be intuitive for ease of use. 
-* As a returning user I want to be able to register with the site and create my own profile which I can log in to at any time.
-* As a returning user I want to be able to add local history of my own to the site.
-* As a returning user I want to be able to edit/delete any contribution I have made to the site. 
-* As a user I want the site be responsive to all devices.
+* As a first-time user I want to know the main purpose of the site immediately upon arriving on the site.
+* As a first-time user I want to be able to easily access information about local Irish folklore.
+* As a first-time user I want the site UX to be intuitive for ease of use. 
+* As a returning user, I want to be able to register with the site and create my own profile which I can log in to at any time.
+* As a returning user, I want to be able to add local history of my own to the site.
+* As a returning user, I want to be able to edit/delete any contribution I have made to the site. 
+* As a user I want the site to be responsive to all devices.
 * As a user I want to be able to contact the admin with any queries or suggestions I may have.
 * As a user I want to be able to find out further information about local Irish history through links to additional material and literature provided by the site.
 
@@ -80,7 +80,7 @@ The primary goal of this site is to facillate Irish History lovers to be able to
 
 <img src="assets/documentation/doc-images/homebuttons.png" width="450" height="300" alt="home-page-buttons">
 
-* If the user is  signed in there are thre call to action buttons, one which invites the user to make an article contribution, visit the articles page or visit the topics page to promote easy of use.
+* If the user is  signed in there are three call to action buttons, one which invites the user to make an article contribution, visit the articles page or visit the topics page to promote easy of use.
 
 <img src="assets/documentation/doc-images/homebuttons2.png" width="650" height="300" alt="home-page-buttons">
 
@@ -106,7 +106,7 @@ The primary goal of this site is to facillate Irish History lovers to be able to
 
     <img src="assets/documentation/doc-images/userarticle.png" width="550" height="150" alt="user-article">
 
-* The edit and delete buttons allow the user to modify or erase their contribution respectively. A flash message appears to indicate whether the selected action was completed successfully. If the edit button is selected the user is redirected to the edit page where they are presented with an indentical form to the add article form however the input fields are filled with the material they wish to edit in keeping with good UX design principles. If the delete button is selected a modal appears to confirm that the user wishes to delete their contribution so as to avoid accidental erasure of any material. 
+* The edit and delete buttons allow the user to modify or erase their contribution respectively. A flash message appears to indicate whether the selected action was completed successfully. If the edit button is selected the user is redirected to the edit page where they are presented with an identical form to the add article form however the input fields are filled with the material they wish to edit in keeping with good UX design principles. If the delete button is selected a modal appears to confirm that the user wishes to delete their contribution so as to avoid accidental erasure of any material. 
 
 * Beneath the collapsible dropdowns appears the pagination links which allow the user to navigate throughout the entire selection of articles and articles are limited to six per page using flask paginate. 
 
@@ -164,7 +164,7 @@ The primary goal of this site is to facillate Irish History lovers to be able to
 * The log out button removes the user's session cookie from the app using the pop method and redirects the user to the login page.
 
 ### 404 Page
-* A 404 Page has been created in order to deal with user errors in navigation or invalid search data in order to assist the user in returning to the home page. All navigation features are present on the 404 page as well as a button labelled 'home' in order to easily redirect the user back to the relevant page.
+* A 404 Page has been created in order to deal with user errors in navigation or invalid search data in order to assist the user in returning to the home page. All navigation features are present on the 404 page as well as a button labeled 'home' in order to easily redirect the user back to the relevant page.
 
 <img src="assets/documentation/doc-images/404.png" width="450" height="250" alt="404-page">
 
@@ -173,7 +173,7 @@ The primary goal of this site is to facillate Irish History lovers to be able to
 
 <img src="assets/documentation/doc-images/500.png" width="450" height="250" alt="500-page">
 
-### Feature exclusive to Admin:
+### Features exclusive to Admin:
 
 * Only the Admin can edit/delete all articles content on the site, otherwise the content must belong to the session user in order for it to be edited or deleted. 
 * Only Admin can add new topics to the topics page.
@@ -203,7 +203,7 @@ This palette was created on the [Coolors Website](https://coolors.co).
 
 
 ### Typography
-* The 'Metal Mania' font was chosen for header text because of its striking style and historical feel as well as it's clarity. Other fonts that were found were perhaps more fitting in terms of how frequently they were used in the past but in order to stick with the principals of good UX the aforementioned font was chosen based on its readability.
+* The 'Metal Mania' font was chosen for header text because of its striking style and historical feel as well as it's clarity. Other fonts that were found were perhaps more fitting in terms of how frequently they were used in the past but in order to stick with the principles of good UX the aforementioned font was chosen based on its readability.
 
 
 <img src="assets/documentation/doc-images/metalmania.png" width="350" height="150" alt="Metal-Mania">
@@ -378,7 +378,7 @@ Navigate to the settings tab and then click the Reveal Config Vars button and ad
 
 ### Making a clone to run locally
 
-It is important to not that this project will not run locally unless an env.py file has been set up by the user which contains the IP, PORT, MONGO_DBNAME, MONGO_URI and SECRET_KEY which have all been kept secret in keeping with best security practices. 
+It is important to note that this project will not run locally unless an env.py file has been set up by the user which contains the IP, PORT, MONGO_DBNAME, MONGO_URI and SECRET_KEY which have all been kept secret in keeping with best security practices. 
 
 1. Log into GitHub.
 2. Select the [respository](https://github.com/AideenM12/MotherFolklore-MS3).
@@ -388,7 +388,7 @@ It is important to not that this project will not run locally unless an env.py f
 6. Type 'git clone' and paste the copied URL.
 7. Press Enter. A local clone will be created.
 
-Once the project been loaded into the IDE it is necesscary to install the necessary requirements which can be done by typing the following command.
+Once the project been loaded into the IDE it is necessary to install the necessary requirements which can be done by typing the following command.
 
     -pip install -r requirements.txt
 
