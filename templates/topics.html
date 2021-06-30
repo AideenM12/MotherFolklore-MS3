@@ -14,6 +14,7 @@
    </div>
    {% endif %}
 </header>
+<main>
 <div class="row">
    <!------Topic Description------>
    {% for topic in topics %}
@@ -25,7 +26,7 @@
             </p>
          </div>
          <!----View Button triggers topic filter action----->
-         <div class=" center-align card-action">
+         <div class=" center-align card-action topic-card">
             {% if topic.article_list|length > 0 %}
             <a href="{{ url_for('filter_topics', topic_id=topic._id) }}"
                class="btn" aria-label="view all {{topic}} articles button">
@@ -68,4 +69,6 @@
    </div>
 </div>
 {% endif %}
+
 {% endblock %}
+</main>

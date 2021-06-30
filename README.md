@@ -407,6 +407,7 @@ The banshee3.jpg was originally obtained from [monstersandcritics.com](https://w
 
 
 ### Content
+* The information presented in the Fairies article was taken from [https://en.wikipedia.org/](https://en.wikipedia.org/wiki/Fairy)
 * The information presented in the Banshee article was taken from [newworldencyclopedia.org](https://www.
 newworldencyclopedia.org/entry/Banshee)
 

@@ -162,6 +162,10 @@ option {
 	font-size: 1rem;
 }
 
+.topic-card{
+	margin-bottom: 15vh !important;
+}
+
 
 /*--------Article Dropdown Content-----*/
 
