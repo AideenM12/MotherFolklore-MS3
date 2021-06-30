@@ -166,12 +166,12 @@ The primary goal of this site is to facillate Irish History lovers to be able to
 ### 404 Page
 * A 404 Page has been created in order to deal with user errors in navigation or invalid search data in order to assist the user in returning to the home page. All navigation features are present on the 404 page as well as a button labelled 'home' in order to easily redirect the user back to the relevant page.
 
-<img src="assets/documentation/doc-images/404.png" width="650" height="450" alt="404-page">
+<img src="assets/documentation/doc-images/404.png" width="450" height="250" alt="404-page">
 
 ### 500 Page 
 * A 500 page has been created to deal with any potential internal server errors.
 
-<img src="assets/documentation/doc-images/500.png" width="650" height="450" alt="500-page">
+<img src="assets/documentation/doc-images/500.png" width="450" height="250" alt="500-page">
 
 ### Feature exclusive to Admin:
 

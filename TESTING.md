@@ -46,7 +46,7 @@ Pass
 
 **Image of Test Result:** 
 
-<img src="assets/documentation/doc-images/site-description.png" width="750" height="300" alt="site-description">
+<img src="assets/documentation/doc-images/site-description.png" width="600" height="200" alt="site-description">
 
 ---
 
@@ -358,8 +358,346 @@ Pass
 * <img src="assets/documentation/doc-images/furtherreadingpage.png" width="600" height="300" alt="further-reading">
 
 ---
+## Testing Features
+
+### Navigation
+
+**Description**
+Verify that all navigation bar tabs work as expected.
+
+**Steps**
+1. Open your web browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. As an unsigned-in user click each of the navigation bar tabs to ensure they direct to the expected page.
+4. Repeat step three as a signed-in user.
+
+**Expected Result:**
+Each of the links in the navigation bar will direct the user to the desired site page.
+
+**Actual Result:**
+Each of the links in the navigation bar directs the user to the desired site page.
+
+**Pass/Fail:**
+Pass
+
+---
+
+### Footer
+
+**Description**
+Verify that the site footer is present and responsive on all devices across all pages as expected as expected.
+
+**Steps**
+1. Open your web browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. As a signed-in user click each of the navigation bar tabs to ensure the footer is present on each page.
+4. Repeat step three on all available devices to check responsiveness.
+
+**Expected Result:**
+A page footer will be visible on all devices across all pages.
+
+**Actual Result:**
+A page footer is visible on all devices across all pages.
+
+**Pass/Fail:**
+Pass
+
+---
+
+### Social Media Icons
+
+**Description**
+Verify that all social media icons redirect to the relevant pages in a new tab as expected.
+
+**Steps**
+1. Open your web browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Click each of the social media icons to ensure they direct to the expected page in a new tab.
+
+**Expected Result:**
+All social media icons will redirect to the relevant pages in a new tab.
+
+**Actual Result:**
+All social media icons redirect to the relevant pages in a new tab.
+
+**Pass/Fail:**
+Pass
+
+---
+
+### Home Page Features
+
+**Description**
+Verify that all home page features function as expected.
+
+**Steps**
+1. Open your web browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Observe the parallax container containing the site's focal imagery.
+4. Observe the card container explaining the site's purpose.
+5. If the user isn't signed in:
+    - Observe the Register and Log in call to action buttons.
+6. If the user is signed in:
+    - Observe the articles, topics and contribute call to action buttons.
+
+**Expected Result:**
+All home page features will appear present as described in the above steps.
+
+**Actual Result:**
+All home page features appear present as described in the above steps.
+
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:**
+
+<img src="assets/documentation/doc-images/homebuttons.png" width="550" height="300" alt="home-page-buttons">
+
+<img src="assets/documentation/doc-images/homebuttons2.png" width="700" height="300" alt="home-page-buttons">
+---
+
+### Article Page Features
+
+-— **Article Page Search Bar** —
+
+**Description**
+Verify that the article page search bar functions as expected.
+
+**Steps**
+1. Open your web browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Navigate to the articles page.
+4. Type a site contetn-related query into the search bar.
+5. Observe the search results.
+
+**Expected Result:**
+If the search query is related to the article content present on the site a search result will render. If the search query is unrelated to the site content a notification will display to notify the user. 
+
+**Actual Result:**
+If the search query is related to the article content present on the site a search result renders. If the search query is unrelated to the site content a notification displays to notify the user.
+
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:**
+
+* <img src="assets/documentation/doc-images/searchbar.png" width="500" height="300" alt="searchbar">
+
+* <img src="assets/documentation/doc-images/search-results.png" width="450" height="300" alt="search-results">
+
+* <img src="assets/documentation/doc-images/no-results.png" width="450" height="300" alt="no-results">
 
 
+-— **Article Dropdown Containers** —
+
+**Description**
+Verify that the article page dropdown containers function as expected.
+
+**Steps**
+1. Open your web browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Navigate to the articles page.
+4. Click on the title of the article of choice.
+5. Observe the article content contained in the dropdown container.
+
+**Expected Result:**
+The article dropdown container will drop to display the desired article content. 
+
+**Actual Result:**
+The article dropdown container drops to display the desired article content.
+
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:**
+
+* <img src="assets/documentation/doc-images/articlestest.png" width="250" height="500" alt="articles-test">
+
+* <img src="assets/documentation/doc-images/articlestest1.png" width="250" height="500" alt="articles-test1">
+
+-— **Article Page Edit and Delete Buttons** —
+
+* The edit and delete button functionality are discussed in the [Manual Testing of Route Handlers](#Manual-Testing-of-Route-Handlers) section below.
+
+-— **Article Page Float to top Button** —
+
+**Description**
+Verify that the article page float back to top button functions as expected.
+
+**Steps**
+1. Open your web browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Navigate to the articles page.
+4. Scroll down until the float back to top button appears in the bottom right corner.
+5. Click the button to scroll back to the top of the page.
+
+
+**Expected Result:**
+The article page float back to top button will navigate the user back to the top of the page. 
+
+**Actual Result:**
+The article page float back to top button navigates the user back to the top of the page. 
+
+**Pass/Fail:**
+Pass
+
+---
+
+### Login Page Features
+
+* The Log In functionality testing is discussed in the above [Testing User Stories](#Testing-User-Stories) section.
+
+---
+
+### Sign-Up Page Features
+
+* The Sign-Up functionality testing is discussed in the above [Testing User Stories](#Testing-User-Stories) section.
+
+---
+
+### Profile Page Features
+
+* The Profile page functionality testing is discussed in the above [Testing User Stories](#Testing-User-Stories) section.
+
+---
+
+### Topics page features:
+
+**Description**
+Verify that all of the topics page features function as expected.
+
+**Steps**
+1. Open your web browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Sign In to the user account.
+4. Navigate to the topics page.
+5. Click on the view button beneath the desired topic.
+6. Observe the articles that have been filter by topic.
+
+**Expected Result:**
+The view buttons on the topics page will filter articles based on topic.
+
+**Actual Result:**
+The view buttons on the topics page filters articles based on topic.
+
+**Pass/Fail:**
+Pass
+
+---
+
+### Further Reading page features:
+
+**Description**
+Verify that the further reading page features function as expected.
+
+**Steps**
+1. Open your web browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Sign In to the user account.
+4. Navigate to the topics page.
+5. Click on the further reading button beneath the desired topic.
+6. Observe the further reading source material that has been filter by topic.
+
+**Expected Result:**
+The further reading buttons on the topics page will filter further reading material based on topic.
+
+**Actual Result:**
+The further reading buttons on the topics page will filter further reading material based on topic.
+
+**Pass/Fail:**
+Pass
+
+---
+
+### Log Out features:
+
+**Description**
+Verify that the Log Out feature functions as expected.
+
+**Steps**
+1. Open your web browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Sign In to the user account.
+4. Click on the Log Out tab on the navigation bar.
+5. Observe the Log Out successful message.
+
+**Expected Result:**
+The Log Out button will remove the user's session cookie from the app using the pop method and redirects the user to the login page.
+
+
+**Actual Result:**
+The Log Out button removes the user's session cookie from the app using the pop method and redirects the user to the login page.
+
+
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:**
+
+<img src="assets/documentation/doc-images/logout.png" width="550" height="100" alt="logout">
+
+---
+
+### 404 Page:
+
+**Description**
+Verify that the 404 page functions as expected.
+
+**Steps**
+1. Open your web browser of choice.
+2. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+3. Type in an incorrect URL.
+4. Observe the rendered 404 page.
+
+**Expected Result:**
+A 404 page will render if the user tries to direct to a non existent page.
+
+
+**Actual Result:**
+A 404 page renders if the user tries to direct to a non existent page.
+
+
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:**
+
+<img src="assets/documentation/doc-images/404.png" width="450" height="250" alt="404-page">
+
+---
+
+### 500 Page:
+
+**Description**
+Verify that a 500 page exists to handle internal server errors as expected.
+
+**Steps**
+1. Open the motherfolklore gitpod workspace.
+2. Navigate to the app.py file.
+3. Inside the app.py file navigate to the index page route handler.
+4. Change return render template value to 1/0.
+5. Navigate to [https://motherfolklore.herokuapp.com/](https://motherfolklore.herokuapp.com/)
+6. Observe the rendered 500 page.
+
+**Expected Result:**
+A 500 page will render if there is an internal server error.
+
+
+**Actual Result:**
+A 500 page renders if there is an internal server error.
+
+
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:**
+
+<img src="assets/documentation/doc-images/500.png" width="450" height="250" alt="404-page">
+
+---
+
+### Features exclusive to Admin:
+* The functionality exclusive to the site's Admin is discussed in the [Manual Testing of Route Handlers](#Manual-Testing-of-Route-Handlers) section below.
 
 ## Validators
 
